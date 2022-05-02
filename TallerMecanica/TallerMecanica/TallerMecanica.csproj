@@ -56,7 +56,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Models\Model1.cs" />
     <Compile Include="Models\PetModel.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -68,6 +67,12 @@
     </Compile>
     <Compile Include="Views\AdminMainView.Designer.cs">
       <DependentUpon>AdminMainView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\AdminViews\CategoriaView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\AdminViews\CategoriaView.Designer.cs">
+      <DependentUpon>CategoriaView.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\ClientMainView.cs">
       <SubType>Form</SubType>
@@ -95,7 +100,11 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Views\AdminMainView.resx">
+      <DependentUpon>AdminMainView.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -111,9 +120,11 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Views\AdminViews\" />
     <Folder Include="Views\ClientViews\" />
     <Folder Include="Views\SharedViews\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="SqlScript.sql" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
