@@ -14,11 +14,6 @@ namespace TallerMecanica.Repositories
     using TallerMecanica.Models;
     public class CategoriaRepository : BaseRepository, IRepository<Categoria>
     {
-        //Constructor
-        public CategoriaRepository(string connectionString)
-        {
-            this.connectionString = connectionString;
-        }
         //Methods
         public void Add(Categoria item)
         {
@@ -77,8 +72,8 @@ namespace TallerMecanica.Repositories
                     {
                         var item = new Categoria();
                         item.idCategoria = (int)reader["idCategoria"];
-                        item.Nombre = reader["Nombre"].ToString();
-                        item.cantidad = (int)reader["cantidad"];
+                        item.Nombre = reader["nombreCategoria"].ToString();
+                        item.cantidad = (int)reader["cantidadCocheCompleto"];
                         list.Add(item);
                     }
                 }

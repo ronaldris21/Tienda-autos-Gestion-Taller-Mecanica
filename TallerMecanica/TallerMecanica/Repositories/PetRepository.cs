@@ -8,11 +8,6 @@ namespace TallerMecanica.Repositories
     using TallerMecanica.Models;
     public class PetRepository : BaseRepository, IRepository<PetModel>
     {
-        //Constructor
-        public PetRepository(string connectionString)
-        {
-            this.connectionString = connectionString;
-        }
         //Methods
         public void Add(PetModel petModel)
         {

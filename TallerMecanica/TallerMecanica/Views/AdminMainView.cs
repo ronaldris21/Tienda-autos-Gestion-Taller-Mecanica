@@ -72,6 +72,12 @@ namespace TallerMecanica.Views
         private void btnproduct_Click(object sender, EventArgs e)
         {
             ActivateButton(sender);
+            Repositories.CategoriaRepository repo = new Repositories.CategoriaRepository();
+            var datos  = repo.GetAll();
+            foreach(var dato in datos)
+            {
+                int i = 0;
+            }
         }
 
         private void btnpedidos_Click(object sender, EventArgs e)
