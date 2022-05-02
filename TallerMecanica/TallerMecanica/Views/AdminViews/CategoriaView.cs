@@ -13,11 +13,11 @@ namespace TallerMecanica.Views.AdminViews
 {
     public partial class CategoriaView : Form
     {
-        CategoriaRepository repo;
+        //CategoriaRepository repo;
         public CategoriaView()
         {
             InitializeComponent();
-            repo = new CategoriaRepository("db=(local)\\SQLExpress");
+           // repo = new CategoriaRepository("db=(local)\\SQLExpress");
         }
     }
 }

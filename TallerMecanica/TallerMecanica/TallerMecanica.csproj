@@ -62,6 +62,7 @@
     <Compile Include="Repositories\BaseRepository.cs" />
     <Compile Include="Repositories\IRepository.cs" />
     <Compile Include="Repositories\PetRepository.cs" />
+    <Compile Include="themeColor.cs" />
     <Compile Include="Views\AdminMainView.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -124,6 +125,14 @@
     <Folder Include="Views\SharedViews\" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Recursos\alarm %281%29.png" />
+    <Content Include="Recursos\bar-chart.png" />
+    <Content Include="Recursos\cross-out %282%29.png" />
+    <Content Include="Recursos\settings.png" />
+    <Content Include="Recursos\shopping-cart %281%29.png" />
+    <Content Include="Recursos\shopping-list.png" />
+    <Content Include="Recursos\value %281%29.png" />
+    <Content Include="Recursos\value.png" />
     <Content Include="SqlScript.sql" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
