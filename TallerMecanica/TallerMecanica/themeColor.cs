@@ -1,16 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace TallerMecanica
 {
-   public class themeColor
+    public class themeColor
     {
-       public static List<string> ColorList = new List<string>()
-        {
-             "#3F51B5",
+        public static List<string> ColorList = new List<string>() { "#3F51B5",
                                                                     "#009688",
                                                                     "#FF5722",
                                                                     "#607D8B",
@@ -36,7 +30,6 @@ namespace TallerMecanica
                                                                     "#E4126B",
                                                                     "#43B76E",
                                                                     "#7BCFE9",
-                                                                    "#B71C46"
-        };
+                                                                    "#B71C46"};
     }
 }

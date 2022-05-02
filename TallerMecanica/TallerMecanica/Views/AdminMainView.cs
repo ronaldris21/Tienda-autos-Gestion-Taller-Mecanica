@@ -19,11 +19,13 @@ namespace TallerMecanica.Views
         public AdminMainView()
         {
             InitializeComponent();
+            random = new Random();
         }
 
         // metodos
         private Color SelectThemeColor()
         {
+            var dato = themeColor.ColorList;
             int index = random.Next(themeColor.ColorList.Count);
             while (tempIndex == index)
             {
@@ -66,12 +68,6 @@ namespace TallerMecanica.Views
 
 
 
-
-
-        private void panelMenu_Paint(object sender, PaintEventArgs e)
-        {
-            ActivateButton(sender);
-        }
 
         private void btnproduct_Click(object sender, EventArgs e)
         {
