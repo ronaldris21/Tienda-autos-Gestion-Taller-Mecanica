@@ -8,11 +8,10 @@
     <OutputType>WinExe</OutputType>
     <RootNamespace>TallerMecanica</RootNamespace>
     <AssemblyName>TallerMecanica</AssemblyName>
-    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
-    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -56,7 +55,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Models\Model1.cs" />
     <Compile Include="Models\PetModel.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -68,6 +66,12 @@
     </Compile>
     <Compile Include="Views\AdminMainView.Designer.cs">
       <DependentUpon>AdminMainView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\AdminViews\CategoriaView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\AdminViews\CategoriaView.Designer.cs">
+      <DependentUpon>CategoriaView.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\ClientMainView.cs">
       <SubType>Form</SubType>
@@ -111,9 +115,11 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Views\AdminViews\" />
     <Folder Include="Views\ClientViews\" />
     <Folder Include="Views\SharedViews\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="SqlScript.sql" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
