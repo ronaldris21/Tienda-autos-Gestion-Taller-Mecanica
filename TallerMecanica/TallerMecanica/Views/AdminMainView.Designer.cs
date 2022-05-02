@@ -37,7 +37,7 @@ namespace TallerMecanica.Views
             // button1
             // 
             this.button1.Location = new System.Drawing.Point(458, 285);
-            this.button1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button1.Margin = new System.Windows.Forms.Padding(2);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(56, 19);
             this.button1.TabIndex = 0;
@@ -54,7 +54,8 @@ namespace TallerMecanica.Views
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(80, 191);
+            this.button2.ForeColor = System.Drawing.SystemColors.MenuHighlight;
+            this.button2.Location = new System.Drawing.Point(210, 26);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(347, 68);
             this.button2.TabIndex = 2;
@@ -69,7 +70,7 @@ namespace TallerMecanica.Views
             this.Controls.Add(this.button2);
             this.Controls.Add(this.listBox1);
             this.Controls.Add(this.button1);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "AdminMainView";
             this.Text = "AdminMainView";
             this.ResumeLayout(false);
