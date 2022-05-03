@@ -21,6 +21,7 @@ namespace TallerMecanica.Views
         {
             InitializeComponent();
             random = new Random();
+            btncerrar.Visible = false;
         }
 
         // metodos
@@ -51,10 +52,10 @@ namespace TallerMecanica.Views
                     currentButton.ForeColor = Color.White;
                     currentButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
                     panelTitlebar.BackColor = color;
-                    //panelLogo.BackColor = themeColor.ChangeColorBrightness(color, -0.3);
+                    panelLogo.BackColor = themeColor.ChangeColorBrightness(color, -0.3);
                     themeColor.PrimaryColor = color;
                     themeColor.SecondaryColor = themeColor.ChangeColorBrightness(color, -0.3);
-                    //btnCloseChildForm.Visible = true;
+                    btncerrar.Visible = true;
                 }
             }
         }
@@ -123,6 +124,23 @@ namespace TallerMecanica.Views
         private void btnajustes_Click(object sender, EventArgs e)
         {
             ActivateButton(sender);
+        }
+
+        private void btncerrar_Click(object sender, EventArgs e)
+        {
+            if (activeForm != null)
+                activeForm.Close();
+                Reset();
+        }
+
+        private void Reset()
+        {
+            DisableButton();
+            lblTitle.Text = "HOME";
+            panelTitlebar.BackColor = Color.FromArgb(0, 150, 136);
+            panelLogo.BackColor = Color.FromArgb(39, 39, 58);
+            currentButton = null;
+            btncerrar.Visible = false;
         }
     }
 }

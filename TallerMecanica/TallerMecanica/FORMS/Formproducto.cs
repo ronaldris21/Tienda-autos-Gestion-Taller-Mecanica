@@ -15,6 +15,23 @@ namespace TallerMecanica.Views
         public Formproducto()
         {
             InitializeComponent();
+            Loadtheme();
+        }
+
+        private void Loadtheme()
+        {
+            foreach (Control btns in this.Controls)
+            {
+                if (btns.GetType() == typeof(Button))
+                {
+                    Button btn = (Button)btns;
+                    btn.BackColor = themeColor.PrimaryColor;
+                    btn.ForeColor = Color.White;
+                    btn.FlatAppearance.BorderColor = themeColor.SecondaryColor;
+                }
+            }
+            label4.ForeColor = themeColor.SecondaryColor;
+            label5.ForeColor = themeColor.PrimaryColor;
         }
 
         private void Formproducto_Load(object sender, EventArgs e)

@@ -56,6 +56,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FORMS\Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FORMS\Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
     <Compile Include="Models\Categoria.cs" />
     <Compile Include="Models\PetModel.cs" />
     <Compile Include="Program.cs" />
@@ -83,10 +89,10 @@
     <Compile Include="Views\ClientMainView.Designer.cs">
       <DependentUpon>ClientMainView.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\Formproducto.cs">
+    <Compile Include="FORMS\Formproducto.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\Formproducto.Designer.cs">
+    <Compile Include="FORMS\Formproducto.Designer.cs">
       <DependentUpon>Formproducto.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\LoginView.cs">
@@ -114,7 +120,7 @@
     <EmbeddedResource Include="Views\AdminMainView.resx">
       <DependentUpon>AdminMainView.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\Formproducto.resx">
+    <EmbeddedResource Include="FORMS\Formproducto.resx">
       <DependentUpon>Formproducto.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
