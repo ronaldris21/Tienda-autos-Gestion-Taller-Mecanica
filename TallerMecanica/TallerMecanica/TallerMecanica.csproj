@@ -83,6 +83,12 @@
     <Compile Include="Views\ClientMainView.Designer.cs">
       <DependentUpon>ClientMainView.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\Formproducto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Formproducto.Designer.cs">
+      <DependentUpon>Formproducto.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\LoginView.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -107,6 +113,9 @@
     </Compile>
     <EmbeddedResource Include="Views\AdminMainView.resx">
       <DependentUpon>AdminMainView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Formproducto.resx">
+      <DependentUpon>Formproducto.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
