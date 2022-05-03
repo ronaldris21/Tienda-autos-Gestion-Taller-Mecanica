@@ -37,13 +37,15 @@ namespace TallerMecanica.Views
             this.btnpedidos = new System.Windows.Forms.Button();
             this.btnproduct = new System.Windows.Forms.Button();
             this.panelLogo = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
             this.panelTitlebar = new System.Windows.Forms.Panel();
             this.lblTitle = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
             this.panelDesktop = new System.Windows.Forms.Panel();
+            this.panelMDI = new System.Windows.Forms.Panel();
             this.panelMenu.SuspendLayout();
             this.panelLogo.SuspendLayout();
             this.panelTitlebar.SuspendLayout();
+            this.panelDesktop.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelMenu
@@ -186,6 +188,17 @@ namespace TallerMecanica.Views
             this.panelLogo.Size = new System.Drawing.Size(220, 80);
             this.panelLogo.TabIndex = 0;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.SystemColors.MenuBar;
+            this.label1.Location = new System.Drawing.Point(67, 36);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(51, 20);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "label1";
+            // 
             // panelTitlebar
             // 
             this.panelTitlebar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(150)))), ((int)(((byte)(136)))));
@@ -208,24 +221,24 @@ namespace TallerMecanica.Views
             this.lblTitle.TabIndex = 0;
             this.lblTitle.Text = "HOME";
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.SystemColors.MenuBar;
-            this.label1.Location = new System.Drawing.Point(67, 36);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(51, 20);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "label1";
-            // 
             // panelDesktop
             // 
+            this.panelDesktop.Controls.Add(this.panelMDI);
             this.panelDesktop.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelDesktop.Location = new System.Drawing.Point(220, 80);
             this.panelDesktop.Name = "panelDesktop";
             this.panelDesktop.Size = new System.Drawing.Size(646, 441);
             this.panelDesktop.TabIndex = 2;
+            // 
+            // panelMDI
+            // 
+            this.panelMDI.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panelMDI.Location = new System.Drawing.Point(0, 0);
+            this.panelMDI.Name = "panelMDI";
+            this.panelMDI.Size = new System.Drawing.Size(646, 441);
+            this.panelMDI.TabIndex = 0;
             // 
             // AdminMainView
             // 
@@ -243,6 +256,7 @@ namespace TallerMecanica.Views
             this.panelLogo.PerformLayout();
             this.panelTitlebar.ResumeLayout(false);
             this.panelTitlebar.PerformLayout();
+            this.panelDesktop.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -261,5 +275,6 @@ namespace TallerMecanica.Views
         private System.Windows.Forms.Panel panelTitlebar;
         private System.Windows.Forms.Label lblTitle;
         private System.Windows.Forms.Panel panelDesktop;
+        private System.Windows.Forms.Panel panelMDI;
     }
 }
