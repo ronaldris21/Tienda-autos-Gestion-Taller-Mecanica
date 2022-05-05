@@ -12,19 +12,25 @@ namespace TallerMecanica.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class Categoria
+    public partial class ProductoComprado
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Categoria()
+        public ProductoComprado()
         {
-            this.MateriaPrima = new HashSet<MateriaPrima>();
+            this.MateriaPrima_ProductoComprado = new HashSet<MateriaPrima_ProductoComprado>();
         }
     
-        public int idCategoria { get; set; }
-        public string nombreCategoria { get; set; }
-        public int cantidadCocheCompleto { get; set; }
+        public int idProductoComprado { get; set; }
+        public string descripcion { get; set; }
+        public System.DateTime fechaCompra { get; set; }
+        public Nullable<System.DateTime> fechaEntregaPrevista { get; set; }
+        public double costoEnsamblado { get; set; }
+        public bool requiereEnsamblado { get; set; }
+        public bool pedidoConfirmado { get; set; }
+        public int idCliente { get; set; }
     
+        public virtual Cliente Cliente { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<MateriaPrima> MateriaPrima { get; set; }
+        public virtual ICollection<MateriaPrima_ProductoComprado> MateriaPrima_ProductoComprado { get; set; }
     }
 }

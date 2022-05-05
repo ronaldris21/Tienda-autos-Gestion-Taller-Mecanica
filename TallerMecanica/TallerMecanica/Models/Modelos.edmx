@@ -1,0 +1,484 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="TallerMecanicoModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Categoria">
+          <Key>
+            <PropertyRef Name="idCategoria" />
+          </Key>
+          <Property Name="idCategoria" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombreCategoria" Type="nchar" MaxLength="30" Nullable="false" />
+          <Property Name="cantidadCocheCompleto" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Cliente">
+          <Key>
+            <PropertyRef Name="idCliente" />
+          </Key>
+          <Property Name="idCliente" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombreCompleto" Type="nchar" MaxLength="70" Nullable="false" />
+          <Property Name="email" Type="nchar" MaxLength="50" Nullable="false" />
+          <Property Name="telefono1" Type="nchar" MaxLength="20" Nullable="false" />
+          <Property Name="telefono2" Type="nchar" MaxLength="20" Nullable="false" />
+          <Property Name="contrasena" Type="nchar" MaxLength="20" Nullable="false" />
+          <Property Name="isAdmin" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="MateriaPrima">
+          <Key>
+            <PropertyRef Name="idMateriaPrima" />
+          </Key>
+          <Property Name="idMateriaPrima" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombre" Type="nchar" MaxLength="30" Nullable="false" />
+          <Property Name="marca" Type="nchar" MaxLength="30" Nullable="false" />
+          <Property Name="precioCompra" Type="float" Nullable="false" />
+          <Property Name="precioVenta" Type="float" Nullable="false" />
+          <Property Name="cantidadStock" Type="int" Nullable="false" />
+          <Property Name="idCategoria" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="MateriaPrima_ProductoComprado">
+          <Key>
+            <PropertyRef Name="idMateriaPrima_ProductoComprado" />
+          </Key>
+          <Property Name="idMateriaPrima_ProductoComprado" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="cantidad" Type="int" Nullable="false" />
+          <Property Name="idMateriaPrima" Type="int" Nullable="false" />
+          <Property Name="idProductoComprado" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="MateriaPrima_ProductoPreEnsamblado">
+          <Key>
+            <PropertyRef Name="idMateriaPrima_ProductoPreEnsamblado" />
+          </Key>
+          <Property Name="idMateriaPrima_ProductoPreEnsamblado" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="cantidad" Type="int" Nullable="false" />
+          <Property Name="idMateriaPrima" Type="int" Nullable="false" />
+          <Property Name="idProductoPreEnsamblado" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ProductoComprado">
+          <Key>
+            <PropertyRef Name="idProductoComprado" />
+          </Key>
+          <Property Name="idProductoComprado" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="descripcion" Type="nchar" MaxLength="50" />
+          <Property Name="fechaCompra" Type="date" Nullable="false" />
+          <Property Name="fechaEntregaPrevista" Type="date" />
+          <Property Name="costoEnsamblado" Type="float" Nullable="false" />
+          <Property Name="requiereEnsamblado" Type="bit" Nullable="false" />
+          <Property Name="pedidoConfirmado" Type="bit" Nullable="false" />
+          <Property Name="idCliente" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ProductoPreEnsamblado">
+          <Key>
+            <PropertyRef Name="idProductoPreEnsamblado" />
+          </Key>
+          <Property Name="idProductoPreEnsamblado" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="descripcion" Type="nchar" MaxLength="50" />
+          <Property Name="costoEnsamblado" Type="float" Nullable="false" />
+        </EntityType>
+        <Association Name="MateriaPrima_fk_Categoria">
+          <End Role="Categoria" Type="Self.Categoria" Multiplicity="1" />
+          <End Role="MateriaPrima" Type="Self.MateriaPrima" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Categoria">
+              <PropertyRef Name="idCategoria" />
+            </Principal>
+            <Dependent Role="MateriaPrima">
+              <PropertyRef Name="idCategoria" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="MateriaPrima_ProductoComprado_fk_MateriaPrima">
+          <End Role="MateriaPrima" Type="Self.MateriaPrima" Multiplicity="1" />
+          <End Role="MateriaPrima_ProductoComprado" Type="Self.MateriaPrima_ProductoComprado" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MateriaPrima">
+              <PropertyRef Name="idMateriaPrima" />
+            </Principal>
+            <Dependent Role="MateriaPrima_ProductoComprado">
+              <PropertyRef Name="idMateriaPrima" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="MateriaPrima_ProductoComprado_fk_ProductoComprado">
+          <End Role="ProductoComprado" Type="Self.ProductoComprado" Multiplicity="1" />
+          <End Role="MateriaPrima_ProductoComprado" Type="Self.MateriaPrima_ProductoComprado" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProductoComprado">
+              <PropertyRef Name="idProductoComprado" />
+            </Principal>
+            <Dependent Role="MateriaPrima_ProductoComprado">
+              <PropertyRef Name="idProductoComprado" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="MateriaPrima_ProductoPreEnsamblado_fk_MateriaPrima">
+          <End Role="MateriaPrima" Type="Self.MateriaPrima" Multiplicity="1" />
+          <End Role="MateriaPrima_ProductoPreEnsamblado" Type="Self.MateriaPrima_ProductoPreEnsamblado" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MateriaPrima">
+              <PropertyRef Name="idMateriaPrima" />
+            </Principal>
+            <Dependent Role="MateriaPrima_ProductoPreEnsamblado">
+              <PropertyRef Name="idMateriaPrima" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="MateriaPrima_ProductoPreEnsamblado_fk_ProductoPreEnsamblado">
+          <End Role="ProductoPreEnsamblado" Type="Self.ProductoPreEnsamblado" Multiplicity="1" />
+          <End Role="MateriaPrima_ProductoPreEnsamblado" Type="Self.MateriaPrima_ProductoPreEnsamblado" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProductoPreEnsamblado">
+              <PropertyRef Name="idProductoPreEnsamblado" />
+            </Principal>
+            <Dependent Role="MateriaPrima_ProductoPreEnsamblado">
+              <PropertyRef Name="idProductoPreEnsamblado" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="ProductoComprado_fk_Cliente">
+          <End Role="Cliente" Type="Self.Cliente" Multiplicity="1" />
+          <End Role="ProductoComprado" Type="Self.ProductoComprado" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cliente">
+              <PropertyRef Name="idCliente" />
+            </Principal>
+            <Dependent Role="ProductoComprado">
+              <PropertyRef Name="idCliente" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="TallerMecanicoModelStoreContainer">
+          <EntitySet Name="Categoria" EntityType="Self.Categoria" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Cliente" EntityType="Self.Cliente" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MateriaPrima" EntityType="Self.MateriaPrima" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MateriaPrima_ProductoComprado" EntityType="Self.MateriaPrima_ProductoComprado" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MateriaPrima_ProductoPreEnsamblado" EntityType="Self.MateriaPrima_ProductoPreEnsamblado" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ProductoComprado" EntityType="Self.ProductoComprado" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ProductoPreEnsamblado" EntityType="Self.ProductoPreEnsamblado" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="MateriaPrima_fk_Categoria" Association="Self.MateriaPrima_fk_Categoria">
+            <End Role="Categoria" EntitySet="Categoria" />
+            <End Role="MateriaPrima" EntitySet="MateriaPrima" />
+          </AssociationSet>
+          <AssociationSet Name="MateriaPrima_ProductoComprado_fk_MateriaPrima" Association="Self.MateriaPrima_ProductoComprado_fk_MateriaPrima">
+            <End Role="MateriaPrima" EntitySet="MateriaPrima" />
+            <End Role="MateriaPrima_ProductoComprado" EntitySet="MateriaPrima_ProductoComprado" />
+          </AssociationSet>
+          <AssociationSet Name="MateriaPrima_ProductoComprado_fk_ProductoComprado" Association="Self.MateriaPrima_ProductoComprado_fk_ProductoComprado">
+            <End Role="ProductoComprado" EntitySet="ProductoComprado" />
+            <End Role="MateriaPrima_ProductoComprado" EntitySet="MateriaPrima_ProductoComprado" />
+          </AssociationSet>
+          <AssociationSet Name="MateriaPrima_ProductoPreEnsamblado_fk_MateriaPrima" Association="Self.MateriaPrima_ProductoPreEnsamblado_fk_MateriaPrima">
+            <End Role="MateriaPrima" EntitySet="MateriaPrima" />
+            <End Role="MateriaPrima_ProductoPreEnsamblado" EntitySet="MateriaPrima_ProductoPreEnsamblado" />
+          </AssociationSet>
+          <AssociationSet Name="MateriaPrima_ProductoPreEnsamblado_fk_ProductoPreEnsamblado" Association="Self.MateriaPrima_ProductoPreEnsamblado_fk_ProductoPreEnsamblado">
+            <End Role="ProductoPreEnsamblado" EntitySet="ProductoPreEnsamblado" />
+            <End Role="MateriaPrima_ProductoPreEnsamblado" EntitySet="MateriaPrima_ProductoPreEnsamblado" />
+          </AssociationSet>
+          <AssociationSet Name="ProductoComprado_fk_Cliente" Association="Self.ProductoComprado_fk_Cliente">
+            <End Role="Cliente" EntitySet="Cliente" />
+            <End Role="ProductoComprado" EntitySet="ProductoComprado" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="TallerMecanicoModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Categoria">
+          <Key>
+            <PropertyRef Name="idCategoria" />
+          </Key>
+          <Property Name="idCategoria" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombreCategoria" Type="String" MaxLength="30" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="cantidadCocheCompleto" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="MateriaPrima" Relationship="Self.MateriaPrima_fk_Categoria" FromRole="Categoria" ToRole="MateriaPrima" />
+        </EntityType>
+        <EntityType Name="Cliente">
+          <Key>
+            <PropertyRef Name="idCliente" />
+          </Key>
+          <Property Name="idCliente" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombreCompleto" Type="String" MaxLength="70" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="email" Type="String" MaxLength="50" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="telefono1" Type="String" MaxLength="20" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="telefono2" Type="String" MaxLength="20" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="contrasena" Type="String" MaxLength="20" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="isAdmin" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="ProductoComprado" Relationship="Self.ProductoComprado_fk_Cliente" FromRole="Cliente" ToRole="ProductoComprado" />
+        </EntityType>
+        <EntityType Name="MateriaPrima">
+          <Key>
+            <PropertyRef Name="idMateriaPrima" />
+          </Key>
+          <Property Name="idMateriaPrima" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombre" Type="String" MaxLength="30" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="marca" Type="String" MaxLength="30" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="precioCompra" Type="Double" Nullable="false" />
+          <Property Name="precioVenta" Type="Double" Nullable="false" />
+          <Property Name="cantidadStock" Type="Int32" Nullable="false" />
+          <Property Name="idCategoria" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Categoria" Relationship="Self.MateriaPrima_fk_Categoria" FromRole="MateriaPrima" ToRole="Categoria" />
+          <NavigationProperty Name="MateriaPrima_ProductoComprado" Relationship="Self.MateriaPrima_ProductoComprado_fk_MateriaPrima" FromRole="MateriaPrima" ToRole="MateriaPrima_ProductoComprado" />
+          <NavigationProperty Name="MateriaPrima_ProductoPreEnsamblado" Relationship="Self.MateriaPrima_ProductoPreEnsamblado_fk_MateriaPrima" FromRole="MateriaPrima" ToRole="MateriaPrima_ProductoPreEnsamblado" />
+        </EntityType>
+        <EntityType Name="MateriaPrima_ProductoComprado">
+          <Key>
+            <PropertyRef Name="idMateriaPrima_ProductoComprado" />
+          </Key>
+          <Property Name="idMateriaPrima_ProductoComprado" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="cantidad" Type="Int32" Nullable="false" />
+          <Property Name="idMateriaPrima" Type="Int32" Nullable="false" />
+          <Property Name="idProductoComprado" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="MateriaPrima" Relationship="Self.MateriaPrima_ProductoComprado_fk_MateriaPrima" FromRole="MateriaPrima_ProductoComprado" ToRole="MateriaPrima" />
+          <NavigationProperty Name="ProductoComprado" Relationship="Self.MateriaPrima_ProductoComprado_fk_ProductoComprado" FromRole="MateriaPrima_ProductoComprado" ToRole="ProductoComprado" />
+        </EntityType>
+        <EntityType Name="MateriaPrima_ProductoPreEnsamblado">
+          <Key>
+            <PropertyRef Name="idMateriaPrima_ProductoPreEnsamblado" />
+          </Key>
+          <Property Name="idMateriaPrima_ProductoPreEnsamblado" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="cantidad" Type="Int32" Nullable="false" />
+          <Property Name="idMateriaPrima" Type="Int32" Nullable="false" />
+          <Property Name="idProductoPreEnsamblado" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="MateriaPrima" Relationship="Self.MateriaPrima_ProductoPreEnsamblado_fk_MateriaPrima" FromRole="MateriaPrima_ProductoPreEnsamblado" ToRole="MateriaPrima" />
+          <NavigationProperty Name="ProductoPreEnsamblado" Relationship="Self.MateriaPrima_ProductoPreEnsamblado_fk_ProductoPreEnsamblado" FromRole="MateriaPrima_ProductoPreEnsamblado" ToRole="ProductoPreEnsamblado" />
+        </EntityType>
+        <EntityType Name="ProductoComprado">
+          <Key>
+            <PropertyRef Name="idProductoComprado" />
+          </Key>
+          <Property Name="idProductoComprado" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="descripcion" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+          <Property Name="fechaCompra" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="fechaEntregaPrevista" Type="DateTime" Precision="0" />
+          <Property Name="costoEnsamblado" Type="Double" Nullable="false" />
+          <Property Name="requiereEnsamblado" Type="Boolean" Nullable="false" />
+          <Property Name="pedidoConfirmado" Type="Boolean" Nullable="false" />
+          <Property Name="idCliente" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Cliente" Relationship="Self.ProductoComprado_fk_Cliente" FromRole="ProductoComprado" ToRole="Cliente" />
+          <NavigationProperty Name="MateriaPrima_ProductoComprado" Relationship="Self.MateriaPrima_ProductoComprado_fk_ProductoComprado" FromRole="ProductoComprado" ToRole="MateriaPrima_ProductoComprado" />
+        </EntityType>
+        <EntityType Name="ProductoPreEnsamblado">
+          <Key>
+            <PropertyRef Name="idProductoPreEnsamblado" />
+          </Key>
+          <Property Name="idProductoPreEnsamblado" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="descripcion" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+          <Property Name="costoEnsamblado" Type="Double" Nullable="false" />
+          <NavigationProperty Name="MateriaPrima_ProductoPreEnsamblado" Relationship="Self.MateriaPrima_ProductoPreEnsamblado_fk_ProductoPreEnsamblado" FromRole="ProductoPreEnsamblado" ToRole="MateriaPrima_ProductoPreEnsamblado" />
+        </EntityType>
+        <Association Name="MateriaPrima_fk_Categoria">
+          <End Role="Categoria" Type="Self.Categoria" Multiplicity="1" />
+          <End Role="MateriaPrima" Type="Self.MateriaPrima" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Categoria">
+              <PropertyRef Name="idCategoria" />
+            </Principal>
+            <Dependent Role="MateriaPrima">
+              <PropertyRef Name="idCategoria" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="ProductoComprado_fk_Cliente">
+          <End Role="Cliente" Type="Self.Cliente" Multiplicity="1" />
+          <End Role="ProductoComprado" Type="Self.ProductoComprado" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cliente">
+              <PropertyRef Name="idCliente" />
+            </Principal>
+            <Dependent Role="ProductoComprado">
+              <PropertyRef Name="idCliente" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="MateriaPrima_ProductoComprado_fk_MateriaPrima">
+          <End Role="MateriaPrima" Type="Self.MateriaPrima" Multiplicity="1" />
+          <End Role="MateriaPrima_ProductoComprado" Type="Self.MateriaPrima_ProductoComprado" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MateriaPrima">
+              <PropertyRef Name="idMateriaPrima" />
+            </Principal>
+            <Dependent Role="MateriaPrima_ProductoComprado">
+              <PropertyRef Name="idMateriaPrima" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="MateriaPrima_ProductoPreEnsamblado_fk_MateriaPrima">
+          <End Role="MateriaPrima" Type="Self.MateriaPrima" Multiplicity="1" />
+          <End Role="MateriaPrima_ProductoPreEnsamblado" Type="Self.MateriaPrima_ProductoPreEnsamblado" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MateriaPrima">
+              <PropertyRef Name="idMateriaPrima" />
+            </Principal>
+            <Dependent Role="MateriaPrima_ProductoPreEnsamblado">
+              <PropertyRef Name="idMateriaPrima" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="MateriaPrima_ProductoComprado_fk_ProductoComprado">
+          <End Role="ProductoComprado" Type="Self.ProductoComprado" Multiplicity="1" />
+          <End Role="MateriaPrima_ProductoComprado" Type="Self.MateriaPrima_ProductoComprado" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProductoComprado">
+              <PropertyRef Name="idProductoComprado" />
+            </Principal>
+            <Dependent Role="MateriaPrima_ProductoComprado">
+              <PropertyRef Name="idProductoComprado" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="MateriaPrima_ProductoPreEnsamblado_fk_ProductoPreEnsamblado">
+          <End Role="ProductoPreEnsamblado" Type="Self.ProductoPreEnsamblado" Multiplicity="1" />
+          <End Role="MateriaPrima_ProductoPreEnsamblado" Type="Self.MateriaPrima_ProductoPreEnsamblado" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProductoPreEnsamblado">
+              <PropertyRef Name="idProductoPreEnsamblado" />
+            </Principal>
+            <Dependent Role="MateriaPrima_ProductoPreEnsamblado">
+              <PropertyRef Name="idProductoPreEnsamblado" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="TallerMecanicoEntities1" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Categoria" EntityType="Self.Categoria" />
+          <EntitySet Name="Cliente" EntityType="Self.Cliente" />
+          <EntitySet Name="MateriaPrima" EntityType="Self.MateriaPrima" />
+          <EntitySet Name="MateriaPrima_ProductoComprado" EntityType="Self.MateriaPrima_ProductoComprado" />
+          <EntitySet Name="MateriaPrima_ProductoPreEnsamblado" EntityType="Self.MateriaPrima_ProductoPreEnsamblado" />
+          <EntitySet Name="ProductoComprado" EntityType="Self.ProductoComprado" />
+          <EntitySet Name="ProductoPreEnsamblado" EntityType="Self.ProductoPreEnsamblado" />
+          <AssociationSet Name="MateriaPrima_fk_Categoria" Association="Self.MateriaPrima_fk_Categoria">
+            <End Role="Categoria" EntitySet="Categoria" />
+            <End Role="MateriaPrima" EntitySet="MateriaPrima" />
+          </AssociationSet>
+          <AssociationSet Name="ProductoComprado_fk_Cliente" Association="Self.ProductoComprado_fk_Cliente">
+            <End Role="Cliente" EntitySet="Cliente" />
+            <End Role="ProductoComprado" EntitySet="ProductoComprado" />
+          </AssociationSet>
+          <AssociationSet Name="MateriaPrima_ProductoComprado_fk_MateriaPrima" Association="Self.MateriaPrima_ProductoComprado_fk_MateriaPrima">
+            <End Role="MateriaPrima" EntitySet="MateriaPrima" />
+            <End Role="MateriaPrima_ProductoComprado" EntitySet="MateriaPrima_ProductoComprado" />
+          </AssociationSet>
+          <AssociationSet Name="MateriaPrima_ProductoPreEnsamblado_fk_MateriaPrima" Association="Self.MateriaPrima_ProductoPreEnsamblado_fk_MateriaPrima">
+            <End Role="MateriaPrima" EntitySet="MateriaPrima" />
+            <End Role="MateriaPrima_ProductoPreEnsamblado" EntitySet="MateriaPrima_ProductoPreEnsamblado" />
+          </AssociationSet>
+          <AssociationSet Name="MateriaPrima_ProductoComprado_fk_ProductoComprado" Association="Self.MateriaPrima_ProductoComprado_fk_ProductoComprado">
+            <End Role="ProductoComprado" EntitySet="ProductoComprado" />
+            <End Role="MateriaPrima_ProductoComprado" EntitySet="MateriaPrima_ProductoComprado" />
+          </AssociationSet>
+          <AssociationSet Name="MateriaPrima_ProductoPreEnsamblado_fk_ProductoPreEnsamblado" Association="Self.MateriaPrima_ProductoPreEnsamblado_fk_ProductoPreEnsamblado">
+            <End Role="ProductoPreEnsamblado" EntitySet="ProductoPreEnsamblado" />
+            <End Role="MateriaPrima_ProductoPreEnsamblado" EntitySet="MateriaPrima_ProductoPreEnsamblado" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="TallerMecanicoModelStoreContainer" CdmEntityContainer="TallerMecanicoEntities1">
+          <EntitySetMapping Name="Categoria">
+            <EntityTypeMapping TypeName="TallerMecanicoModel.Categoria">
+              <MappingFragment StoreEntitySet="Categoria">
+                <ScalarProperty Name="idCategoria" ColumnName="idCategoria" />
+                <ScalarProperty Name="nombreCategoria" ColumnName="nombreCategoria" />
+                <ScalarProperty Name="cantidadCocheCompleto" ColumnName="cantidadCocheCompleto" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Cliente">
+            <EntityTypeMapping TypeName="TallerMecanicoModel.Cliente">
+              <MappingFragment StoreEntitySet="Cliente">
+                <ScalarProperty Name="idCliente" ColumnName="idCliente" />
+                <ScalarProperty Name="nombreCompleto" ColumnName="nombreCompleto" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="telefono1" ColumnName="telefono1" />
+                <ScalarProperty Name="telefono2" ColumnName="telefono2" />
+                <ScalarProperty Name="contrasena" ColumnName="contrasena" />
+                <ScalarProperty Name="isAdmin" ColumnName="isAdmin" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MateriaPrima">
+            <EntityTypeMapping TypeName="TallerMecanicoModel.MateriaPrima">
+              <MappingFragment StoreEntitySet="MateriaPrima">
+                <ScalarProperty Name="idMateriaPrima" ColumnName="idMateriaPrima" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="marca" ColumnName="marca" />
+                <ScalarProperty Name="precioCompra" ColumnName="precioCompra" />
+                <ScalarProperty Name="precioVenta" ColumnName="precioVenta" />
+                <ScalarProperty Name="cantidadStock" ColumnName="cantidadStock" />
+                <ScalarProperty Name="idCategoria" ColumnName="idCategoria" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MateriaPrima_ProductoComprado">
+            <EntityTypeMapping TypeName="TallerMecanicoModel.MateriaPrima_ProductoComprado">
+              <MappingFragment StoreEntitySet="MateriaPrima_ProductoComprado">
+                <ScalarProperty Name="idMateriaPrima_ProductoComprado" ColumnName="idMateriaPrima_ProductoComprado" />
+                <ScalarProperty Name="cantidad" ColumnName="cantidad" />
+                <ScalarProperty Name="idMateriaPrima" ColumnName="idMateriaPrima" />
+                <ScalarProperty Name="idProductoComprado" ColumnName="idProductoComprado" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MateriaPrima_ProductoPreEnsamblado">
+            <EntityTypeMapping TypeName="TallerMecanicoModel.MateriaPrima_ProductoPreEnsamblado">
+              <MappingFragment StoreEntitySet="MateriaPrima_ProductoPreEnsamblado">
+                <ScalarProperty Name="idMateriaPrima_ProductoPreEnsamblado" ColumnName="idMateriaPrima_ProductoPreEnsamblado" />
+                <ScalarProperty Name="cantidad" ColumnName="cantidad" />
+                <ScalarProperty Name="idMateriaPrima" ColumnName="idMateriaPrima" />
+                <ScalarProperty Name="idProductoPreEnsamblado" ColumnName="idProductoPreEnsamblado" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ProductoComprado">
+            <EntityTypeMapping TypeName="TallerMecanicoModel.ProductoComprado">
+              <MappingFragment StoreEntitySet="ProductoComprado">
+                <ScalarProperty Name="idProductoComprado" ColumnName="idProductoComprado" />
+                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+                <ScalarProperty Name="fechaCompra" ColumnName="fechaCompra" />
+                <ScalarProperty Name="fechaEntregaPrevista" ColumnName="fechaEntregaPrevista" />
+                <ScalarProperty Name="costoEnsamblado" ColumnName="costoEnsamblado" />
+                <ScalarProperty Name="requiereEnsamblado" ColumnName="requiereEnsamblado" />
+                <ScalarProperty Name="pedidoConfirmado" ColumnName="pedidoConfirmado" />
+                <ScalarProperty Name="idCliente" ColumnName="idCliente" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ProductoPreEnsamblado">
+            <EntityTypeMapping TypeName="TallerMecanicoModel.ProductoPreEnsamblado">
+              <MappingFragment StoreEntitySet="ProductoPreEnsamblado">
+                <ScalarProperty Name="idProductoPreEnsamblado" ColumnName="idProductoPreEnsamblado" />
+                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+                <ScalarProperty Name="costoEnsamblado" ColumnName="costoEnsamblado" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

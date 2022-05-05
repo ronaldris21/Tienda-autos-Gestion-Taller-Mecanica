@@ -14,9 +14,12 @@ namespace TallerMecanica
         [STAThread]
         static void Main()
         {
+            themeColor.PrimaryColor = themeColor.defaultColor;
+            themeColor.SecondaryColor = themeColor.ChangeColorBrightness(themeColor.defaultColor, 0.3);
+
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Views.AdminMainView());
+            Application.Run(new Views.LoginView());
         }
     }
 }

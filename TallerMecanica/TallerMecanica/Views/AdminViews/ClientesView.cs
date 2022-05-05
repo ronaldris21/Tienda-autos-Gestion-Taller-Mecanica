@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace TallerMecanica.Views
+namespace TallerMecanica.Views.AdminViews
 {
-    public partial class SignupView : Form
+    public partial class ClientesView : Form
     {
-        public SignupView()
+        public ClientesView()
         {
             InitializeComponent();
             themeColor.Loadtheme(this);

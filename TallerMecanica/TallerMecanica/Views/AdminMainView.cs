@@ -7,14 +7,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using TallerMecanica.Views.AdminViews;
+using TallerMecanica.Views.SharedViews;
 namespace TallerMecanica.Views
 {
     public partial class AdminMainView : Form
     {
         private Button currentButton;
         private Random random;
-        private int tempIndex;
         private Form activeForm;
 
         public AdminMainView()
@@ -22,22 +22,34 @@ namespace TallerMecanica.Views
             InitializeComponent();
             random = new Random();
             btncerrar.Visible = false;
+            DisableButton();
         }
 
         // metodos
-        private Color SelectThemeColor()
+        private Color SelectThemeColor(object Sender)
         {
-            var dato = themeColor.ColorList;
-            int index = random.Next(themeColor.ColorList.Count);
-            while (tempIndex == index)
+            try
             {
-                index = random.Next(themeColor.ColorList.Count);
+                //Generar un color fijo para cada vista
+                int index = this.panelMenu.Controls.GetChildIndex((Control)Sender);
+                string color = themeColor.ColorList[index];
+                return ColorTranslator.FromHtml(color);
             }
-            tempIndex = index;
-            string color = themeColor.ColorList[index];
-            return ColorTranslator.FromHtml(color);
+            catch (Exception)
+            {
+                Reset();
+                return themeColor.defaultColor;
+            }
         }
-
+        private void Reset()
+        {
+            DisableButton();
+            lblTitle.Text = "HOME";
+            panelTitlebar.BackColor = themeColor.defaultColor;
+            panelLogo.BackColor = Color.FromArgb(39, 39, 58);
+            currentButton = null;
+            btncerrar.Visible = false;
+        }
 
         private void ActivateButton(object btnSender)
         {
@@ -46,7 +58,7 @@ namespace TallerMecanica.Views
                 if (currentButton != (Button)btnSender)
                 {
                     DisableButton();
-                    Color color = SelectThemeColor();
+                    Color color = SelectThemeColor(btnSender);
                     currentButton = (Button)btnSender;
                     currentButton.BackColor = color;
                     currentButton.ForeColor = Color.White;
@@ -79,7 +91,7 @@ namespace TallerMecanica.Views
             { 
                 activeForm.Close();
             }
-            ActivateButton(btnSender);
+            //ActivateButton(btnSender);
             activeForm = childForm;
             childForm.TopLevel = false;
             childForm.FormBorderStyle = FormBorderStyle.None;
@@ -92,40 +104,6 @@ namespace TallerMecanica.Views
         }
 
 
-
-
-
-        private void btnproduct_Click(object sender, EventArgs e)
-        {
-            ActivateButton(sender);
-            OpenChildForm(new Formproducto(), sender);
-        }
-
-        private void btnpedidos_Click(object sender, EventArgs e)
-        {
-            ActivateButton(sender);
-        }
-
-        private void btnclientes_Click(object sender, EventArgs e)
-        {
-            ActivateButton(sender);
-        }
-
-        private void btnproductos_Click(object sender, EventArgs e)
-        {
-            ActivateButton(sender);
-        }
-
-        private void btnnoti_Click(object sender, EventArgs e)
-        {
-            ActivateButton(sender);
-        }
-
-        private void btnajustes_Click(object sender, EventArgs e)
-        {
-            ActivateButton(sender);
-        }
-
         private void btncerrar_Click(object sender, EventArgs e)
         {
             if (activeForm != null)
@@ -133,14 +111,47 @@ namespace TallerMecanica.Views
                 Reset();
         }
 
-        private void Reset()
+        private void btnShoppingCart_Click(object sender, EventArgs e)
         {
-            DisableButton();
-            lblTitle.Text = "HOME";
-            panelTitlebar.BackColor = Color.FromArgb(0, 150, 136);
-            panelLogo.BackColor = Color.FromArgb(39, 39, 58);
-            currentButton = null;
-            btncerrar.Visible = false;
+            ActivateButton(sender);
+            OpenChildForm(new CarritoComprasView(), sender);
         }
+
+        private void btnCategorias_Click(object sender, EventArgs e)
+        {
+            ActivateButton(sender);
+            OpenChildForm(new CategoriaView(), sender);
+        }
+
+        private void btnMateriasPrimas_Click(object sender, EventArgs e)
+        {
+            ActivateButton(sender);
+            OpenChildForm(new MateriasPrimasView(), sender);
+        }
+
+        private void btnproductosPreEnsamblados_Click(object sender, EventArgs e)
+        {
+            ActivateButton(sender);
+            OpenChildForm(new ProductosPreEnsamblados(), sender);
+        }
+
+        private void btnHistorialPedidos_Click(object sender, EventArgs e)
+        {
+            ActivateButton(sender);
+            OpenChildForm(new HistorialProductosCompradosView(), sender);
+        }
+
+        private void btnClientes_Click(object sender, EventArgs e)
+        {
+            ActivateButton(sender);
+            OpenChildForm(new ClientesView(), sender);
+        }
+
+        private void btnAdmins_Click(object sender, EventArgs e)
+        {
+            ActivateButton(sender);
+            OpenChildForm(new AdminViews.AdminsView(), sender);
+        }
+
     }
 }

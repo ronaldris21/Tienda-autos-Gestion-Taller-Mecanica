@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace TallerMecanica.Views
+namespace TallerMecanica.Views.SharedViews
 {
-    public partial class SignupView : Form
+    public partial class CarritoComprasView : Form
     {
-        public SignupView()
+        public CarritoComprasView()
         {
             InitializeComponent();
             themeColor.Loadtheme(this);

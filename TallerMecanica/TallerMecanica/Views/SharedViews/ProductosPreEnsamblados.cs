@@ -8,13 +8,14 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace TallerMecanica.FORMS
+namespace TallerMecanica.Views.SharedViews
 {
-    public partial class Form1 : Form
+    public partial class ProductosPreEnsamblados : Form
     {
-        public Form1()
+        public ProductosPreEnsamblados()
         {
             InitializeComponent();
+            themeColor.Loadtheme(this);
         }
     }
 }

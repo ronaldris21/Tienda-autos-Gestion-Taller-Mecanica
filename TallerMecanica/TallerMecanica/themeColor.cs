@@ -1,10 +1,12 @@
 ﻿using System.Collections.Generic;
 using System.Drawing;
+using System.Windows.Forms;
 
 namespace TallerMecanica
 {
     public class themeColor
     {
+        public static Color defaultColor = Color.FromArgb(0, 150, 136);
         public static Color PrimaryColor { get; set; }
         public static Color SecondaryColor { get; set; }
 
@@ -57,6 +59,29 @@ namespace TallerMecanica
                 blue = (255 - blue) * correctionFactor + blue;
             }
             return Color.FromArgb(color.A, (byte)red, (byte)green, (byte)blue);
+        }
+
+
+
+
+        /// <summary>
+        ///  Personaliza todos los botones del formulario para mantener la estetica del programa
+        /// </summary>
+        /// <param name="formulario">Formulario a rediseñar botones</param>
+        public static void Loadtheme(Form formulario )
+        {
+            foreach (Control btns in formulario.Controls)
+            {
+                if (btns.GetType() == typeof(Button))
+                {
+                    Button btn = (Button)btns;
+                    btn.BackColor = themeColor.PrimaryColor;
+                    btn.ForeColor = Color.White;
+                    btn.FlatAppearance.BorderColor = themeColor.SecondaryColor;
+                    btn.UseVisualStyleBackColor = true;
+                    btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+                }
+            }
         }
     }
 }
