@@ -27,12 +27,21 @@ namespace TallerMecanica.Views.ClientViews
 
             foreach (ProductoComprado item in productos)
             {
+                double precio = 0;
+                foreach (var materiaCompra in item.MateriaPrima_ProductoComprado)
+                {
+                    precio += materiaCompra.cantidad * materiaCompra.MateriaPrima.precioVenta;
+                }
+
                 this.dataGridView_ProductosComprados.Rows.Add(
                     new object[] {
                         item.idProductoComprado.ToString(),
-                        item.descripcion ,
-                        item.fechaCompra.ToString("yyyy/MM/dd")
-                    });
+                        item.descripcion,
+                        item.fechaCompra.ToString("yyyy/MM/dd"),
+                        item.pedidoConfirmado,
+                        item.costoEnsamblado.ToString(),
+                        precio
+                    }) ;
             }
 
         }
@@ -60,12 +69,13 @@ namespace TallerMecanica.Views.ClientViews
                 this.dataGridView_MateriaPrimas.Rows.Add(
                     new object[] {
                         item.idMateriaPrima.ToString(), 
-                        item.MateriaPrima.nombre , 
-                        item.MateriaPrima.Categoria.nombreCategoria
+                        item.MateriaPrima.nombre,
+                        item.MateriaPrima.marca,
+                        item.cantidad,
+                        item.MateriaPrima.Categoria.nombreCategoria,
+                        item.MateriaPrima.precioVenta
                     });
             }
-
-
         }
     }
 }
