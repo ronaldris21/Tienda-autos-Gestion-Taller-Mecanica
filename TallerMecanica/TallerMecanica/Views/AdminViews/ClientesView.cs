@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using TallerMecanica.Models;
 
 namespace TallerMecanica.Views.AdminViews
 {
@@ -16,6 +17,30 @@ namespace TallerMecanica.Views.AdminViews
         {
             InitializeComponent();
             themeColor.Loadtheme(this);
+            InitData();
+        }
+        public void InitData()
+        {
+            TallerMecanica.Models.TallerMecanicoEntities1 dbContext = new Models.TallerMecanicoEntities1();
+            dataGridView1.Rows.Clear();
+            var clientesRegistrados = dbContext.Cliente.ToList();
+            foreach (Cliente client in clientesRegistrados)
+            {
+                this.dataGridView1.Rows.Add(
+                    new object[] {
+                        client.idCliente,
+                        client.nombreCompleto,
+                        client.email,
+                        client.telefono1,
+                        client.telefono2,
+                        client.contrasena,
+                        client.isAdmin
+                    });
+            }
+        }
+        private void button1_Click(object sender, EventArgs e)
+        {
+            InitData();
         }
     }
 }

@@ -105,7 +105,7 @@ namespace TallerMecanica.Views.SharedViews
             this.dataGridView1.Location = new System.Drawing.Point(27, 79);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(615, 247);
+            this.dataGridView1.Size = new System.Drawing.Size(615, 180);
             this.dataGridView1.TabIndex = 34;
             this.dataGridView1.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellEndEdit);
             // 
