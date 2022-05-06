@@ -8,7 +8,29 @@ namespace TallerMecanica.Repositories
     using TallerMecanica.Models;
     public class dbClientes
     {
-
+        public Cliente Login(string email, string pass)
+        {
+            using (TallerMecanicoEntities1 dbContext = new TallerMecanicoEntities1()) //DISPOSABLE
+            {
+                try
+                {
+                    var cliente = dbContext.Cliente.Where(c => c.email == email && c.contrasena == pass)
+                                                    .FirstOrDefault();
+                    return cliente;
+                }
+                catch (DbEntityValidationException ex)
+                {
+                    foreach (var validations in ex.EntityValidationErrors)
+                    {
+                        foreach (var error in validations.ValidationErrors)
+                        {
+                            Console.WriteLine("ERROR - ENTITY ----" + error.ErrorMessage);
+                        }
+                    }
+                    return null;
+                }
+            }
+        }
         public bool Update(Cliente client)
         {
             using (TallerMecanicoEntities1 dbContext = new TallerMecanicoEntities1()) //DISPOSABLE
@@ -42,7 +64,7 @@ namespace TallerMecanica.Repositories
                     return false;
                 }
             }
-        }
+        }   
 
         public bool Insert(Cliente client)
         {

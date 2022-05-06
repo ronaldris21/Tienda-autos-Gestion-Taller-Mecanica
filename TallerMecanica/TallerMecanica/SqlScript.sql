@@ -11,7 +11,7 @@ CREATE TABLE Cliente
 (
 	idCliente int IDENTITY(1,1) NOT NULL PRIMARY KEY,
 	nombreCompleto nChar(70) NOT NULL,
-	profilePic nChar(200) not null,
+	profilePic nChar(200) null,
 	email nChar(50) NOT NULL,
 	telefono1 nChar(25) NOT NULL,
 	telefono2 nChar(25) NULL,
@@ -30,7 +30,7 @@ CREATE TABLE MateriaPrima
 (
 	idMateriaPrima int IDENTITY(1,1) NOT NULL PRIMARY KEY,
 	nombre nChar(30) NOT NULL,
-	marca nChar(30) not null DEFAULT 'Reacondicionado',
+	marca nChar(30) null DEFAULT 'Reacondicionado',
 	precioCompra float not null,
 	precioVenta float not null,
 	cantidadStock int not null default 0,
