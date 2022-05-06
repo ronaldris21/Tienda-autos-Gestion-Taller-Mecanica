@@ -46,7 +46,7 @@ namespace TallerMecanica.Views
                 c.isAdmin = false;
 
                 dbClientes conexion = new dbClientes();
-                conexion.Update(c);
+                conexion.Insert(c);
 
                 MessageBox.Show("cliente creado!!");
             }
