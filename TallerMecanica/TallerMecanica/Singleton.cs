@@ -10,6 +10,7 @@ namespace TallerMecanica
 {
     public class Singleton
     {
+        
         public static Cliente cliente_login = new Cliente()
         {
             isAdmin = true,
@@ -19,5 +20,7 @@ namespace TallerMecanica
             idCliente = 1,
             telefono1 = "747654894"
         };
+
+        public static List<MateriaPrima_ProductoComprado> itemsCompra = new List<MateriaPrima_ProductoComprado>();
     }
 }
