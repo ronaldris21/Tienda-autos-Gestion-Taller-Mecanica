@@ -33,5 +33,16 @@ namespace TallerMecanica.Properties {
                 return ((string)(this["NorthwindStoreConnectionString"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=TallerMecanico.mssql.somee.com;Initial Catalog=TallerMecanico;Persist" +
+            " Security Info=True;User ID=PVA_SQLLogin_1;Password=hptrgnpkng")]
+        public string TallerMecanicoConnectionString {
+            get {
+                return ((string)(this["TallerMecanicoConnectionString"]));
+            }
+        }
     }
 }

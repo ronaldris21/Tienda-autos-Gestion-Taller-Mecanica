@@ -19,7 +19,7 @@
                     command.Connection = connection;
                     command.CommandText = "insert into MateriaPrima (nombre, marca, precioCompra, precioVenta, cantidadStock, idCategoria )" +
                                             "values (@nombre, @marca, @precioCompra, @precioVenta, @cantidadStock, @idCategoria)";
-                    command.Parameters.Add("@nombre", SqlDbType.NVarChar).Value = item.nombre;
+                    command.Parameters.Add("@nombre", SqlDbType.NVarChar).Value = item.nombre; //SQL INJECTIONS
                     command.Parameters.Add("@marca", SqlDbType.NVarChar).Value = item.marca;
                     command.Parameters.Add("@precioCompra", SqlDbType.Float).Value = item.precioCompra;
                     command.Parameters.Add("@precioVenta", SqlDbType.Float).Value = item.precioVenta;

@@ -21,6 +21,7 @@ namespace TallerMecanica.Models
         }
     
         public int idCliente { get; set; }
+        public string profilePic { get; set; }
         public string nombreCompleto { get; set; }
         public string email { get; set; }
         public string telefono1 { get; set; }

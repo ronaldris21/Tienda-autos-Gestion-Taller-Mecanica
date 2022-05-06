@@ -11,9 +11,10 @@ CREATE TABLE Cliente
 (
 	idCliente int IDENTITY(1,1) NOT NULL PRIMARY KEY,
 	nombreCompleto nChar(70) NOT NULL,
+	profilePic nChar(200) not null,
 	email nChar(50) NOT NULL,
-	telefono1 nChar(20) NOT NULL,
-	telefono2 nChar(20) NOT NULL,
+	telefono1 nChar(25) NOT NULL,
+	telefono2 nChar(25) NULL,
 	contrasena nChar(20) NOT NULL,
 	isAdmin bit NOT NULL default 0,
 );
@@ -39,7 +40,7 @@ CREATE TABLE MateriaPrima
 CREATE TABLE ProductoComprado
 (
 	idProductoComprado int IDENTITY(1,1) NOT NULL PRIMARY KEY,
-	descripcion nChar(50) NULL,
+	descripcion nChar(500) NULL,
 	fechaCompra Date not null default getdate(),
 	fechaEntregaPrevista Date null,
 	costoEnsamblado float not null default 0,	--Por defecto mientras el admin calcula el costo del ensamblado
@@ -51,7 +52,7 @@ CREATE TABLE ProductoComprado
 CREATE TABLE ProductoPreEnsamblado
 (
 	idProductoPreEnsamblado int IDENTITY(1,1) NOT NULL PRIMARY KEY,
-	descripcion nChar(50) NULL,
+	descripcion nChar(500) NULL,
 	costoEnsamblado float not null
 );
 

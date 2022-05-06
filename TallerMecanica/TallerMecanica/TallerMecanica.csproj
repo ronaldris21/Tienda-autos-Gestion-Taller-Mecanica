@@ -34,6 +34,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Bogus, Version=34.0.2.0, Culture=neutral, PublicKeyToken=fa1bb3f3f218129a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Bogus.34.0.2\lib\net40\Bogus.dll</HintPath>
+    </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
@@ -56,6 +59,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="InitFakeData.cs" />
     <Compile Include="Repositories\conexion.cs" />
     <Compile Include="Models\Categoria.cs">
       <DependentUpon>Modelos.tt</DependentUpon>
@@ -96,6 +100,8 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\BaseRepository.cs" />
+    <Compile Include="Repositories\dbClientes.cs" />
+    <Compile Include="Repositories\dbProductoComprado.cs" />
     <Compile Include="Repositories\RCategoria.cs" />
     <Compile Include="Repositories\IRepository.cs" />
     <Compile Include="Repositories\RMateriaPrima.cs" />
@@ -194,6 +200,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\AdminViews\ClientesView.resx">
       <DependentUpon>ClientesView.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\AdminViews\HistorialProductosCompradosView.resx">
       <DependentUpon>HistorialProductosCompradosView.cs</DependentUpon>

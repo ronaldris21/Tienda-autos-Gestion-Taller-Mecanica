@@ -14,6 +14,8 @@ namespace TallerMecanica
         [STAThread]
         static void Main()
         {
+            //new InitFakeData();
+
             themeColor.PrimaryColor = themeColor.defaultColor;
             themeColor.SecondaryColor = themeColor.ChangeColorBrightness(themeColor.defaultColor, 0.3);
 
