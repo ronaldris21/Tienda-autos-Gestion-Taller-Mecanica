@@ -46,11 +46,16 @@ namespace TallerMecanica.Views.ClientViews
             // 
             // button1
             // 
+<<<<<<< Updated upstream
             this.button1.Location = new System.Drawing.Point(658, 415);
+=======
+            this.button1.Location = new System.Drawing.Point(400, 306);
+            this.button1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+>>>>>>> Stashed changes
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.Size = new System.Drawing.Size(100, 28);
             this.button1.TabIndex = 1;
-            this.button1.Text = "hISTORIASLAS";
+            this.button1.Text = "Historial";
             this.button1.UseVisualStyleBackColor = true;
             // 
             // dataGridView_MateriaPrimas
@@ -144,14 +149,19 @@ namespace TallerMecanica.Views.ClientViews
             // 
             // HistorialComprasCliente
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+<<<<<<< Updated upstream
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dataGridView_ProductosComprados);
             this.Controls.Add(this.dataGridView_MateriaPrimas);
+=======
+            this.ClientSize = new System.Drawing.Size(1067, 554);
+>>>>>>> Stashed changes
             this.Controls.Add(this.button1);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "HistorialComprasCliente";
             this.Text = "Mis compras - Cliente";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_MateriaPrimas)).EndInit();
