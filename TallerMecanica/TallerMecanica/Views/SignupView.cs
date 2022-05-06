@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using TallerMecanica.Models;
 
 namespace TallerMecanica.Views
 {
@@ -34,6 +35,11 @@ namespace TallerMecanica.Views
             {
                 MessageBox.Show("te falta un dato por meter");
             }
+
+
+
+
+
         }
     }
 }
