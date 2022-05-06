@@ -17,7 +17,7 @@ namespace TallerMecanica.Views
             InitializeComponent();
             themeColor.Loadtheme(this);
         }
-
+        //Comentario
         private void SignupView_Load(object sender, EventArgs e)
         {
 
