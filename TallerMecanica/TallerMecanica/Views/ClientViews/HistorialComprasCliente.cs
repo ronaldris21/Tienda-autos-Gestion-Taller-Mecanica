@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using TallerMecanica.Models;
+using Excel = Microsoft.Office.Interop.Excel;
+using System.Reflection;
 
 namespace TallerMecanica.Views.ClientViews
 {
@@ -76,6 +78,33 @@ namespace TallerMecanica.Views.ClientViews
                         item.MateriaPrima.precioVenta
                     });
             }
+        }
+
+        private void btnFactura_Click(object sender, EventArgs e)
+        {
+            Excel.Application objExcel = new Excel.Application();
+            objExcel.Visible = true; //Podríamos trabajar sin que se vea...
+
+            Excel.Workbook objLibro = objExcel.Workbooks.Add(Missing.Value);
+            Excel.Worksheet objHoja = (Excel.Worksheet)objLibro.Worksheets.get_Item(1); //hoja 1.
+
+            Excel.Range objRango;
+            objRango = objHoja.get_Range("A1", Missing.Value);
+            objRango.Value = "ID";
+
+            objRango = objHoja.get_Range("B1", Missing.Value);
+            objRango.Value = "Fecha Compra";
+
+            objRango = objHoja.get_Range("C1", Missing.Value);
+            objRango.Value = "Pedido Confirmado";
+
+            objRango = objHoja.get_Range("D1", Missing.Value);
+            objRango.Value = "Precio Total";
+
+            objRango = objHoja.get_Range("E1", Missing.Value);
+            objRango.Value = "Coste Ensamblado";
+
+
         }
     }
 }

@@ -46,6 +46,7 @@ namespace TallerMecanica.Views.ClientViews
             this.Cantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Categoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Precio = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnFactura = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_MateriaPrimas)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_ProductosComprados)).BeginInit();
             this.SuspendLayout();
@@ -230,11 +231,22 @@ namespace TallerMecanica.Views.ClientViews
             this.Precio.ReadOnly = true;
             this.Precio.Width = 77;
             // 
+            // btnFactura
+            // 
+            this.btnFactura.Location = new System.Drawing.Point(1049, 62);
+            this.btnFactura.Name = "btnFactura";
+            this.btnFactura.Size = new System.Drawing.Size(111, 376);
+            this.btnFactura.TabIndex = 6;
+            this.btnFactura.Text = "Generar Factura";
+            this.btnFactura.UseVisualStyleBackColor = true;
+            this.btnFactura.Click += new System.EventHandler(this.btnFactura_Click);
+            // 
             // HistorialComprasCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1249, 495);
+            this.ClientSize = new System.Drawing.Size(1218, 495);
+            this.Controls.Add(this.btnFactura);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dataGridView_ProductosComprados);
@@ -269,5 +281,6 @@ namespace TallerMecanica.Views.ClientViews
         private System.Windows.Forms.DataGridViewTextBoxColumn Cantidad;
         private System.Windows.Forms.DataGridViewTextBoxColumn Categoria;
         private System.Windows.Forms.DataGridViewTextBoxColumn Precio;
+        private System.Windows.Forms.Button btnFactura;
     }
 }

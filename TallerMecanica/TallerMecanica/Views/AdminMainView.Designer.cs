@@ -54,18 +54,19 @@ namespace TallerMecanica.Views
             // 
             this.panelMenu.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.panelMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(76)))));
+            this.panelMenu.Controls.Add(this.btnproductosPreEnsamblados);
             this.panelMenu.Controls.Add(this.btnAdmins);
             this.panelMenu.Controls.Add(this.btnClientes);
             this.panelMenu.Controls.Add(this.btnHistorialPedidos);
-            this.panelMenu.Controls.Add(this.btnproductosPreEnsamblados);
             this.panelMenu.Controls.Add(this.btnMateriasPrimas);
             this.panelMenu.Controls.Add(this.btnCategorias);
             this.panelMenu.Controls.Add(this.btnShoppingCart);
             this.panelMenu.Controls.Add(this.panelLogo);
             this.panelMenu.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelMenu.Location = new System.Drawing.Point(0, 0);
+            this.panelMenu.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panelMenu.Name = "panelMenu";
-            this.panelMenu.Size = new System.Drawing.Size(220, 521);
+            this.panelMenu.Size = new System.Drawing.Size(293, 641);
             this.panelMenu.TabIndex = 0;
             // 
             // btnAdmins
@@ -76,10 +77,11 @@ namespace TallerMecanica.Views
             this.btnAdmins.ForeColor = System.Drawing.Color.FloralWhite;
             this.btnAdmins.Image = global::TallerMecanica.Properties.Resources.settings;
             this.btnAdmins.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAdmins.Location = new System.Drawing.Point(0, 326);
+            this.btnAdmins.Location = new System.Drawing.Point(0, 348);
+            this.btnAdmins.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnAdmins.Name = "btnAdmins";
-            this.btnAdmins.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
-            this.btnAdmins.Size = new System.Drawing.Size(220, 41);
+            this.btnAdmins.Padding = new System.Windows.Forms.Padding(16, 0, 0, 0);
+            this.btnAdmins.Size = new System.Drawing.Size(293, 50);
             this.btnAdmins.TabIndex = 7;
             this.btnAdmins.Text = "Admins";
             this.btnAdmins.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -95,10 +97,11 @@ namespace TallerMecanica.Views
             this.btnClientes.ForeColor = System.Drawing.Color.FloralWhite;
             this.btnClientes.Image = global::TallerMecanica.Properties.Resources.value__1_;
             this.btnClientes.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnClientes.Location = new System.Drawing.Point(0, 285);
+            this.btnClientes.Location = new System.Drawing.Point(0, 298);
+            this.btnClientes.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnClientes.Name = "btnClientes";
-            this.btnClientes.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
-            this.btnClientes.Size = new System.Drawing.Size(220, 41);
+            this.btnClientes.Padding = new System.Windows.Forms.Padding(16, 0, 0, 0);
+            this.btnClientes.Size = new System.Drawing.Size(293, 50);
             this.btnClientes.TabIndex = 6;
             this.btnClientes.Text = "Clientes";
             this.btnClientes.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -114,10 +117,11 @@ namespace TallerMecanica.Views
             this.btnHistorialPedidos.ForeColor = System.Drawing.Color.FloralWhite;
             this.btnHistorialPedidos.Image = global::TallerMecanica.Properties.Resources.alarm__1_1;
             this.btnHistorialPedidos.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnHistorialPedidos.Location = new System.Drawing.Point(0, 244);
+            this.btnHistorialPedidos.Location = new System.Drawing.Point(0, 248);
+            this.btnHistorialPedidos.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnHistorialPedidos.Name = "btnHistorialPedidos";
-            this.btnHistorialPedidos.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
-            this.btnHistorialPedidos.Size = new System.Drawing.Size(220, 41);
+            this.btnHistorialPedidos.Padding = new System.Windows.Forms.Padding(16, 0, 0, 0);
+            this.btnHistorialPedidos.Size = new System.Drawing.Size(293, 50);
             this.btnHistorialPedidos.TabIndex = 5;
             this.btnHistorialPedidos.Text = "Historial Compras";
             this.btnHistorialPedidos.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -133,10 +137,11 @@ namespace TallerMecanica.Views
             this.btnproductosPreEnsamblados.ForeColor = System.Drawing.Color.FloralWhite;
             this.btnproductosPreEnsamblados.Image = global::TallerMecanica.Properties.Resources.bar_chart1;
             this.btnproductosPreEnsamblados.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnproductosPreEnsamblados.Location = new System.Drawing.Point(0, 203);
+            this.btnproductosPreEnsamblados.Location = new System.Drawing.Point(0, 398);
+            this.btnproductosPreEnsamblados.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnproductosPreEnsamblados.Name = "btnproductosPreEnsamblados";
-            this.btnproductosPreEnsamblados.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
-            this.btnproductosPreEnsamblados.Size = new System.Drawing.Size(220, 41);
+            this.btnproductosPreEnsamblados.Padding = new System.Windows.Forms.Padding(16, 0, 0, 0);
+            this.btnproductosPreEnsamblados.Size = new System.Drawing.Size(293, 50);
             this.btnproductosPreEnsamblados.TabIndex = 4;
             this.btnproductosPreEnsamblados.Text = "Vehiculos Ensamblados";
             this.btnproductosPreEnsamblados.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -152,10 +157,11 @@ namespace TallerMecanica.Views
             this.btnMateriasPrimas.ForeColor = System.Drawing.Color.FloralWhite;
             this.btnMateriasPrimas.Image = global::TallerMecanica.Properties.Resources.shopping_list1;
             this.btnMateriasPrimas.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnMateriasPrimas.Location = new System.Drawing.Point(0, 162);
+            this.btnMateriasPrimas.Location = new System.Drawing.Point(0, 198);
+            this.btnMateriasPrimas.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnMateriasPrimas.Name = "btnMateriasPrimas";
-            this.btnMateriasPrimas.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
-            this.btnMateriasPrimas.Size = new System.Drawing.Size(220, 41);
+            this.btnMateriasPrimas.Padding = new System.Windows.Forms.Padding(16, 0, 0, 0);
+            this.btnMateriasPrimas.Size = new System.Drawing.Size(293, 50);
             this.btnMateriasPrimas.TabIndex = 3;
             this.btnMateriasPrimas.Text = "Materias Primas";
             this.btnMateriasPrimas.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -171,10 +177,11 @@ namespace TallerMecanica.Views
             this.btnCategorias.ForeColor = System.Drawing.Color.FloralWhite;
             this.btnCategorias.Image = global::TallerMecanica.Properties.Resources.shopping_list;
             this.btnCategorias.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCategorias.Location = new System.Drawing.Point(0, 121);
+            this.btnCategorias.Location = new System.Drawing.Point(0, 148);
+            this.btnCategorias.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnCategorias.Name = "btnCategorias";
-            this.btnCategorias.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
-            this.btnCategorias.Size = new System.Drawing.Size(220, 41);
+            this.btnCategorias.Padding = new System.Windows.Forms.Padding(16, 0, 0, 0);
+            this.btnCategorias.Size = new System.Drawing.Size(293, 50);
             this.btnCategorias.TabIndex = 2;
             this.btnCategorias.Text = "Categorias";
             this.btnCategorias.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -190,10 +197,11 @@ namespace TallerMecanica.Views
             this.btnShoppingCart.ForeColor = System.Drawing.Color.FloralWhite;
             this.btnShoppingCart.Image = global::TallerMecanica.Properties.Resources.shopping_cart__1_;
             this.btnShoppingCart.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnShoppingCart.Location = new System.Drawing.Point(0, 80);
+            this.btnShoppingCart.Location = new System.Drawing.Point(0, 98);
+            this.btnShoppingCart.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnShoppingCart.Name = "btnShoppingCart";
-            this.btnShoppingCart.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
-            this.btnShoppingCart.Size = new System.Drawing.Size(220, 41);
+            this.btnShoppingCart.Padding = new System.Windows.Forms.Padding(16, 0, 0, 0);
+            this.btnShoppingCart.Size = new System.Drawing.Size(293, 50);
             this.btnShoppingCart.TabIndex = 1;
             this.btnShoppingCart.Text = "Carrito de compras";
             this.btnShoppingCart.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -207,8 +215,9 @@ namespace TallerMecanica.Views
             this.panelLogo.Controls.Add(this.label1);
             this.panelLogo.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelLogo.Location = new System.Drawing.Point(0, 0);
+            this.panelLogo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panelLogo.Name = "panelLogo";
-            this.panelLogo.Size = new System.Drawing.Size(220, 80);
+            this.panelLogo.Size = new System.Drawing.Size(293, 98);
             this.panelLogo.TabIndex = 0;
             // 
             // label1
@@ -216,9 +225,10 @@ namespace TallerMecanica.Views
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.SystemColors.MenuBar;
-            this.label1.Location = new System.Drawing.Point(67, 36);
+            this.label1.Location = new System.Drawing.Point(89, 44);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(54, 20);
+            this.label1.Size = new System.Drawing.Size(68, 25);
             this.label1.TabIndex = 0;
             this.label1.Text = "Admin";
             // 
@@ -228,9 +238,10 @@ namespace TallerMecanica.Views
             this.panelTitlebar.Controls.Add(this.btncerrar);
             this.panelTitlebar.Controls.Add(this.lblTitle);
             this.panelTitlebar.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelTitlebar.Location = new System.Drawing.Point(220, 0);
+            this.panelTitlebar.Location = new System.Drawing.Point(293, 0);
+            this.panelTitlebar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panelTitlebar.Name = "panelTitlebar";
-            this.panelTitlebar.Size = new System.Drawing.Size(646, 80);
+            this.panelTitlebar.Size = new System.Drawing.Size(862, 98);
             this.panelTitlebar.TabIndex = 1;
             // 
             // btncerrar
@@ -240,8 +251,9 @@ namespace TallerMecanica.Views
             this.btncerrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btncerrar.Image = global::TallerMecanica.Properties.Resources.cross_out__2_1;
             this.btncerrar.Location = new System.Drawing.Point(0, 0);
+            this.btncerrar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btncerrar.Name = "btncerrar";
-            this.btncerrar.Size = new System.Drawing.Size(75, 80);
+            this.btncerrar.Size = new System.Drawing.Size(100, 98);
             this.btncerrar.TabIndex = 1;
             this.btncerrar.UseVisualStyleBackColor = true;
             this.btncerrar.Click += new System.EventHandler(this.btncerrar_Click);
@@ -252,9 +264,10 @@ namespace TallerMecanica.Views
             this.lblTitle.AutoSize = true;
             this.lblTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTitle.ForeColor = System.Drawing.Color.White;
-            this.lblTitle.Location = new System.Drawing.Point(267, 32);
+            this.lblTitle.Location = new System.Drawing.Point(357, 39);
+            this.lblTitle.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(78, 26);
+            this.lblTitle.Size = new System.Drawing.Size(95, 31);
             this.lblTitle.TabIndex = 0;
             this.lblTitle.Text = "HOME";
             // 
@@ -262,9 +275,10 @@ namespace TallerMecanica.Views
             // 
             this.panelDesktop.Controls.Add(this.panelMDI);
             this.panelDesktop.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelDesktop.Location = new System.Drawing.Point(220, 80);
+            this.panelDesktop.Location = new System.Drawing.Point(293, 98);
+            this.panelDesktop.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panelDesktop.Name = "panelDesktop";
-            this.panelDesktop.Size = new System.Drawing.Size(646, 441);
+            this.panelDesktop.Size = new System.Drawing.Size(862, 543);
             this.panelDesktop.TabIndex = 2;
             // 
             // panelMDI
@@ -273,20 +287,21 @@ namespace TallerMecanica.Views
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panelMDI.Location = new System.Drawing.Point(0, 0);
+            this.panelMDI.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panelMDI.Name = "panelMDI";
-            this.panelMDI.Size = new System.Drawing.Size(646, 441);
+            this.panelMDI.Size = new System.Drawing.Size(862, 543);
             this.panelMDI.TabIndex = 0;
             // 
             // AdminMainView
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(866, 521);
+            this.ClientSize = new System.Drawing.Size(1155, 641);
             this.Controls.Add(this.panelDesktop);
             this.Controls.Add(this.panelTitlebar);
             this.Controls.Add(this.panelMenu);
-            this.Margin = new System.Windows.Forms.Padding(2);
-            this.MinimumSize = new System.Drawing.Size(700, 500);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.MinimumSize = new System.Drawing.Size(927, 605);
             this.Name = "AdminMainView";
             this.Text = "AdminMainView";
             this.panelMenu.ResumeLayout(false);
