@@ -4,6 +4,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TallerMecanica.Models;
 
 namespace TallerMecanica.Repositories
 {
@@ -42,6 +43,12 @@ namespace TallerMecanica.Repositories
                 return false;
             }
         }
+
+        internal static void Insert(Cliente c)
+        {
+            throw new NotImplementedException();
+        }
+
         public bool modificarbasedatos(string value, string tablas, string condicion)
         {
             try

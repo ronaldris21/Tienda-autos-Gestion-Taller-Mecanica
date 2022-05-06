@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.SqlClient;
 using TallerMecanica.Repositories;
 using TallerMecanica.Models;
 
@@ -38,15 +39,19 @@ namespace TallerMecanica.Views
             }
             else
             {
-                Cliente c = new Cliente();
+                //SqlConnection conexión = new SqlConnection("server=(local)\\SQLEXPRESS;database=master; IntegratedSecurity = SSPI");
+
+               Cliente c = new Cliente();
                 c.nombreCompleto = tbnombre.Text;
                 c.contrasena = tbcontraseña.Text;
                 c.email = tbemail.Text;
                 c.telefono1 = tbtelefono.Text;
                 c.isAdmin = false;
-
+                c.telefono2 = "387284";
+                c.idCliente = 0;
+                
                 dbClientes conexion = new dbClientes();
-                conexion.Update(c);
+                conexion.Insert(c);
 
                 MessageBox.Show("cliente creado!!");
             }
