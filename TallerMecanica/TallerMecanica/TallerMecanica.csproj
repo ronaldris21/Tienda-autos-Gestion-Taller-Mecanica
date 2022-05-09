@@ -102,6 +102,7 @@
     <Compile Include="Repositories\BaseRepository.cs" />
     <Compile Include="Repositories\dbClientes.cs" />
     <Compile Include="Repositories\dbProductoComprado.cs" />
+    <Compile Include="Repositories\Exportar.cs" />
     <Compile Include="Repositories\RCategoria.cs" />
     <Compile Include="Repositories\IRepository.cs" />
     <Compile Include="Repositories\RMateriaPrima.cs" />
