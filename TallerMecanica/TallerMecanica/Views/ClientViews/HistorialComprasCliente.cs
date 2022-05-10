@@ -8,8 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using TallerMecanica.Models;
-using Excel = Microsoft.Office.Interop.Excel;
 using System.Reflection;
+using Excel = Microsoft.Office.Interop.Excel;
 using TallerMecanica.Repositories;
 
 namespace TallerMecanica.Views.ClientViews
@@ -85,8 +85,6 @@ namespace TallerMecanica.Views.ClientViews
         {
             Exportar exp = new Exportar();
             exp.ExportarDataGridViewExcel(dataGridView_MateriaPrimas);
-
-
         }
     }
 }
