@@ -83,6 +83,7 @@ namespace TallerMecanica.Views.ClientViews
 
         private void btnFactura_Click(object sender, EventArgs e)
         {
+            //Exporta el DataGridView de la materia Prima al Excel
             Exportar exp = new Exportar();
             exp.ExportarDataGridViewExcel(dataGridView_MateriaPrimas);
         }
