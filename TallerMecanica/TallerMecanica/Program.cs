@@ -15,6 +15,15 @@ namespace TallerMecanica
         static void Main()
         {
             //new InitFakeData();
+            Singleton.cliente_login = new Models.Cliente()
+            {
+                isAdmin = true,
+                nombreCompleto = "Ronaldd ris0",
+                email = "retejada@alu.ucam.edu",
+                contrasena = "1234",
+                idCliente = 1,
+                telefono1 = "747654894"
+            };
 
             themeColor.PrimaryColor = themeColor.defaultColor;
             themeColor.SecondaryColor = themeColor.ChangeColorBrightness(themeColor.defaultColor, 0.3);

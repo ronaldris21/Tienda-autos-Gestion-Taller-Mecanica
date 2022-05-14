@@ -11,15 +11,7 @@ namespace TallerMecanica
     public class Singleton
     {
         //sigleton.clientelogin =
-        public static Cliente cliente_login = new Cliente()
-        {
-            isAdmin = true,
-            nombreCompleto = "Ronaldd ris0",
-            email = "retejada@alu.ucam.edu",
-            contrasena = "1234",
-            idCliente = 1,
-            telefono1 = "747654894"
-        };
+        public static Cliente cliente_login;
 
         public static List<MateriaPrima_ProductoComprado> itemsCompra = new List<MateriaPrima_ProductoComprado>();
     }
