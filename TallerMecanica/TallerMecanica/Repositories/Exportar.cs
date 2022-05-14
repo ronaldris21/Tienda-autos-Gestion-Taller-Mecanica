@@ -44,8 +44,8 @@ namespace TallerMecanica.Repositories
 					aplicacion.Cells[1, 4] = "Pedido Confirmado";
 					aplicacion.Cells[2, 4] = producto.pedidoConfirmado;
 
-					aplicacion.Cells[1, 5] = "Coste Ensamblado";
-					aplicacion.Cells[2, 5] = producto.costoEnsamblado;
+					aplicacion.Cells[1, 6] = "Coste Ensamblado";
+					aplicacion.Cells[2, 6] = producto.costoEnsamblado;
 
 					//Recorremos el DataGRidView rellenando la hoja de trabajo
 					for (int i = 1; i < grd.Columns.Count + 1; i++)
