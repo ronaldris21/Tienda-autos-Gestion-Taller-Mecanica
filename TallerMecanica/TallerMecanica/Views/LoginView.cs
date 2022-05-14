@@ -104,7 +104,7 @@ namespace TallerMecanica.Views
 
                     this.Hide();
                     var form = new AdminMainView();
-                    form.Closed += (s, args) => this.Close();
+                    form.Closed += (s, args) => this.Show();
                     form.Show();
 
                 }
@@ -113,7 +113,7 @@ namespace TallerMecanica.Views
 
                     this.Hide();
                     var form = new AdminMainView();
-                    form.Closed += (s, args) => this.Close();
+                    form.Closed += (s, args) => this.Show();
                     form.Show();
                 }
 
