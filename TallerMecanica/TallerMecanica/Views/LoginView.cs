@@ -95,14 +95,19 @@ namespace TallerMecanica.Views
             {
                 if(c.isAdmin == true){
 
-                    new AdminMainView().Show();
-                    this.Close();
+                    this.Hide();
+                    var form = new AdminMainView();
+                    form.Closed += (s, args) => this.Close();
+                    form.Show();
 
                 }
                 else
                 {
-                    new ClientMainView().Show();
-                    this.Close();
+
+                    this.Hide();
+                    var form = new AdminMainView();
+                    form.Closed += (s, args) => this.Close();
+                    form.Show();
                 }
 
             }
