@@ -60,5 +60,20 @@ namespace TallerMecanica.Views
         {
             Close();
         }
+
+        private void button2_Click_1(object sender, EventArgs e)
+        {
+            new AdminMainView().Show();
+        }
+
+        private void button3_Click_1(object sender, EventArgs e)
+        {
+            new ClientMainView().Show();
+        }
+
+        private void linkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            new SignupView().Show();
+        }
     }
 }
