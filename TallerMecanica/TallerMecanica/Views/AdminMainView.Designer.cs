@@ -66,7 +66,11 @@ namespace TallerMecanica.Views
             this.panelMenu.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelMenu.Location = new System.Drawing.Point(0, 0);
             this.panelMenu.Name = "panelMenu";
-            this.panelMenu.Size = new System.Drawing.Size(220, 521);
+
+            
+
+            this.panelMenu.Size = new System.Drawing.Size(220, 561);
+
             this.panelMenu.TabIndex = 0;
             // 
             // btnproductosPreEnsamblados
@@ -231,7 +235,10 @@ namespace TallerMecanica.Views
             this.panelTitlebar.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelTitlebar.Location = new System.Drawing.Point(220, 0);
             this.panelTitlebar.Name = "panelTitlebar";
-            this.panelTitlebar.Size = new System.Drawing.Size(646, 80);
+
+
+            this.panelTitlebar.Size = new System.Drawing.Size(964, 80);
+
             this.panelTitlebar.TabIndex = 1;
             // 
             // btncerrar
@@ -253,7 +260,11 @@ namespace TallerMecanica.Views
             this.lblTitle.AutoSize = true;
             this.lblTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTitle.ForeColor = System.Drawing.Color.White;
-            this.lblTitle.Location = new System.Drawing.Point(268, 32);
+
+           
+
+            this.lblTitle.Location = new System.Drawing.Point(427, 32);
+
             this.lblTitle.Name = "lblTitle";
             this.lblTitle.Size = new System.Drawing.Size(78, 26);
             this.lblTitle.TabIndex = 0;
@@ -265,7 +276,10 @@ namespace TallerMecanica.Views
             this.panelDesktop.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelDesktop.Location = new System.Drawing.Point(220, 80);
             this.panelDesktop.Name = "panelDesktop";
-            this.panelDesktop.Size = new System.Drawing.Size(646, 441);
+
+
+            this.panelDesktop.Size = new System.Drawing.Size(964, 481);
+
             this.panelDesktop.TabIndex = 2;
             // 
             // panelMDI
@@ -275,14 +289,20 @@ namespace TallerMecanica.Views
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panelMDI.Location = new System.Drawing.Point(0, 0);
             this.panelMDI.Name = "panelMDI";
-            this.panelMDI.Size = new System.Drawing.Size(646, 441);
+
+
+            this.panelMDI.Size = new System.Drawing.Size(964, 481);
+
             this.panelMDI.TabIndex = 0;
             // 
             // AdminMainView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(866, 521);
+
+
+            this.ClientSize = new System.Drawing.Size(1184, 561);
+
             this.Controls.Add(this.panelDesktop);
             this.Controls.Add(this.panelTitlebar);
             this.Controls.Add(this.panelMenu);
