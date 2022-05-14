@@ -75,5 +75,10 @@ namespace TallerMecanica.Views
         {
             new SignupView().Show();
         }
+
+        private void txtuser_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

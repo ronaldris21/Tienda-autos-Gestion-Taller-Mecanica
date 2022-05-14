@@ -82,6 +82,7 @@ namespace TallerMecanica.Views
             this.txtuser.Name = "txtuser";
             this.txtuser.Size = new System.Drawing.Size(318, 20);
             this.txtuser.TabIndex = 2;
+            this.txtuser.TextChanged += new System.EventHandler(this.txtuser_TextChanged);
             // 
             // UserName
             // 
