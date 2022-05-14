@@ -17,7 +17,7 @@ namespace TallerMecanica.Repositories
 			try
 			{
 				SaveFileDialog fichero = new SaveFileDialog();
-				fichero.Filter = "Excel (*.xls)|*.xls";
+				fichero.Filter = "Excel (*.xlsx)|*.xlsx";
 				fichero.FileName = "ArchivoExportado";
 
 				if (fichero.ShowDialog() == DialogResult.OK)
@@ -45,7 +45,7 @@ namespace TallerMecanica.Repositories
                     }
 					aplicacion.Columns.AutoFit();
 					aplicacion.Visible = true;
-					aplicacion.Quit();
+					libros_trabajo.SaveAs(Filename: fichero.FileName);
 				}
 			}
 			catch (Exception ex)
