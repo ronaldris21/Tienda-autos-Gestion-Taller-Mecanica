@@ -3,6 +3,13 @@ using System.Drawing;
 using System.Windows.Forms;
 using TallerMecanica.Models;
 using TallerMecanica.Repositories;
+using System.Net.Mail;
+using System.Configuration;
+using System.Web.Configuration;
+using System.Net.Configuration;
+using System.Net;
+using System.Security.Cryptography.X509Certificates;
+using System.Net.Security;
 
 namespace TallerMecanica.Views
 {
@@ -111,6 +118,11 @@ namespace TallerMecanica.Views
                 }
 
             }
+        }
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+
         }
     }
 }
