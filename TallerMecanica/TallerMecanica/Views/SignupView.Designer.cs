@@ -40,7 +40,9 @@ namespace TallerMecanica.Views
             this.tbtelefono = new System.Windows.Forms.TextBox();
             this.tbcontraseña = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // button1
@@ -166,10 +168,21 @@ namespace TallerMecanica.Views
             this.panel1.Controls.Add(this.tbemail);
             this.panel1.Controls.Add(this.label4);
             this.panel1.Controls.Add(this.tbnombre);
-            this.panel1.Location = new System.Drawing.Point(60, 47);
+            this.panel1.Location = new System.Drawing.Point(41, 43);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(351, 314);
+            this.panel1.Size = new System.Drawing.Size(370, 318);
             this.panel1.TabIndex = 10;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::TallerMecanica.Properties.Resources.cross_out__2_;
+            this.pictureBox1.Location = new System.Drawing.Point(369, 12);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(68, 20);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 12;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // SignupView
             // 
@@ -177,6 +190,7 @@ namespace TallerMecanica.Views
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(59)))), ((int)(((byte)(104)))));
             this.ClientSize = new System.Drawing.Size(449, 475);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.button1);
@@ -185,6 +199,7 @@ namespace TallerMecanica.Views
             this.Load += new System.EventHandler(this.SignupView_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -203,5 +218,6 @@ namespace TallerMecanica.Views
         private System.Windows.Forms.TextBox tbtelefono;
         private System.Windows.Forms.TextBox tbcontraseña;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
