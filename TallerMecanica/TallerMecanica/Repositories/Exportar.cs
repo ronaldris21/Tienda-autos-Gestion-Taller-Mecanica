@@ -44,13 +44,13 @@ namespace TallerMecanica.Repositories
 					aplicacion.Cells[1, 4] = "Pedido Confirmado";
 					aplicacion.Cells[2, 4] = producto.pedidoConfirmado;
 
-					aplicacion.Cells[1, 6] = "Coste Ensamblado";
-					aplicacion.Cells[2, 6] = producto.costoEnsamblado;
+					aplicacion.Cells[1, 5] = "Coste Ensamblado";
+					aplicacion.Cells[2, 5] = producto.costoEnsamblado;
 
 					//Recorremos el DataGRidView rellenando la hoja de trabajo
 					for (int i = 1; i < grd.Columns.Count + 1; i++)
 					{
-						aplicacion.Cells[5, i] = grd.Columns[i - 1].HeaderText;
+						aplicacion.Cells[6, i] = grd.Columns[i - 1].HeaderText;
 					}
 
 					for (int i = 0; i < grd.Rows.Count; i++)
@@ -61,7 +61,7 @@ namespace TallerMecanica.Repositories
                         }
                     }
 
-					aplicacion.Cells[1, 6] = "Precio Total";
+					aplicacion.Cells[1, 5] = "Precio Total";
 					
 					aplicacion.Columns.AutoFit();
 					aplicacion.Visible = true;
