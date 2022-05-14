@@ -7,6 +7,7 @@ using Excel = Microsoft.Office.Interop.Excel;
 using System.Windows.Forms;
 using System.Reflection;
 using TallerMecanica.Models;
+using System.Globalization;
 
 namespace TallerMecanica.Repositories
 {
@@ -57,7 +58,7 @@ namespace TallerMecanica.Repositories
                     {
 						for (int j = 0; j < grd.Columns.Count; j++)
                         {
-							aplicacion.Cells[i + 6, j + 1] = grd.Rows[i].Cells[j].Value.ToString();
+                            aplicacion.Cells[i + 6, j + 1] = grd.Rows[i].Cells[j].Value.ToString();
                         }
                     }
 
