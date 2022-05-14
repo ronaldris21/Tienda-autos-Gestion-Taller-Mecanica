@@ -8,7 +8,7 @@ namespace TallerMecanica
 {
     class InitFakeData
     {
-   
+
         public InitFakeData()
         {
             Models.TallerMecanicoEntities1 dbContext = new TallerMecanicoEntities1();
@@ -48,12 +48,12 @@ namespace TallerMecanica
                 .RuleFor(o => o.idCategoria, f => f.Random.ArrayElement<int>(dbContext.Categoria.Select(c => c.idCategoria).ToArray()))
                 .RuleFor(o => o.marca, f => f.Commerce.ProductMaterial())
                 .RuleFor(o => o.nombre, f => f.Commerce.ProductName())
-                .RuleFor(o => o.precioCompra, f => f.Random.Double(25, 500))
-                .RuleFor(o => o.precioCompra, (f, o) => o.precioCompra + f.Random.Double(25, 100))
+                .RuleFor(o => o.precioVenta, (f, o) => o.precioVenta + Math.Round(f.Random.Double(25, 500), 2))
+                .RuleFor(o => o.precioCompra, (f, o) => o.precioCompra + Math.Round(f.Random.Double(25, 500), 2))
                 ;
 
             var FakerProductosCompra = new Faker<ProductoComprado>()
-                .RuleFor(o => o.descripcion, f => f.Commerce.ProductDescription().Substring(0,50))
+                .RuleFor(o => o.descripcion, f => f.Commerce.ProductDescription().Substring(0, 50))
                 .RuleFor(o => o.idCliente, f => f.Random.ArrayElement<int>(dbContext.Cliente.Select(c => c.idCliente).ToArray()))
                 .RuleFor(o => o.fechaCompra, f => f.Date.Past())
                 .RuleFor(o => o.fechaEntregaPrevista, f => f.Date.Past())
@@ -64,7 +64,7 @@ namespace TallerMecanica
 
             var FakerProductosEnsamblados = new Faker<ProductoPreEnsamblado>()
                 .RuleFor(o => o.descripcion, f => f.Commerce.ProductDescription().Substring(0, 50))
-                .RuleFor(o => o.costoEnsamblado, f => f.Random.Double(25, 500))
+                .RuleFor(o => o.costoEnsamblado, f => Math.Round(f.Random.Double(25, 500), 2))
             ;
 
             var FakerItemProductoComprado = new Faker<MateriaPrima_ProductoComprado>()
@@ -91,7 +91,6 @@ namespace TallerMecanica
                 {
                     Console.WriteLine(user);
                     dbContext.Cliente.Add(user);
-                    dbContext.SaveChanges();
                 }
                 catch (DbEntityValidationException ex)
                 {
@@ -104,15 +103,15 @@ namespace TallerMecanica
                     }
                 }
             }
+            dbContext.SaveChanges();
 
-            foreach (var item in FakerProductosCompra.Generate(20))
+            foreach (var item in FakerProductosCompra.Generate(10))
             {
 
                 try ///Add, Update, Remove
                 {
                     Console.WriteLine(item);
                     dbContext.ProductoComprado.Add(item);
-                    dbContext.SaveChanges();
                 }
                 catch (DbEntityValidationException ex)
                 {
@@ -125,6 +124,7 @@ namespace TallerMecanica
                     }
                 }
             }
+            dbContext.SaveChanges();
 
             foreach (var item in FakerProductosEnsamblados.Generate(12))
             {
@@ -133,7 +133,6 @@ namespace TallerMecanica
                     Console.WriteLine(item);
                     dbContext.ProductoPreEnsamblado.Add(item);
 
-                    dbContext.SaveChanges();
                 }
                 catch (DbEntityValidationException ex)
                 {
@@ -145,6 +144,15 @@ namespace TallerMecanica
                         }
                     }
                 }
+            }
+            try
+            {
+                dbContext.SaveChanges();
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
             }
 
             foreach (var item in FakerCategorias.Generate(10))
@@ -154,7 +162,6 @@ namespace TallerMecanica
                 {
                     Console.WriteLine(item);
                     dbContext.Categoria.Add(item);
-                    dbContext.SaveChanges();
                 }
                 catch (DbEntityValidationException ex)
                 {
@@ -167,15 +174,14 @@ namespace TallerMecanica
                     }
                 }
             }
+            dbContext.SaveChanges();
 
             foreach (var item in FakerMateriales.Generate(100))
             {
-
                 try
                 {
                     Console.WriteLine(item);
                     dbContext.MateriaPrima.Add(item);
-                    dbContext.SaveChanges();
                 }
                 catch (DbEntityValidationException ex)
                 {
@@ -188,6 +194,7 @@ namespace TallerMecanica
                     }
                 }
             }
+            dbContext.SaveChanges();
 
             foreach (var item in FakerItemProductoComprado.Generate(100))
             {
@@ -196,7 +203,6 @@ namespace TallerMecanica
                 {
                     Console.WriteLine(item);
                     dbContext.MateriaPrima_ProductoComprado.Add(item);
-                    dbContext.SaveChanges();
                 }
                 catch (DbEntityValidationException ex)
                 {
@@ -209,6 +215,7 @@ namespace TallerMecanica
                     }
                 }
             }
+            dbContext.SaveChanges();
 
             foreach (var item in FakerItemProductoPreEnsamblados.Generate(100))
             {
@@ -217,7 +224,6 @@ namespace TallerMecanica
                 {
                     Console.WriteLine(item);
                     dbContext.MateriaPrima_ProductoPreEnsamblado.Add(item);
-                    dbContext.SaveChanges();
                 }
                 catch (DbEntityValidationException ex)
                 {
@@ -230,6 +236,7 @@ namespace TallerMecanica
                     }
                 }
             }
+            dbContext.SaveChanges();
 
 
 

@@ -18,7 +18,31 @@ namespace TallerMecanica.Views.SharedViews
         {
             InitializeComponent();
             themeColor.Loadtheme(this);
-            
+            initData();
+        }
+
+        private void initData()
+        {
+            dataGridView1.Rows.Clear();
+            ///Leo las categorias
+            //categorias = new RCategoria().GetAll().ToList();
+
+
+            ////Create ComboBox Source - Put item categorie first
+            //var categoryNames = new List<String>(
+            //                from c in categorias
+            //                select c.nombreCategoria);
+            //(dataGridView1.Columns[6] as DataGridViewComboBoxColumn).DataSource = categoryNames;
+
+            ////Leo las piezas
+            //var datos = repo.GetAll();
+            //foreach (MateriaPrima item in datos)
+            //{
+            //    this.dataGridView1.Rows.Add(
+            //        new object[] {
+            //            item.idMateriaPrima.ToString(), item.nombre , item.marca, item.precioCompra, item.precioVenta, item.cantidadStock, categorias.Where(c => c.idCategoria == item.idCategoria).Select(c => c.nombreCategoria).FirstOrDefault()
+            //        });
+            //}
         }
 
         private void dataGridView1_CellEndEdit(object sender, DataGridViewCellEventArgs e)
