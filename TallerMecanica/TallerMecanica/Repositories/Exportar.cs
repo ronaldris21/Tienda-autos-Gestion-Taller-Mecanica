@@ -36,6 +36,7 @@ namespace TallerMecanica.Repositories
 					aplicacion.Cells[1, 2] = "Taller Mécánica";
 					aplicacion.Cells[2, 2] = "Teléfono: 78945612";
 					aplicacion.Cells[3, 2] = "Calle de los Molinos Nº2 CP: 30009";
+					aplicacion.Cells[4, 2] = "Cliente: "+Singleton.cliente_login.nombreCompleto;
 
 					aplicacion.Cells[5, 1] = "ID";
 					aplicacion.Cells[6, 1] = producto.idProductoComprado;
