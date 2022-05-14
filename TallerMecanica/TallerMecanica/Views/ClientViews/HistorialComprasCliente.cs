@@ -16,7 +16,7 @@ namespace TallerMecanica.Views.ClientViews
 {
     public partial class HistorialComprasCliente : Form
     {
-        List<ProductoComprado> producto;
+        List<ProductoComprado> productos;
         public HistorialComprasCliente()
         {
             InitializeComponent();
@@ -25,7 +25,7 @@ namespace TallerMecanica.Views.ClientViews
             Singleton.cliente_login.idCliente = 2;
 
             TallerMecanicoEntities1 dbContext = new TallerMecanicoEntities1(); ///ONSULTAR LA BASE DE DATOS
-            List<ProductoComprado> productos = dbContext.ProductoComprado
+            productos = dbContext.ProductoComprado
                                                 .Where(c => c.idCliente == Singleton.cliente_login.idCliente)
                                                 .ToList(); //LINQ
 
@@ -72,22 +72,22 @@ namespace TallerMecanica.Views.ClientViews
             {
                 this.dataGridView_MateriaPrimas.Rows.Add(
                     new object[] {
-                        item.idMateriaPrima.ToString(), 
+                        item.idMateriaPrima.ToString(),
                         item.MateriaPrima.nombre,
                         item.MateriaPrima.marca,
                         item.cantidad,
                         item.MateriaPrima.Categoria.nombreCategoria,
-                        item.MateriaPrima.precioVenta
+                        item.MateriaPrima.precioCompra
                     });
             }
         }
 
         private void btnFactura_Click(object sender, EventArgs e)
         {
-            ProductoComprado productoSeleccionado = producto[dataGridView_ProductosComprados.SelectedRows[0].Index];
+            ProductoComprado productoSeleccionado = productos[dataGridView_ProductosComprados.SelectedRows[0].Index];
             //Exporta el DataGridView de la materia Prima al Excel
             Exportar exp = new Exportar();
-            exp.ExportarDataGridViewExcel(dataGridView_MateriaPrimas);
+            exp.ExportarDataGridViewExcel(dataGridView_MateriaPrimas, productoSeleccionado);
         }
     }
 }
