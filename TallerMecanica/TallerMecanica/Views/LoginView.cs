@@ -4,7 +4,6 @@ using System.Windows.Forms;
 using TallerMecanica.Models;
 using TallerMecanica.Repositories;
 using System.Net.Mail;
-using System.Configuration;
 
 using System.Net.Configuration;
 using System.Net;

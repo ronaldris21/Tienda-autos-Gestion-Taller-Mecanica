@@ -7,6 +7,7 @@ using Excel = Microsoft.Office.Interop.Excel;
 using System.Windows.Forms;
 using System.Reflection;
 using TallerMecanica.Models;
+using System.Globalization;
 
 namespace TallerMecanica.Repositories
 {
@@ -50,18 +51,18 @@ namespace TallerMecanica.Repositories
 					//Recorremos el DataGRidView rellenando la hoja de trabajo
 					for (int i = 1; i < grd.Columns.Count + 1; i++)
 					{
-						aplicacion.Cells[6, i] = grd.Columns[i - 1].HeaderText;
+						aplicacion.Cells[5, i] = grd.Columns[i - 1].HeaderText;
 					}
 
 					for (int i = 0; i < grd.Rows.Count; i++)
                     {
 						for (int j = 0; j < grd.Columns.Count; j++)
                         {
-							aplicacion.Cells[i + 6, j + 1] = grd.Rows[i].Cells[j].Value.ToString();
+                            aplicacion.Cells[i + 6, j + 1] = grd.Rows[i].Cells[j].Value.ToString();
                         }
                     }
 
-					aplicacion.Cells[1, 5] = "Precio Total";
+					aplicacion.Cells[1, 6] = "Precio Total";
 					
 					aplicacion.Columns.AutoFit();
 					aplicacion.Visible = true;
