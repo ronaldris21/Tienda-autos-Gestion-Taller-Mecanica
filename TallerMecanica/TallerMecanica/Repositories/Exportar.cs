@@ -37,38 +37,45 @@ namespace TallerMecanica.Repositories
 					aplicacion.Cells[2, 2] = "Teléfono: 78945612";
 					aplicacion.Cells[3, 2] = "Calle de los Molinos Nº2 CP: 30009";
 
-					aplicacion.Cells[1, 1] = "ID";
-					aplicacion.Cells[2, 1] = producto.idProductoComprado;
+					aplicacion.Cells[5, 1] = "ID";
+					aplicacion.Cells[6, 1] = producto.idProductoComprado;
 
-					aplicacion.Cells[1, 2] = "Descripción";
-					aplicacion.Cells[2, 2] = producto.descripcion.Trim();
+					aplicacion.Cells[5, 2] = "Descripción";
+					aplicacion.Cells[6, 2] = producto.descripcion.Trim();
 
-					aplicacion.Cells[1, 3] = "Fecha de Compra";
-					aplicacion.Cells[2, 3] = producto.fechaCompra;
+					aplicacion.Cells[5, 3] = "Fecha de Compra";
+					aplicacion.Cells[6, 3] = producto.fechaCompra;
 
-					aplicacion.Cells[1, 4] = "Pedido Confirmado";
-					aplicacion.Cells[2, 4] = producto.pedidoConfirmado;
+					aplicacion.Cells[5, 4] = "Pedido Confirmado";
+					aplicacion.Cells[6, 4] = producto.pedidoConfirmado;
 
-					aplicacion.Cells[1, 5] = "Coste Ensamblado";
-					aplicacion.Cells[2, 5] = producto.costoEnsamblado;
+					aplicacion.Cells[5, 5] = "Coste Ensamblado";
+					aplicacion.Cells[6, 5] = producto.costoEnsamblado;
+
+					aplicacion.Cells[5, 6] = "Precio Total";
+					aplicacion.Cells[6, 6] = preciototal;
 
 					//Recorremos el DataGRidView rellenando la hoja de trabajo
 					for (int i = 1; i < grd.Columns.Count + 1; i++)
 					{
-						aplicacion.Cells[5, i] = grd.Columns[i - 1].HeaderText;
+						aplicacion.Cells[8, i] = grd.Columns[i - 1].HeaderText;
 					}
-
+					int ultimafila=10;
 					for (int i = 0; i < grd.Rows.Count; i++)
                     {
 						for (int j = 0; j < grd.Columns.Count; j++)
                         {
-                            aplicacion.Cells[i + 6, j + 1] = grd.Rows[i].Cells[j].Value.ToString();
+							ultimafila = i + 9;
+
+							aplicacion.Cells[ultimafila, j + 1] = grd.Rows[i].Cells[j].Value.ToString();
                         }
                     }
+					ultimafila++;
+					aplicacion.Cells[ultimafila, 5] = "Precio Total";
+					aplicacion.Cells[ultimafila, 6] = preciototal;
 
-					aplicacion.Cells[1, 6] = "Precio Total";
-					aplicacion.Cells[2, 6] = preciototal;
-					
+
+
 					aplicacion.Columns.AutoFit();
 					aplicacion.Visible = true;
 					libros_trabajo.SaveAs(Filename: fichero.FileName);
