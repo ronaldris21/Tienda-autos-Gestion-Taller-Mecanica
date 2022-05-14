@@ -5,7 +5,7 @@ using TallerMecanica.Models;
 using TallerMecanica.Repositories;
 using System.Net.Mail;
 using System.Configuration;
-using System.Web.Configuration;
+
 using System.Net.Configuration;
 using System.Net;
 using System.Security.Cryptography.X509Certificates;
@@ -100,6 +100,7 @@ namespace TallerMecanica.Views
             }
             else
             {
+                Singleton.cliente_login = c;
                 if(c.isAdmin == true){
 
                     this.Hide();
@@ -112,7 +113,7 @@ namespace TallerMecanica.Views
                 {
 
                     this.Hide();
-                    var form = new AdminMainView();
+                    var form = new ClientMainView();
                     form.Closed += (s, args) => this.Show();
                     form.Show();
                 }
@@ -121,6 +122,25 @@ namespace TallerMecanica.Views
         }
 
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            MailMessage correo = new MailMessage();
+            correo.From = new MailAddress("pepitodelospalotes1223@gmail.com", "Kyocode", System.Text.Encoding.UTF8);//Correo de salida
+            correo.To.Add(txtuser.Text); //Correo destino?
+            correo.Subject = "Correo de prueba"; //Asunto
+            correo.Body = "Este es un correo de prueba desde c#"; //Mensaje del correo
+            correo.IsBodyHtml = true;
+            correo.Priority = MailPriority.Normal;
+            SmtpClient smtp = new SmtpClient();
+            smtp.UseDefaultCredentials = false;
+            smtp.Host = "smtp.gmail.com"; //Host del servidor de correo
+            smtp.Port = 25; //Puerto de salida
+            smtp.Credentials = new System.Net.NetworkCredential("pepitodelospalotes1223@gmail.com", "trabajoPVA");//Cuenta de correo
+            ServicePointManager.ServerCertificateValidationCallback = delegate (object s, X509Certificate certificate, X509Chain chain, SslPolicyErrors sslPolicyErrors) { return true; };
+            smtp.EnableSsl = true;//True si el servidor de correo permite ssl
+            smtp.Send(correo);
+        }
+
+        private void LoginView_Load(object sender, EventArgs e)
         {
 
         }
