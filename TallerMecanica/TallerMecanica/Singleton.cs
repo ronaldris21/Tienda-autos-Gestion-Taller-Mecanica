@@ -10,7 +10,7 @@ namespace TallerMecanica
 {
     public class Singleton
     {
-        
+        //sigleton.clientelogin =
         public static Cliente cliente_login = new Cliente()
         {
             isAdmin = true,

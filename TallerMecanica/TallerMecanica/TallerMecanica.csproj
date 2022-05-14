@@ -305,6 +305,9 @@
     <Content Include="Recursos\shopping-list.png" />
     <Content Include="Recursos\value %281%29.png" />
     <Content Include="Recursos\value.png" />
+    <None Include="Resources\44622.png" />
+    <None Include="Resources\descarga.png" />
+    <None Include="Resources\Close-Icon-by-Kanggraphic-580x386.jpg" />
     <Content Include="SqlScript.sql" />
   </ItemGroup>
   <ItemGroup>

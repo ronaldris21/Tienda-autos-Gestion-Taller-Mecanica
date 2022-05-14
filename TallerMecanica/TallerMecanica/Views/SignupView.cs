@@ -54,6 +54,7 @@ namespace TallerMecanica.Views
                 conexion.Insert(c);
 
                 MessageBox.Show("cliente creado!!");
+                Close();
             }
         }
     }

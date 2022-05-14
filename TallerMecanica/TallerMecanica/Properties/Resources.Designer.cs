@@ -63,6 +63,16 @@ namespace TallerMecanica.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _44622 {
+            get {
+                object obj = ResourceManager.GetObject("44622", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap alarm__1_ {
             get {
                 object obj = ResourceManager.GetObject("alarm (1)", resourceCulture);
@@ -103,6 +113,16 @@ namespace TallerMecanica.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Close_Icon_by_Kanggraphic_580x386 {
+            get {
+                object obj = ResourceManager.GetObject("Close-Icon-by-Kanggraphic-580x386", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap cross_out__2_ {
             get {
                 object obj = ResourceManager.GetObject("cross-out (2)", resourceCulture);
@@ -116,6 +136,16 @@ namespace TallerMecanica.Properties {
         internal static System.Drawing.Bitmap cross_out__2_1 {
             get {
                 object obj = ResourceManager.GetObject("cross-out (2)1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap descarga {
+            get {
+                object obj = ResourceManager.GetObject("descarga", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

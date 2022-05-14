@@ -125,8 +125,10 @@ namespace TallerMecanica.Views
             // 
             this.tbcontraseña.Location = new System.Drawing.Point(168, 245);
             this.tbcontraseña.Name = "tbcontraseña";
+            this.tbcontraseña.PasswordChar = '*';
             this.tbcontraseña.Size = new System.Drawing.Size(100, 20);
             this.tbcontraseña.TabIndex = 9;
+            this.tbcontraseña.UseSystemPasswordChar = true;
             // 
             // SignupView
             // 

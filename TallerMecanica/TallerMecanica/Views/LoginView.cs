@@ -35,5 +35,30 @@ namespace TallerMecanica.Views
         {
             new SignupView().Show();
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tbemail_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void titlebar_MouseMove(object sender, MouseEventArgs e)
+        {
+            
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
     }
 }
