@@ -22,7 +22,7 @@ namespace TallerMecanica.Views.ClientViews
             InitializeComponent();
             themeColor.Loadtheme(this);
 
-            Singleton.cliente_login.idCliente = 2;
+            Singleton.cliente_login.idCliente = 9;
 
             TallerMecanicoEntities1 dbContext = new TallerMecanicoEntities1(); ///ONSULTAR LA BASE DE DATOS
             productos = dbContext.ProductoComprado
@@ -87,7 +87,7 @@ namespace TallerMecanica.Views.ClientViews
             ProductoComprado productoSeleccionado = productos[dataGridView_ProductosComprados.SelectedRows[0].Index];
             //Exporta el DataGridView de la materia Prima al Excel
             Exportar exp = new Exportar();
-            exp.ExportarDataGridViewExcel(dataGridView_MateriaPrimas, productoSeleccionado);
+            exp.ExportarDataGridViewExcel(dataGridView_MateriaPrimas, productoSeleccionado, dataGridView_ProductosComprados.SelectedRows[0].Cells[4].Value.ToString());
         }
     }
 }
