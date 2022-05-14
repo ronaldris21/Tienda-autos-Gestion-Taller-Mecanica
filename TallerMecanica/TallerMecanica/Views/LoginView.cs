@@ -5,7 +5,6 @@ using TallerMecanica.Models;
 using TallerMecanica.Repositories;
 using System.Net.Mail;
 using System.Configuration;
-using System.Web.Configuration;
 using System.Net.Configuration;
 using System.Net;
 using System.Security.Cryptography.X509Certificates;
