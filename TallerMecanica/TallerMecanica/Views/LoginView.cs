@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Drawing;
 using System.Windows.Forms;
+using TallerMecanica.Models;
+using TallerMecanica.Repositories;
 
 namespace TallerMecanica.Views
 {
@@ -79,6 +81,31 @@ namespace TallerMecanica.Views
         private void txtuser_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            Cliente c = new dbClientes().Login(txtuser.Text, txtpassword.Text);
+            if(c == null)
+            {
+                MessageBox.Show("no existe el usuario, pruebe de nuevo");
+                
+            }
+            else
+            {
+                if(c.isAdmin == true){
+
+                    new AdminMainView().Show();
+                    this.Close();
+
+                }
+                else
+                {
+                    new ClientMainView().Show();
+                    this.Close();
+                }
+
+            }
         }
     }
 }

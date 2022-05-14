@@ -91,9 +91,9 @@ namespace TallerMecanica.Views
             this.UserName.ForeColor = System.Drawing.Color.Silver;
             this.UserName.Location = new System.Drawing.Point(32, 126);
             this.UserName.Name = "UserName";
-            this.UserName.Size = new System.Drawing.Size(90, 21);
+            this.UserName.Size = new System.Drawing.Size(51, 21);
             this.UserName.TabIndex = 3;
-            this.UserName.Text = "UserName";
+            this.UserName.Text = "Email";
             // 
             // label1
             // 
@@ -130,6 +130,7 @@ namespace TallerMecanica.Views
             this.button1.TabIndex = 7;
             this.button1.Text = "Login";
             this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click_1);
             // 
             // label2
             // 
