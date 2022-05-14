@@ -16,6 +16,7 @@ namespace TallerMecanica.Views.ClientViews
 {
     public partial class HistorialComprasCliente : Form
     {
+        List<ProductoComprado> producto;
         public HistorialComprasCliente()
         {
             InitializeComponent();
@@ -83,6 +84,7 @@ namespace TallerMecanica.Views.ClientViews
 
         private void btnFactura_Click(object sender, EventArgs e)
         {
+            ProductoComprado productoSeleccionado = producto[dataGridView_ProductosComprados.SelectedRows[0].Index];
             //Exporta el DataGridView de la materia Prima al Excel
             Exportar exp = new Exportar();
             exp.ExportarDataGridViewExcel(dataGridView_MateriaPrimas);
