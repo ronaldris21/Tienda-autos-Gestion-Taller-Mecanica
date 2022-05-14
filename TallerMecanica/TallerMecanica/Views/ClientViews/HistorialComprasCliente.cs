@@ -43,8 +43,8 @@ namespace TallerMecanica.Views.ClientViews
                         item.descripcion,
                         item.fechaCompra.ToString("yyyy/MM/dd"),
                         item.pedidoConfirmado,
-                        item.costoEnsamblado.ToString(),
-                        precio
+                        precio,
+                        item.costoEnsamblado.ToString()
                     }) ;
             }
 
