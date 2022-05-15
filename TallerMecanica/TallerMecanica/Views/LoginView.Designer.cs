@@ -39,10 +39,10 @@ namespace TallerMecanica.Views
             this.button1 = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.linkLabel2 = new System.Windows.Forms.LinkLabel();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.titlebar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -113,8 +113,10 @@ namespace TallerMecanica.Views
             this.txtpassword.ForeColor = System.Drawing.Color.White;
             this.txtpassword.Location = new System.Drawing.Point(36, 229);
             this.txtpassword.Name = "txtpassword";
+            this.txtpassword.PasswordChar = '*';
             this.txtpassword.Size = new System.Drawing.Size(318, 20);
             this.txtpassword.TabIndex = 4;
+            this.txtpassword.UseSystemPasswordChar = true;
             // 
             // button1
             // 
@@ -156,17 +158,6 @@ namespace TallerMecanica.Views
             this.linkLabel1.Text = "Forgot password";
             this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::TallerMecanica.Properties.Resources.cross_out__2_;
-            this.pictureBox1.Location = new System.Drawing.Point(318, 12);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(68, 20);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 11;
-            this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
-            // 
             // linkLabel2
             // 
             this.linkLabel2.AutoSize = true;
@@ -199,6 +190,17 @@ namespace TallerMecanica.Views
             this.button3.Text = "cliente";
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click_1);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::TallerMecanica.Properties.Resources.cross_out__2_;
+            this.pictureBox1.Location = new System.Drawing.Point(318, 12);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(68, 20);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 11;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // LoginView
             // 
