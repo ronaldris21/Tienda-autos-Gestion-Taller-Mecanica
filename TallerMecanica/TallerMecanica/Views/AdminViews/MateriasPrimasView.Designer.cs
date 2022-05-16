@@ -49,7 +49,7 @@ namespace TallerMecanica.Views.AdminViews
             this.btnReload.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnReload.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnReload.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnReload.Location = new System.Drawing.Point(257, 290);
+            this.btnReload.Location = new System.Drawing.Point(527, 358);
             this.btnReload.Name = "btnReload";
             this.btnReload.Size = new System.Drawing.Size(91, 40);
             this.btnReload.TabIndex = 34;
@@ -76,7 +76,7 @@ namespace TallerMecanica.Views.AdminViews
             this.dataGridView1.Location = new System.Drawing.Point(17, 37);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(615, 247);
+            this.dataGridView1.Size = new System.Drawing.Size(885, 315);
             this.dataGridView1.TabIndex = 33;
             // 
             // Column1
@@ -131,7 +131,7 @@ namespace TallerMecanica.Views.AdminViews
             this.btnDeleteItem.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnDeleteItem.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDeleteItem.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnDeleteItem.Location = new System.Drawing.Point(541, 291);
+            this.btnDeleteItem.Location = new System.Drawing.Point(811, 359);
             this.btnDeleteItem.Name = "btnDeleteItem";
             this.btnDeleteItem.Size = new System.Drawing.Size(91, 40);
             this.btnDeleteItem.TabIndex = 32;
@@ -143,7 +143,7 @@ namespace TallerMecanica.Views.AdminViews
             // 
             this.btnUpdateItem.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnUpdateItem.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnUpdateItem.Location = new System.Drawing.Point(371, 291);
+            this.btnUpdateItem.Location = new System.Drawing.Point(641, 359);
             this.btnUpdateItem.Name = "btnUpdateItem";
             this.btnUpdateItem.Size = new System.Drawing.Size(151, 39);
             this.btnUpdateItem.TabIndex = 31;
@@ -165,7 +165,7 @@ namespace TallerMecanica.Views.AdminViews
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(644, 343);
+            this.ClientSize = new System.Drawing.Size(914, 411);
             this.Controls.Add(this.btnReload);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.btnDeleteItem);

@@ -1,10 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
+using System.Data.Entity;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using TallerMecanica.Models;
@@ -13,7 +11,7 @@ namespace TallerMecanica.Views.SharedViews
 {
     public partial class ProductosPreEnsamblados : Form
     {
-
+        List<MateriaPrima_ProductoPreEnsamblado> datos;
         List<ProductoPreEnsamblado> productos;
 
         public ProductosPreEnsamblados()
@@ -21,42 +19,72 @@ namespace TallerMecanica.Views.SharedViews
             InitializeComponent();
             themeColor.Loadtheme(this);
 
-            TallerMecanicoEntities1 dbContext = new TallerMecanicoEntities1(); ///ONSULTAR LA BASE DE DATOS
+            initDataAsyn();
+
+            //.Include()
+            //.Select(p =>
+            //    new ()
+            //    {
+            //        costoEnsamblado = p.costoEnsamblado,
+            //        descripcion = p.descripcion,
+            //        idProductoPreEnsamblado = p.idProductoPreEnsamblado
+            //    }
+            //)
+            //.incl
+            //.ToList(); //LINQ
+
+
+
+        }
+
+        private async Task initDataAsyn()
+        {
+            TallerMecanicoEntities dbContext = new TallerMecanicoEntities(); ///ONSULTAR LA BASE DE DATOS
             dbContext.Configuration.LazyLoadingEnabled = false;
             productos = dbContext.ProductoPreEnsamblado.ToList(); //LINQ
 
-            //dbContext.Configuration.LazyLoadingEnabled = false;
-            //productos = dbContext.ProductoPreEnsamblado
-            //    .Select(p=>
-            //        new ProductoPreEnsamblado()
-            //        {
-            //            costoEnsamblado = p.costoEnsamblado,
-            //            descripcion = p.descripcion,
-            //            idProductoPreEnsamblado = p.idProductoPreEnsamblado
-            //        }
-            //    ).ToList(); //LINQ
+            dbContext.Configuration.LazyLoadingEnabled = false;
 
-            foreach (ProductoPreEnsamblado item in productos)
+            try
             {
-                double precio = 0;
-                foreach (var materiaCompra in item.MateriaPrima_ProductoPreEnsamblado)
+                List<MateriaPrima_ProductoPreEnsamblado> items = await dbContext.MateriaPrima_ProductoPreEnsamblado
+                                .Include(m => m.MateriaPrima)
+                                .Include(m => m.MateriaPrima.Categoria)
+                                .ToListAsync();
+
+                productos = await dbContext.ProductoPreEnsamblado
+                                    .Include(p => p.MateriaPrima_ProductoPreEnsamblado)
+                                    .ToListAsync();
+
+                foreach (var item in productos)
                 {
-                    precio += materiaCompra.cantidad * materiaCompra.MateriaPrima.precioVenta;
-                }
+                    double precio = 0;
+                    foreach (var materiaCompra in item.MateriaPrima_ProductoPreEnsamblado)
+                    {
+                        var dato = items.Where(m => materiaCompra.idMateriaPrima == m.idMateriaPrima).First();
+                        precio += dato.cantidad * dato.MateriaPrima.precioVenta;
+                    }
 
-                precio += item.costoEnsamblado;
+                    precio += item.costoEnsamblado;
 
 
 
-                this.dataGridView_ProductosPreensamblados.Rows.Add(
-                    new object[] {
+                    this.dataGridView_ProductosPreensamblados.Rows.Add(
+                        new object[] {
                         item.idProductoPreEnsamblado.ToString(),
                         item.descripcion,
                         item.costoEnsamblado.ToString(),
                         precio
-                    });
-            }
+                        });
+                }
 
+                ///Lleno datos del primero
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
         }
 
         private void dataGridView_ProductosPreensamblados_SelectionChanged(object sender, EventArgs e)
@@ -78,13 +106,22 @@ namespace TallerMecanica.Views.SharedViews
                     new object[] {
                         item.idMateriaPrima.ToString(),
                         item.MateriaPrima.nombre,
-                        item.MateriaPrima.marca,
+                        item.MateriaPrima.material,
                         item.MateriaPrima.Categoria.nombreCategoria,
                         item.cantidad,
                         item.MateriaPrima.precioCompra,
                         item.MateriaPrima.precioCompra*item.cantidad
                     });
             }
+        }
+
+        private void btnComprar_Click(object sender, EventArgs e)
+        {
+            if (this.dataGridView_MateriaPrimas.SelectedRows.Count < 1)
+                return;
+
+
+
         }
     }
 }

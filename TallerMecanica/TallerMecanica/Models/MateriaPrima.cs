@@ -23,7 +23,7 @@ namespace TallerMecanica.Models
     
         public int idMateriaPrima { get; set; }
         public string nombre { get; set; }
-        public string marca { get; set; }
+        public string material { get; set; }
         public double precioCompra { get; set; }
         public double precioVenta { get; set; }
         public int cantidadStock { get; set; }

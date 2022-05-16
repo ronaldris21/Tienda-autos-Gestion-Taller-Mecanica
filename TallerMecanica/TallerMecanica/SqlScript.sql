@@ -30,7 +30,7 @@ CREATE TABLE MateriaPrima
 (
 	idMateriaPrima int IDENTITY(1,1) NOT NULL PRIMARY KEY,
 	nombre nChar(30) NOT NULL,
-	marca nChar(30) null DEFAULT 'Reacondicionado',
+	material nChar(30) null DEFAULT 'Reacondicionado',
 	precioCompra float not null,
 	precioVenta float not null,
 	cantidadStock int not null default 0,
@@ -68,6 +68,7 @@ CREATE TABLE MateriaPrima_ProductoComprado
 (
 	idMateriaPrima_ProductoComprado int IDENTITY(1,1) NOT NULL PRIMARY KEY,
 	cantidad int not null,
+	precio float not null,
 	idMateriaPrima int not null,
 	idProductoComprado int not null
 );
@@ -104,3 +105,40 @@ INSERT INTO CATEGORIA VALUES('Dirección',1);
 INSERT INTO CATEGORIA VALUES('Suspensión',1);
 INSERT INTO CATEGORIA VALUES('Frenos',2);
 INSERT INTO CATEGORIA VALUES('Válvula de escape',1);
+
+INSERT INTO [dbo].[Cliente]
+           ([nombreCompleto]
+           ,[profilePic]
+           ,[email]
+           ,[telefono1]
+           ,[telefono2]
+           ,[contrasena]
+           ,[isAdmin])
+     VALUES
+           ('Consumir final',
+			'',
+			'pepitodelospalotes1223@gmail.com',
+			'74727269',
+           NULL,
+           '1234',
+           0)
+GO
+
+INSERT INTO [dbo].[Cliente]
+           ([nombreCompleto]
+           ,[profilePic]
+           ,[email]
+           ,[telefono1]
+           ,[telefono2]
+           ,[contrasena]
+           ,[isAdmin])
+     VALUES
+           ('Ronald Tejada',
+			'',
+			'retejada@alu.ucam.edu',
+			'74727269',
+           NULL,
+           '1234',
+           1)
+GO
+

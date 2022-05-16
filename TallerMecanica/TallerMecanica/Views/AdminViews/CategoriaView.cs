@@ -82,8 +82,7 @@ namespace TallerMecanica.Views.AdminViews
                     cate.nombreCategoria = row.Cells[2].Value.ToString();
                     if (MessageBox.Show("Seguro que deseas eliminar: " + cate.nombreCategoria, "Eliminar", MessageBoxButtons.YesNo) == DialogResult.Yes)
                     {
-                        repo.Delete(cate.idCategoria);
-                        didDelete = true;
+                        didDelete = repo.Delete(cate.idCategoria);
                     }
                 }
                 catch (Exception ex)
@@ -102,14 +101,5 @@ namespace TallerMecanica.Views.AdminViews
             initData();
         }
 
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-        private void label5_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }

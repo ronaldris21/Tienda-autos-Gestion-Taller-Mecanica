@@ -4,11 +4,11 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="e981654d4af24805990e698c9dfa3bd7" Name="Diagram1">
+      <Diagram DiagramId="12cf48ff8e22442c97af3d6617734cbc" Name="Diagram1">
         <EntityTypeShape EntityType="TallerMecanicoModel.Categoria" Width="1.5" PointX="0.75" PointY="4" IsExpanded="true" />
         <EntityTypeShape EntityType="TallerMecanicoModel.Cliente" Width="1.5" PointX="0.75" PointY="10.5" IsExpanded="true" />
         <EntityTypeShape EntityType="TallerMecanicoModel.MateriaPrima" Width="1.5" PointX="3" PointY="3.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="TallerMecanicoModel.MateriaPrima_ProductoComprado" Width="1.5" PointX="5.25" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TallerMecanicoModel.MateriaPrima_ProductoComprado" Width="1.5" PointX="5.25" PointY="3.625" IsExpanded="true" />
         <EntityTypeShape EntityType="TallerMecanicoModel.MateriaPrima_ProductoPreEnsamblado" Width="1.5" PointX="5.25" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="TallerMecanicoModel.ProductoComprado" Width="1.5" PointX="3" PointY="10.375" IsExpanded="true" />
         <EntityTypeShape EntityType="TallerMecanicoModel.ProductoPreEnsamblado" Width="1.5" PointX="3" PointY="7.375" IsExpanded="true" />

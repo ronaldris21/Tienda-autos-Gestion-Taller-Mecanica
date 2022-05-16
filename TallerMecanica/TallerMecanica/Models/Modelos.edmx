@@ -19,9 +19,10 @@
           </Key>
           <Property Name="idCliente" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="nombreCompleto" Type="nchar" MaxLength="70" Nullable="false" />
+          <Property Name="profilePic" Type="nchar" MaxLength="200" />
           <Property Name="email" Type="nchar" MaxLength="50" Nullable="false" />
-          <Property Name="telefono1" Type="nchar" MaxLength="20" Nullable="false" />
-          <Property Name="telefono2" Type="nchar" MaxLength="20" Nullable="false" />
+          <Property Name="telefono1" Type="nchar" MaxLength="25" Nullable="false" />
+          <Property Name="telefono2" Type="nchar" MaxLength="25" />
           <Property Name="contrasena" Type="nchar" MaxLength="20" Nullable="false" />
           <Property Name="isAdmin" Type="bit" Nullable="false" />
         </EntityType>
@@ -31,7 +32,7 @@
           </Key>
           <Property Name="idMateriaPrima" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="nombre" Type="nchar" MaxLength="30" Nullable="false" />
-          <Property Name="marca" Type="nchar" MaxLength="30" Nullable="false" />
+          <Property Name="material" Type="nchar" MaxLength="30" />
           <Property Name="precioCompra" Type="float" Nullable="false" />
           <Property Name="precioVenta" Type="float" Nullable="false" />
           <Property Name="cantidadStock" Type="int" Nullable="false" />
@@ -43,6 +44,7 @@
           </Key>
           <Property Name="idMateriaPrima_ProductoComprado" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="cantidad" Type="int" Nullable="false" />
+          <Property Name="precio" Type="float" Nullable="false" />
           <Property Name="idMateriaPrima" Type="int" Nullable="false" />
           <Property Name="idProductoComprado" Type="int" Nullable="false" />
         </EntityType>
@@ -60,7 +62,7 @@
             <PropertyRef Name="idProductoComprado" />
           </Key>
           <Property Name="idProductoComprado" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="descripcion" Type="nchar" MaxLength="50" />
+          <Property Name="descripcion" Type="nchar" MaxLength="500" />
           <Property Name="fechaCompra" Type="date" Nullable="false" />
           <Property Name="fechaEntregaPrevista" Type="date" />
           <Property Name="costoEnsamblado" Type="float" Nullable="false" />
@@ -73,7 +75,7 @@
             <PropertyRef Name="idProductoPreEnsamblado" />
           </Key>
           <Property Name="idProductoPreEnsamblado" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="descripcion" Type="nchar" MaxLength="50" />
+          <Property Name="descripcion" Type="nchar" MaxLength="500" />
           <Property Name="costoEnsamblado" Type="float" Nullable="false" />
         </EntityType>
         <Association Name="MateriaPrima_fk_Categoria">
@@ -201,9 +203,10 @@
           </Key>
           <Property Name="idCliente" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="nombreCompleto" Type="String" MaxLength="70" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="profilePic" Type="String" MaxLength="200" FixedLength="true" Unicode="true" />
           <Property Name="email" Type="String" MaxLength="50" FixedLength="true" Unicode="true" Nullable="false" />
-          <Property Name="telefono1" Type="String" MaxLength="20" FixedLength="true" Unicode="true" Nullable="false" />
-          <Property Name="telefono2" Type="String" MaxLength="20" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="telefono1" Type="String" MaxLength="25" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="telefono2" Type="String" MaxLength="25" FixedLength="true" Unicode="true" />
           <Property Name="contrasena" Type="String" MaxLength="20" FixedLength="true" Unicode="true" Nullable="false" />
           <Property Name="isAdmin" Type="Boolean" Nullable="false" />
           <NavigationProperty Name="ProductoComprado" Relationship="Self.ProductoComprado_fk_Cliente" FromRole="Cliente" ToRole="ProductoComprado" />
@@ -214,7 +217,7 @@
           </Key>
           <Property Name="idMateriaPrima" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="nombre" Type="String" MaxLength="30" FixedLength="true" Unicode="true" Nullable="false" />
-          <Property Name="marca" Type="String" MaxLength="30" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="material" Type="String" MaxLength="30" FixedLength="true" Unicode="true" />
           <Property Name="precioCompra" Type="Double" Nullable="false" />
           <Property Name="precioVenta" Type="Double" Nullable="false" />
           <Property Name="cantidadStock" Type="Int32" Nullable="false" />
@@ -229,6 +232,7 @@
           </Key>
           <Property Name="idMateriaPrima_ProductoComprado" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="cantidad" Type="Int32" Nullable="false" />
+          <Property Name="precio" Type="Double" Nullable="false" />
           <Property Name="idMateriaPrima" Type="Int32" Nullable="false" />
           <Property Name="idProductoComprado" Type="Int32" Nullable="false" />
           <NavigationProperty Name="MateriaPrima" Relationship="Self.MateriaPrima_ProductoComprado_fk_MateriaPrima" FromRole="MateriaPrima_ProductoComprado" ToRole="MateriaPrima" />
@@ -250,7 +254,7 @@
             <PropertyRef Name="idProductoComprado" />
           </Key>
           <Property Name="idProductoComprado" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="descripcion" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+          <Property Name="descripcion" Type="String" MaxLength="500" FixedLength="true" Unicode="true" />
           <Property Name="fechaCompra" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="fechaEntregaPrevista" Type="DateTime" Precision="0" />
           <Property Name="costoEnsamblado" Type="Double" Nullable="false" />
@@ -265,7 +269,7 @@
             <PropertyRef Name="idProductoPreEnsamblado" />
           </Key>
           <Property Name="idProductoPreEnsamblado" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="descripcion" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+          <Property Name="descripcion" Type="String" MaxLength="500" FixedLength="true" Unicode="true" />
           <Property Name="costoEnsamblado" Type="Double" Nullable="false" />
           <NavigationProperty Name="MateriaPrima_ProductoPreEnsamblado" Relationship="Self.MateriaPrima_ProductoPreEnsamblado_fk_ProductoPreEnsamblado" FromRole="ProductoPreEnsamblado" ToRole="MateriaPrima_ProductoPreEnsamblado" />
         </EntityType>
@@ -341,7 +345,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="TallerMecanicoEntities1" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="TallerMecanicoEntities2" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Categoria" EntityType="Self.Categoria" />
           <EntitySet Name="Cliente" EntityType="Self.Cliente" />
           <EntitySet Name="MateriaPrima" EntityType="Self.MateriaPrima" />
@@ -379,7 +383,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="TallerMecanicoModelStoreContainer" CdmEntityContainer="TallerMecanicoEntities1">
+        <EntityContainerMapping StorageEntityContainer="TallerMecanicoModelStoreContainer" CdmEntityContainer="TallerMecanicoEntities2">
           <EntitySetMapping Name="Categoria">
             <EntityTypeMapping TypeName="TallerMecanicoModel.Categoria">
               <MappingFragment StoreEntitySet="Categoria">
@@ -394,6 +398,7 @@
               <MappingFragment StoreEntitySet="Cliente">
                 <ScalarProperty Name="idCliente" ColumnName="idCliente" />
                 <ScalarProperty Name="nombreCompleto" ColumnName="nombreCompleto" />
+                <ScalarProperty Name="profilePic" ColumnName="profilePic" />
                 <ScalarProperty Name="email" ColumnName="email" />
                 <ScalarProperty Name="telefono1" ColumnName="telefono1" />
                 <ScalarProperty Name="telefono2" ColumnName="telefono2" />
@@ -407,7 +412,7 @@
               <MappingFragment StoreEntitySet="MateriaPrima">
                 <ScalarProperty Name="idMateriaPrima" ColumnName="idMateriaPrima" />
                 <ScalarProperty Name="nombre" ColumnName="nombre" />
-                <ScalarProperty Name="marca" ColumnName="marca" />
+                <ScalarProperty Name="material" ColumnName="material" />
                 <ScalarProperty Name="precioCompra" ColumnName="precioCompra" />
                 <ScalarProperty Name="precioVenta" ColumnName="precioVenta" />
                 <ScalarProperty Name="cantidadStock" ColumnName="cantidadStock" />
@@ -420,6 +425,7 @@
               <MappingFragment StoreEntitySet="MateriaPrima_ProductoComprado">
                 <ScalarProperty Name="idMateriaPrima_ProductoComprado" ColumnName="idMateriaPrima_ProductoComprado" />
                 <ScalarProperty Name="cantidad" ColumnName="cantidad" />
+                <ScalarProperty Name="precio" ColumnName="precio" />
                 <ScalarProperty Name="idMateriaPrima" ColumnName="idMateriaPrima" />
                 <ScalarProperty Name="idProductoComprado" ColumnName="idProductoComprado" />
               </MappingFragment>

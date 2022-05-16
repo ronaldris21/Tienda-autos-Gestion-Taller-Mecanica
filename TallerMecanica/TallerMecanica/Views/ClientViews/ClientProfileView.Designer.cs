@@ -128,7 +128,7 @@ namespace TallerMecanica.Views.ClientViews
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(778, 442);
+            this.ClientSize = new System.Drawing.Size(914, 411);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.txtcontraseña);
             this.Controls.Add(this.txtlf);

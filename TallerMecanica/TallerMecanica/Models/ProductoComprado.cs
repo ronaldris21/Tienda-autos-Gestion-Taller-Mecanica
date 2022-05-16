@@ -32,10 +32,5 @@ namespace TallerMecanica.Models
         public virtual Cliente Cliente { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<MateriaPrima_ProductoComprado> MateriaPrima_ProductoComprado { get; set; }
-
-        public static implicit operator ProductoComprado(List<ProductoComprado> v)
-        {
-            throw new NotImplementedException();
-        }
     }
 }

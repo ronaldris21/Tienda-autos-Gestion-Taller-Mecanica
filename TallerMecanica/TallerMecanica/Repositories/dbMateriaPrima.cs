@@ -1,54 +1,33 @@
-﻿
+﻿using System;
+using System.Collections.Generic;
+using System.Data.Entity.Validation;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using TallerMecanica.Models;
 
 namespace TallerMecanica.Repositories
 {
-    using System;
-    using System.Data.Entity.Validation;
-    using System.Linq;
-    using TallerMecanica.Models;
-    public class dbClientes
+    public class dbMateriaPrima
     {
-        public Cliente Login(string email, string pass)
+        public bool Update(MateriaPrima item)
         {
             using (TallerMecanicoEntities dbContext = new TallerMecanicoEntities()) //DISPOSABLE
             {
                 try
                 {
-                    var cliente = dbContext.Cliente.Where(c => c.email == email && c.contrasena == pass)
-                                                    .FirstOrDefault();
-                    return cliente;
-                }
-                catch (DbEntityValidationException ex)
-                {
-                    foreach (var validations in ex.EntityValidationErrors)
-                    {
-                        foreach (var error in validations.ValidationErrors)
-                        {
-                            Console.WriteLine("ERROR - ENTITY ----" + error.ErrorMessage);
-                        }
-                    }
-                    return null;
-                }
-            }
-        }
-        public bool Update(Cliente client)
-        {
-            using (TallerMecanicoEntities dbContext = new TallerMecanicoEntities()) //DISPOSABLE
-            {
-                try
-                {
-                    var cliente = dbContext.Cliente.Where(c => c.idCliente == client.idCliente).FirstOrDefault();
-                    if (cliente == null)
+                    var MateriaPrima = dbContext.MateriaPrima.Where(c => c.idMateriaPrima == item.idMateriaPrima).FirstOrDefault();
+                    if (MateriaPrima == null)
                         return false;
 
-                    cliente.nombreCompleto = client.nombreCompleto;
-                    cliente.email = client.email;
-                    cliente.telefono1 = client.telefono1;
-                    cliente.telefono2 = client.telefono2;
-                    cliente.contrasena = client.contrasena;
-                    cliente.isAdmin = client.isAdmin;
+                    MateriaPrima.nombre = item.nombre;
+                    MateriaPrima.material = item.material;
+                    MateriaPrima.precioCompra = item.precioCompra;
+                    MateriaPrima.precioVenta = item.precioVenta;
+                    MateriaPrima.cantidadStock = item.cantidadStock;
+                    MateriaPrima.idCategoria = item.idCategoria;
 
-                    dbContext.Entry(cliente).State = System.Data.Entity.EntityState.Modified;
+                    dbContext.Entry(MateriaPrima).State = System.Data.Entity.EntityState.Modified;
                     dbContext.SaveChanges();
                     return true;
                 }
@@ -64,15 +43,15 @@ namespace TallerMecanica.Repositories
                     return false;
                 }
             }
-        }   
+        }
 
-        public bool Insert(Cliente client)
+        public bool Insert(MateriaPrima item)
         {
             using (TallerMecanicoEntities dbContext = new TallerMecanicoEntities()) //DISPOSABLE
             {
                 try
                 {
-                    var cliente = dbContext.Cliente.Add(client);
+                    var MateriaPrima = dbContext.MateriaPrima.Add(item);
                     dbContext.SaveChanges();
 
                     return true;
@@ -97,11 +76,11 @@ namespace TallerMecanica.Repositories
             {
                 try
                 {
-                    var cliente = dbContext.Cliente.Where(c => c.idCliente == id).FirstOrDefault();
-                    if (cliente == null)
-                        return false;
+                    var MateriaPrima = dbContext.MateriaPrima.Where(c => c.idMateriaPrima == id).FirstOrDefault();
+                    if (MateriaPrima == null)
+                        return true; //Porque ya lo elimino xD
 
-                    dbContext.Cliente.Remove(cliente);
+                    dbContext.MateriaPrima.Remove(MateriaPrima);
                     dbContext.SaveChanges();
 
                     return true;

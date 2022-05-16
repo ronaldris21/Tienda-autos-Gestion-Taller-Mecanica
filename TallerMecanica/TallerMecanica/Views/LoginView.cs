@@ -19,7 +19,6 @@ namespace TallerMecanica.Views
         public LoginView()
         {
             InitializeComponent();
-            Singleton.cliente_login = new Models.Cliente();
             themeColor.Loadtheme(this);
         }
         

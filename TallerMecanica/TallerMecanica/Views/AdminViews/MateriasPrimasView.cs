@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Data.Entity;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 using TallerMecanica.Models;
 using TallerMecanica.Repositories;
@@ -10,40 +12,46 @@ namespace TallerMecanica.Views.AdminViews
 {
     public partial class MateriasPrimasView : Form
     {
-        private readonly RMateriaPrima repo;
         private List<Categoria> categorias;
+        private dbMateriaPrima repo;
 
         public MateriasPrimasView()
         {
             InitializeComponent();
-            repo = new RMateriaPrima();
             themeColor.Loadtheme(this);
-            initData();
+            initDataAsync();
+            repo = new dbMateriaPrima();
         }
-
-        private void initData()
+        private async Task initDataAsync()
         {
             dataGridView1.Rows.Clear();
             ///Leo las categorias
-            categorias = new RCategoria().GetAll().ToList();
 
-
-            //Create ComboBox Source - Put item categorie first
-            var categoryNames = new List<String>(
-                            from c in categorias
-                            select c.nombreCategoria);
-            (dataGridView1.Columns[6] as DataGridViewComboBoxColumn).DataSource = categoryNames;
-
-            //Leo las piezas
-            var datos = repo.GetAll();
-            foreach (MateriaPrima item in datos)
+            using (TallerMecanicoEntities dbContext = new TallerMecanicoEntities())
             {
-                this.dataGridView1.Rows.Add(
-                    new object[] {
-                        item.idMateriaPrima.ToString(), item.nombre , item.marca, item.precioCompra, item.precioVenta, item.cantidadStock, categorias.Where(c => c.idCategoria == item.idCategoria).Select(c => c.nombreCategoria).FirstOrDefault()
-                    });
+                dbContext.Configuration.LazyLoadingEnabled = false;
+                categorias = await dbContext.Categoria.ToListAsync();
+
+
+                //Create ComboBox Source - Put item categorie first
+                var categoryNames = new List<String>(
+                                from c in categorias
+                                select c.nombreCategoria);
+                (dataGridView1.Columns[6] as DataGridViewComboBoxColumn).DataSource = categoryNames;
+
+
+                var datos = await dbContext.MateriaPrima.ToListAsync();
+                foreach (MateriaPrima item in datos)
+                {
+                    this.dataGridView1.Rows.Add(
+                        new object[] {
+                        item.idMateriaPrima.ToString(), item.nombre , item.material, item.precioCompra, item.precioVenta, item.cantidadStock, categorias.Where(c => c.idCategoria == item.idCategoria).Select(c => c.nombreCategoria).FirstOrDefault()
+                        });
+                }
             }
         }
+
+
         private void btnUpdateItem_Click(object sender, EventArgs e)
         {
             bool didInsert = false;
@@ -57,7 +65,7 @@ namespace TallerMecanica.Views.AdminViews
                 try
                 {
                     item.nombre = row.Cells[1].Value.ToString();
-                    item.marca = row.Cells[2].Value.ToString();
+                    item.material = row.Cells[2].Value.ToString();
                     item.precioCompra = double.Parse(row.Cells[3].Value.ToString());
                     item.precioVenta = double.Parse(row.Cells[4].Value.ToString());
                     item.cantidadStock = int.Parse(row.Cells[5].Value.ToString());
@@ -75,18 +83,22 @@ namespace TallerMecanica.Views.AdminViews
                 if (row.Cells[0].Value != null) //Tiene id
                 {
                     item.idMateriaPrima = int.Parse(row.Cells[0].Value.ToString());
-                    repo.Update(item);
-                    MessageBox.Show("Datos actualizados con exito", "Confirmación");
+                    if (repo.Update(item))
+                        MessageBox.Show("Datos actualizados con exito", "Confirmación");
+                    else
+                        MessageBox.Show("No fue posible actualizar los datos, revisa tu conexión a internet", "Error");
                 }
                 else
                 {
                     didInsert = true;
-                    repo.Insert(item);
-                    MessageBox.Show("Datos Guardados con exito", "Confirmación");
+                    if (repo.Insert(item))
+                        MessageBox.Show("Datos Guardados con exito", "Confirmación");
+                    else
+                        MessageBox.Show("No fue posible guardar los datos, revisa tu conexión a internet", "Error");
                 }
             }
             if (didInsert)
-                initData(); //Actualiza toda la tabla para que aparezcan los id
+                initDataAsync(); //Actualiza toda la tabla para que aparezcan los id
         }
 
         private void btnDeleteItem_Click(object sender, EventArgs e)
@@ -99,8 +111,8 @@ namespace TallerMecanica.Views.AdminViews
                     MateriaPrima item = new MateriaPrima();
                     item.idMateriaPrima = int.Parse(row.Cells[0].Value.ToString());
                     item.nombre = row.Cells[1].Value.ToString();
-                    item.marca = row.Cells[2].Value.ToString();
-                    if (MessageBox.Show("Seguro que deseas eliminar: " + item.nombre + "-" + item.marca, "Eliminar", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                    item.material = row.Cells[2].Value.ToString();
+                    if (MessageBox.Show("Seguro que deseas eliminar: " + item.nombre + "-" + item.material, "Eliminar", MessageBoxButtons.YesNo) == DialogResult.Yes)
                     {
                         repo.Delete(item.idMateriaPrima);
                         didDelete = true;
@@ -113,7 +125,7 @@ namespace TallerMecanica.Views.AdminViews
 
             }
             if (didDelete)
-                initData();
+                initDataAsync();
 
         }
 
@@ -121,7 +133,7 @@ namespace TallerMecanica.Views.AdminViews
 
         private void btnReload_Click(object sender, EventArgs e)
         {
-            initData();
+            initDataAsync();
         }
     }
 }

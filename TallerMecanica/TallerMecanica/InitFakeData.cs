@@ -2,6 +2,8 @@
 using System;
 using System.Data.Entity.Validation;
 using System.Linq;
+using System.Threading.Tasks;
+using System.Windows.Forms;
 using TallerMecanica.Models;
 
 namespace TallerMecanica
@@ -9,9 +11,12 @@ namespace TallerMecanica
     class InitFakeData
     {
 
-        public InitFakeData()
+        public InitFakeData() { }
+        //Fin del constructor
+
+        public async Task InitDataOnServerAsync()
         {
-            Models.TallerMecanicoEntities1 dbContext = new TallerMecanicoEntities1();
+            Models.TallerMecanicoEntities dbContext = new TallerMecanicoEntities();
 
             //Set the randomizer seed if you wish to generate repeatable data sets.
             Randomizer.Seed = new Random(8675309);
@@ -41,12 +46,12 @@ namespace TallerMecanica
             .RuleFor(u => u.telefono1, f => f.Random.Number(50000000, 500000000).ToString())
             .RuleFor(u => u.telefono2, f => f.Random.Number(50000000, 500000000).ToString())
             .RuleFor(u => u.contrasena, (f, u) => f.Internet.Password(length: 8, memorable: true))
-            .RuleFor(u => u.isAdmin, f => f.Random.Bool());
+            .RuleFor(u => u.isAdmin, f => false);
 
             var FakerMateriales = new Faker<MateriaPrima>()
                 .RuleFor(o => o.cantidadStock, f => f.Random.Number(1, 150))
                 .RuleFor(o => o.idCategoria, f => f.Random.ArrayElement<int>(dbContext.Categoria.Select(c => c.idCategoria).ToArray()))
-                .RuleFor(o => o.marca, f => f.Commerce.ProductMaterial())
+                .RuleFor(o => o.material, f => f.Commerce.ProductMaterial())
                 .RuleFor(o => o.nombre, f => f.Commerce.ProductName())
                 .RuleFor(o => o.precioVenta, (f, o) => o.precioVenta + Math.Round(f.Random.Double(25, 500), 2))
                 .RuleFor(o => o.precioCompra, (f, o) => o.precioCompra + Math.Round(f.Random.Double(25, 500), 2))
@@ -57,7 +62,7 @@ namespace TallerMecanica
                 .RuleFor(o => o.idCliente, f => f.Random.ArrayElement<int>(dbContext.Cliente.Select(c => c.idCliente).ToArray()))
                 .RuleFor(o => o.fechaCompra, f => f.Date.Past())
                 .RuleFor(o => o.fechaEntregaPrevista, f => f.Date.Past())
-                .RuleFor(o => o.costoEnsamblado, f => Math.Round(f.Random.Double(25, 500),2))
+                .RuleFor(o => o.costoEnsamblado, f => Math.Round(f.Random.Double(25, 500), 2))
                 .RuleFor(o => o.requiereEnsamblado, f => f.Random.Bool())
                 .RuleFor(o => o.pedidoConfirmado, f => f.Random.Bool())
                 ;
@@ -71,6 +76,7 @@ namespace TallerMecanica
                 .RuleFor(o => o.idMateriaPrima, f => f.Random.ArrayElement<int>(dbContext.MateriaPrima.Select(c => c.idMateriaPrima).ToArray()))
                 .RuleFor(o => o.idProductoComprado, f => f.Random.ArrayElement<int>(dbContext.ProductoComprado.Select(c => c.idProductoComprado).ToArray()))
                 .RuleFor(o => o.cantidad, f => f.Random.Number(1, 5))
+                .RuleFor(o => o.precio, f => Math.Round(f.Random.Double(25, 500), 2))
                 ;
 
             var FakerItemProductoPreEnsamblados = new Faker<MateriaPrima_ProductoPreEnsamblado>()
@@ -103,9 +109,9 @@ namespace TallerMecanica
                     }
                 }
             }
-            dbContext.SaveChanges();
+            await dbContext.SaveChangesAsync();
 
-            foreach (var item in FakerProductosCompra.Generate(10))
+            foreach (var item in FakerProductosCompra.Generate(20))
             {
 
                 try ///Add, Update, Remove
@@ -147,7 +153,7 @@ namespace TallerMecanica
             }
             try
             {
-                dbContext.SaveChanges();
+                await dbContext.SaveChangesAsync();
 
             }
             catch (Exception ex)
@@ -155,26 +161,26 @@ namespace TallerMecanica
                 Console.WriteLine(ex.Message);
             }
 
-            foreach (var item in FakerCategorias.Generate(10))
-            {
+            //foreach (var item in FakerCategorias.Generate(10))
+            //{
 
-                try
-                {
-                    Console.WriteLine(item);
-                    dbContext.Categoria.Add(item);
-                }
-                catch (DbEntityValidationException ex)
-                {
-                    foreach (var validations in ex.EntityValidationErrors)
-                    {
-                        foreach (var error in validations.ValidationErrors)
-                        {
-                            Console.WriteLine("ERROR - ENTITY ----" + error.ErrorMessage);
-                        }
-                    }
-                }
-            }
-            dbContext.SaveChanges();
+            //    try
+            //    {
+            //        Console.WriteLine(item);
+            //        dbContext.Categoria.Add(item);
+            //    }
+            //    catch (DbEntityValidationException ex)
+            //    {
+            //        foreach (var validations in ex.EntityValidationErrors)
+            //        {
+            //            foreach (var error in validations.ValidationErrors)
+            //            {
+            //                Console.WriteLine("ERROR - ENTITY ----" + error.ErrorMessage);
+            //            }
+            //        }
+            //    }
+            //}
+            //await dbContext.SaveChangesAsync();
 
             foreach (var item in FakerMateriales.Generate(100))
             {
@@ -194,7 +200,7 @@ namespace TallerMecanica
                     }
                 }
             }
-            dbContext.SaveChanges();
+            await dbContext.SaveChangesAsync();
 
             foreach (var item in FakerItemProductoComprado.Generate(100))
             {
@@ -215,7 +221,7 @@ namespace TallerMecanica
                     }
                 }
             }
-            dbContext.SaveChanges();
+            await dbContext.SaveChangesAsync();
 
             foreach (var item in FakerItemProductoPreEnsamblados.Generate(100))
             {
@@ -236,12 +242,10 @@ namespace TallerMecanica
                     }
                 }
             }
-            dbContext.SaveChanges();
+            await dbContext.SaveChangesAsync();
 
-
-
+            MessageBox.Show("Datos cargados correctamente a la base de datos");
 
         }
-        //Fin del constructor
     }
 }

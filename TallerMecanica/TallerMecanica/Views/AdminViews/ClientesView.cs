@@ -21,7 +21,7 @@ namespace TallerMecanica.Views.AdminViews
         }
         public void InitData()
         {
-            TallerMecanica.Models.TallerMecanicoEntities1 dbContext = new Models.TallerMecanicoEntities1();
+            TallerMecanica.Models.TallerMecanicoEntities dbContext = new Models.TallerMecanicoEntities();
             dataGridView1.Rows.Clear();
             var clientesRegistrados = dbContext.Cliente.ToList();
             foreach (Cliente client in clientesRegistrados)

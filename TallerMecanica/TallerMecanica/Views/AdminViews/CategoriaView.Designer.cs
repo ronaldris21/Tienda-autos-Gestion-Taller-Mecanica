@@ -30,13 +30,13 @@ namespace TallerMecanica.Views.AdminViews
         private void InitializeComponent()
         {
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnDeleteItem = new System.Windows.Forms.Button();
             this.btnUpdateItem = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.btnReload = new System.Windows.Forms.Button();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -55,16 +55,36 @@ namespace TallerMecanica.Views.AdminViews
             this.dataGridView1.Location = new System.Drawing.Point(21, 36);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(358, 194);
+            this.dataGridView1.Size = new System.Drawing.Size(861, 303);
             this.dataGridView1.TabIndex = 28;
-            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            // 
+            // Column1
+            // 
+            this.Column1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Column1.HeaderText = "ID";
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            this.Column1.Width = 43;
+            // 
+            // Column2
+            // 
+            this.Column2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Column2.HeaderText = "Cantidad requerida";
+            this.Column2.Name = "Column2";
+            this.Column2.Width = 111;
+            // 
+            // Column3
+            // 
+            this.Column3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Column3.HeaderText = "Nombre Categoria";
+            this.Column3.Name = "Column3";
             // 
             // btnDeleteItem
             // 
             this.btnDeleteItem.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnDeleteItem.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDeleteItem.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnDeleteItem.Location = new System.Drawing.Point(288, 250);
+            this.btnDeleteItem.Location = new System.Drawing.Point(791, 359);
             this.btnDeleteItem.Name = "btnDeleteItem";
             this.btnDeleteItem.Size = new System.Drawing.Size(91, 40);
             this.btnDeleteItem.TabIndex = 24;
@@ -76,7 +96,7 @@ namespace TallerMecanica.Views.AdminViews
             // 
             this.btnUpdateItem.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnUpdateItem.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnUpdateItem.Location = new System.Drawing.Point(131, 250);
+            this.btnUpdateItem.Location = new System.Drawing.Point(634, 359);
             this.btnUpdateItem.Name = "btnUpdateItem";
             this.btnUpdateItem.Size = new System.Drawing.Size(151, 39);
             this.btnUpdateItem.TabIndex = 23;
@@ -93,14 +113,13 @@ namespace TallerMecanica.Views.AdminViews
             this.label5.Size = new System.Drawing.Size(164, 25);
             this.label5.TabIndex = 18;
             this.label5.Text = "Datos registrados";
-            this.label5.Click += new System.EventHandler(this.label5_Click);
             // 
             // btnReload
             // 
             this.btnReload.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnReload.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnReload.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnReload.Location = new System.Drawing.Point(34, 249);
+            this.btnReload.Location = new System.Drawing.Point(537, 358);
             this.btnReload.Name = "btnReload";
             this.btnReload.Size = new System.Drawing.Size(91, 40);
             this.btnReload.TabIndex = 29;
@@ -108,32 +127,11 @@ namespace TallerMecanica.Views.AdminViews
             this.btnReload.UseVisualStyleBackColor = true;
             this.btnReload.Click += new System.EventHandler(this.btnReload_Click);
             // 
-            // Column3
-            // 
-            this.Column3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Column3.HeaderText = "Nombre Categoria";
-            this.Column3.Name = "Column3";
-            // 
-            // Column2
-            // 
-            this.Column2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.Column2.HeaderText = "Cantidad requerida";
-            this.Column2.Name = "Column2";
-            this.Column2.Width = 111;
-            // 
-            // Column1
-            // 
-            this.Column1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.Column1.HeaderText = "ID";
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
-            this.Column1.Width = 43;
-            // 
             // CategoriaView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(411, 302);
+            this.ClientSize = new System.Drawing.Size(914, 411);
             this.Controls.Add(this.btnReload);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.btnDeleteItem);

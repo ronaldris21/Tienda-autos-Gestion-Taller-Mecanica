@@ -16,6 +16,7 @@ namespace TallerMecanica.Models
     {
         public int idMateriaPrima_ProductoComprado { get; set; }
         public int cantidad { get; set; }
+        public double precio { get; set; }
         public int idMateriaPrima { get; set; }
         public int idProductoComprado { get; set; }
     

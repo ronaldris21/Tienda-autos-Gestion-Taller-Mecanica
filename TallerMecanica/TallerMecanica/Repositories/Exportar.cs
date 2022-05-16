@@ -72,8 +72,8 @@ namespace TallerMecanica.Repositories
                         }
                     }
 					ultimafila++;
-					aplicacion.Cells[ultimafila, 5] = "Precio Total";
-					aplicacion.Cells[ultimafila, 6] = preciototal;
+					aplicacion.Cells[ultimafila, 6] = "Precio Total";
+					aplicacion.Cells[ultimafila, 7] = preciototal;
 
 
 

@@ -10,9 +10,8 @@ namespace TallerMecanica
 {
     public class Singleton
     {
-        //sigleton.clientelogin =
-        public static Cliente cliente_login;
+        public static Cliente cliente_login { get; set; }
 
-        public static List<MateriaPrima_ProductoComprado> itemsCompra = new List<MateriaPrima_ProductoComprado>();
+        public static List<MateriaPrima_ProductoComprado> MaterialesComprados { get; set; }
     }
 }

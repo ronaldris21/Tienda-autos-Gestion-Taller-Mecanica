@@ -61,7 +61,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="InitFakeData.cs" />
-    <Compile Include="Repositories\conexion.cs" />
     <Compile Include="Models\Categoria.cs">
       <DependentUpon>Modelos.tt</DependentUpon>
     </Compile>
@@ -98,15 +97,16 @@
     <Compile Include="Models\ProductoPreEnsamblado.cs">
       <DependentUpon>Modelos.tt</DependentUpon>
     </Compile>
+    <Compile Include="Repositories\conexion.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\BaseRepository.cs" />
     <Compile Include="Repositories\dbClientes.cs" />
-    <Compile Include="Repositories\dbProductoComprado.cs" />
+    <Compile Include="Repositories\dbMateriaPrima.cs" />
+    <Compile Include="Repositories\dbProducto.cs" />
     <Compile Include="Repositories\Exportar.cs" />
     <Compile Include="Repositories\RCategoria.cs" />
     <Compile Include="Repositories\IRepository.cs" />
-    <Compile Include="Repositories\RMateriaPrima.cs" />
     <Compile Include="Singleton.cs" />
     <Compile Include="themeColor.cs" />
     <Compile Include="Views\ClientMainView.cs">
