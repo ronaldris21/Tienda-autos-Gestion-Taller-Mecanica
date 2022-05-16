@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Net.Mail;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -12,6 +13,8 @@ namespace TallerMecanica.Views
 {
     public partial class Form1 : Form
     {
+        const string usuario = "pepitodelospalotes1223@gmail.com";
+        const string password = "trabajoPVA";
         public Form1()
         {
             InitializeComponent();
@@ -24,37 +27,46 @@ namespace TallerMecanica.Views
 
         private void tbncorreo_Click(object sender, EventArgs e)
         {
-            System.Net.Mail.MailMessage msg = new System.Net.Mail.MailMessage();
+            string error = "";
+            StringBuilder MensajeBuilder = new StringBuilder();
+            MensajeBuilder.Append(tbnewpass.Text.Trim());
+            EnviarCorreo(MensajeBuilder, DateTime.Now, txtcorreo.Text.Trim(), txtcorreo.Text.Trim(), "Nueva contraseña", out error);
+        }
 
-
-            msg.To.Add(txtcorreo.Text);
-            msg.Subject = "correo de contraseña";
-            msg.SubjectEncoding = System.Text.Encoding.UTF8;
-            msg.Bcc.Add(txtcorreo.Text);
-
-            msg.Body = tbnewpass.Text;
-            msg.BodyEncoding = System.Text.Encoding.UTF8;
-            msg.IsBodyHtml = true;
-            msg.From = new System.Net.Mail.MailAddress("pepitodelospalotes1223@gmail.com");
-
-            System.Net.Mail.SmtpClient cliente = new System.Net.Mail.SmtpClient();
-            cliente.Credentials = new System.Net.NetworkCredential("pepitodelospalotes1223@gmail.com", "trabajoPVA");
-            cliente.Port = 587;
-            cliente.EnableSsl = true;
-            cliente.Host = "sntp.gmail.com";
-
+        private static void EnviarCorreo(StringBuilder Mensaje, DateTime fechaenvio, string de, string para, string asunto, out string error)
+        {
+             error = "";
             try
             {
-                cliente.Send(msg);
-                MessageBox.Show("Mensaje enviado");
+                Mensaje.Append(Environment.NewLine);
+                Mensaje.Append(string.Format("este correo ha sido enviado el dia {0:dd/MM/yyyy} a las {0:HH:mm:ss hrs}", fechaenvio));
+                MailMessage mail = new MailMessage();
+                mail.From = new MailAddress(de);
+                mail.To.Add(para);
+                mail.Subject = asunto;
+                mail.Body = Mensaje.ToString();
+                SmtpClient smtp = new SmtpClient("smtp.gmail.com");
+                smtp.Port = 587;
+                smtp.UseDefaultCredentials = false;
+                smtp.Credentials = new System.Net.NetworkCredential(usuario, password);
+                smtp.EnableSsl = true;
+                smtp.Send(mail);
+                error = "exito";
+                MessageBox.Show(error);
+
+
+
 
             }
-            catch (Exception)
+            catch(Exception ex)
             {
-                MessageBox.Show("error al enviar");
+                error = "error: " + ex.Message;
+                MessageBox.Show(error);
 
+                return;
 
             }
+
         }
     }
 }
