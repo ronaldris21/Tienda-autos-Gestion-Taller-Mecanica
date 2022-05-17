@@ -31,9 +31,7 @@ namespace TallerMecanica.Views
         {
             this.label1 = new System.Windows.Forms.Label();
             this.tbncorreo = new System.Windows.Forms.Button();
-            this.label3 = new System.Windows.Forms.Label();
             this.txtcorreo = new System.Windows.Forms.TextBox();
-            this.tbnewpass = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // label1
@@ -61,19 +59,6 @@ namespace TallerMecanica.Views
             this.tbncorreo.UseVisualStyleBackColor = false;
             this.tbncorreo.Click += new System.EventHandler(this.tbncorreo_Click);
             // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(59)))), ((int)(((byte)(104)))));
-            this.label3.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.LightGray;
-            this.label3.Location = new System.Drawing.Point(43, 128);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(164, 21);
-            this.label3.TabIndex = 5;
-            this.label3.Text = "Nueva Contraseña ";
-            this.label3.Click += new System.EventHandler(this.label3_Click);
-            // 
             // txtcorreo
             // 
             this.txtcorreo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(94)))), ((int)(((byte)(129)))));
@@ -85,28 +70,13 @@ namespace TallerMecanica.Views
             this.txtcorreo.Size = new System.Drawing.Size(204, 20);
             this.txtcorreo.TabIndex = 6;
             // 
-            // tbnewpass
-            // 
-            this.tbnewpass.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(94)))), ((int)(((byte)(129)))));
-            this.tbnewpass.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.tbnewpass.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbnewpass.ForeColor = System.Drawing.Color.White;
-            this.tbnewpass.Location = new System.Drawing.Point(47, 172);
-            this.tbnewpass.Name = "tbnewpass";
-            this.tbnewpass.PasswordChar = '*';
-            this.tbnewpass.Size = new System.Drawing.Size(204, 20);
-            this.tbnewpass.TabIndex = 7;
-            this.tbnewpass.UseSystemPasswordChar = true;
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(59)))), ((int)(((byte)(104)))));
             this.ClientSize = new System.Drawing.Size(321, 299);
-            this.Controls.Add(this.tbnewpass);
             this.Controls.Add(this.txtcorreo);
-            this.Controls.Add(this.label3);
             this.Controls.Add(this.tbncorreo);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
@@ -120,8 +90,6 @@ namespace TallerMecanica.Views
 
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button tbncorreo;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtcorreo;
-        private System.Windows.Forms.TextBox tbnewpass;
     }
 }

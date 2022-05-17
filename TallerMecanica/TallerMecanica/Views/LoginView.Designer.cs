@@ -61,7 +61,6 @@ namespace TallerMecanica.Views
             this.titlebar.Name = "titlebar";
             this.titlebar.Size = new System.Drawing.Size(386, 51);
             this.titlebar.TabIndex = 0;
-            this.titlebar.MouseMove += new System.Windows.Forms.MouseEventHandler(this.titlebar_MouseMove);
             // 
             // pictureBox1
             // 
@@ -94,7 +93,6 @@ namespace TallerMecanica.Views
             this.txtuser.Name = "txtuser";
             this.txtuser.Size = new System.Drawing.Size(318, 20);
             this.txtuser.TabIndex = 2;
-            this.txtuser.TextChanged += new System.EventHandler(this.txtuser_TextChanged);
             // 
             // UserName
             // 
@@ -156,7 +154,6 @@ namespace TallerMecanica.Views
             this.label2.TabIndex = 8;
             this.label2.Text = "---------------------------------------------------------------------------------" +
     "-------------------------";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // linkLabel1
             // 
@@ -225,7 +222,6 @@ namespace TallerMecanica.Views
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Name = "LoginView";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Load += new System.EventHandler(this.LoginView_Load);
             this.titlebar.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);

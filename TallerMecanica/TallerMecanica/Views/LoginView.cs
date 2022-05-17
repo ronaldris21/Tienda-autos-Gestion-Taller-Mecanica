@@ -21,47 +21,6 @@ namespace TallerMecanica.Views
             InitializeComponent();
             themeColor.Loadtheme(this);
         }
-        
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            Singleton.cliente_login.isAdmin = true;
-            admin = new Views.AdminMainView();
-            admin.Show();
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            Singleton.cliente_login.isAdmin = false;
-            client = new Views.ClientMainView();
-            client.Show();
-
-        }
-
-        private void btnSingup_Click(object sender, EventArgs e)
-        {
-            new SignupView().Show();
-        }
-
-        private void button3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void tbemail_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void titlebar_MouseMove(object sender, MouseEventArgs e)
-        {
-            
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
@@ -70,11 +29,13 @@ namespace TallerMecanica.Views
 
         private void button2_Click_1(object sender, EventArgs e)
         {
+            Singleton.cliente_login.isAdmin = true;
             new AdminMainView().Show();
         }
 
         private void button3_Click_1(object sender, EventArgs e)
         {
+            Singleton.cliente_login.isAdmin = false;
             new ClientMainView().Show();
         }
 
@@ -83,18 +44,13 @@ namespace TallerMecanica.Views
             new SignupView().Show();
         }
 
-        private void txtuser_TextChanged(object sender, EventArgs e)
-        {
-
-        }
 
         private void button1_Click_1(object sender, EventArgs e)
         {
             Cliente c = new dbClientes().Login(txtuser.Text, txtpassword.Text);
             if(c == null)
             {
-                MessageBox.Show("no existe el usuario, pruebe de nuevo");
-                
+                MessageBox.Show("Datos no válidos, pruebe de nuevo");
             }
             else
             {
@@ -109,7 +65,6 @@ namespace TallerMecanica.Views
                 }
                 else
                 {
-
                     this.Hide();
                     var form = new ClientMainView();
                     form.Closed += (s, args) => this.Show();
@@ -121,12 +76,8 @@ namespace TallerMecanica.Views
 
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            new Form1().Show();
+            new Form1(txtuser.Text).Show();
         }
 
-        private void LoginView_Load(object sender, EventArgs e)
-        {
-
-        }
     }
 }

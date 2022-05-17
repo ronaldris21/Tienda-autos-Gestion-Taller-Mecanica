@@ -22,7 +22,6 @@ namespace TallerMecanica
             Singleton.cliente_login.idCliente = 2;
             Singleton.cliente_login.telefono1 = "747654894";
 
-
             ///INIT DATA
             themeColor.PrimaryColor = themeColor.defaultColor;
             themeColor.SecondaryColor = themeColor.ChangeColorBrightness(themeColor.defaultColor, 0.3);
