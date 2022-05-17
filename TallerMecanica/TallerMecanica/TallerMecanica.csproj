@@ -151,12 +151,6 @@
     <Compile Include="Views\ClientViews\HistorialComprasCliente.Designer.cs">
       <DependentUpon>HistorialComprasCliente.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\Form1.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Views\Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
-    </Compile>
     <Compile Include="Views\LoginView.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -221,9 +215,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\ClientViews\HistorialComprasCliente.resx">
       <DependentUpon>HistorialComprasCliente.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Views\Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\LoginView.resx">
       <DependentUpon>LoginView.cs</DependentUpon>
