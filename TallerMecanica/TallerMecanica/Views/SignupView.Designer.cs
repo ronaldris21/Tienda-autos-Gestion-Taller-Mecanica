@@ -76,33 +76,33 @@ namespace TallerMecanica.Views
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.LightGray;
             this.label2.Location = new System.Drawing.Point(19, 113);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(56, 19);
+            this.label2.Size = new System.Drawing.Size(55, 21);
             this.label2.TabIndex = 2;
             this.label2.Text = "Email:";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.LightGray;
             this.label3.Location = new System.Drawing.Point(198, 113);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(128, 19);
+            this.label3.Size = new System.Drawing.Size(128, 21);
             this.label3.TabIndex = 3;
             this.label3.Text = "Phone number:";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.LightGray;
             this.label4.Location = new System.Drawing.Point(111, 219);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(98, 19);
+            this.label4.Size = new System.Drawing.Size(103, 21);
             this.label4.TabIndex = 4;
             this.label4.Text = "Contraseña";
             // 
@@ -120,6 +120,8 @@ namespace TallerMecanica.Views
             // 
             this.tbnombre.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(94)))), ((int)(((byte)(129)))));
             this.tbnombre.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tbnombre.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbnombre.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.tbnombre.Location = new System.Drawing.Point(23, 68);
             this.tbnombre.Multiline = true;
             this.tbnombre.Name = "tbnombre";
@@ -130,6 +132,8 @@ namespace TallerMecanica.Views
             // 
             this.tbemail.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(94)))), ((int)(((byte)(129)))));
             this.tbemail.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tbemail.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbemail.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.tbemail.Location = new System.Drawing.Point(23, 135);
             this.tbemail.Multiline = true;
             this.tbemail.Name = "tbemail";
@@ -140,6 +144,8 @@ namespace TallerMecanica.Views
             // 
             this.tbtelefono.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(94)))), ((int)(((byte)(129)))));
             this.tbtelefono.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tbtelefono.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbtelefono.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.tbtelefono.Location = new System.Drawing.Point(202, 135);
             this.tbtelefono.Multiline = true;
             this.tbtelefono.Name = "tbtelefono";
@@ -150,6 +156,8 @@ namespace TallerMecanica.Views
             // 
             this.tbcontraseña.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(94)))), ((int)(((byte)(129)))));
             this.tbcontraseña.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tbcontraseña.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbcontraseña.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.tbcontraseña.Location = new System.Drawing.Point(50, 241);
             this.tbcontraseña.Multiline = true;
             this.tbcontraseña.Name = "tbcontraseña";
