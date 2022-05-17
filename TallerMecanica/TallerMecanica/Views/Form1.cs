@@ -43,6 +43,5 @@ namespace TallerMecanica.Views
             this.Close();
         }
 
-        
     }
 }

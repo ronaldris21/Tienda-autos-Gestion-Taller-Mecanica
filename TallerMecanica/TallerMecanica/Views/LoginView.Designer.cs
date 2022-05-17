@@ -29,6 +29,7 @@ namespace TallerMecanica.Views
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.titlebar = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -43,6 +44,10 @@ namespace TallerMecanica.Views
             this.linkLabel2 = new System.Windows.Forms.LinkLabel();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
+
+            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
+
+
             this.titlebar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -64,12 +69,20 @@ namespace TallerMecanica.Views
             // 
             // pictureBox1
             // 
+
+            this.pictureBox1.Image = global::TallerMecanica.Properties.Resources.cross_out__2_;
+            this.pictureBox1.Location = new System.Drawing.Point(330, 0);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(56, 34);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+
             this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.pictureBox1.Image = global::TallerMecanica.Properties.Resources.cross_out__2_;
             this.pictureBox1.Location = new System.Drawing.Point(318, 12);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(68, 20);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+
             this.pictureBox1.TabIndex = 11;
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
@@ -201,6 +214,14 @@ namespace TallerMecanica.Views
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click_1);
             // 
+
+            // imageList1
+            // 
+            this.imageList1.ColorDepth = System.Windows.Forms.ColorDepth.Depth8Bit;
+            this.imageList1.ImageSize = new System.Drawing.Size(16, 16);
+            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
+            // 
+
             // LoginView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -245,5 +266,6 @@ namespace TallerMecanica.Views
         private System.Windows.Forms.LinkLabel linkLabel2;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.ImageList imageList1;
     }
 }
