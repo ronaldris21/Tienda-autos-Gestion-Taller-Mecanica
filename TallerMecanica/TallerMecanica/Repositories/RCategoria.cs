@@ -64,10 +64,9 @@
                     connection.Open();
                     command.Connection = connection;
                     command.CommandText = @"update Categoria 
-                                        set nombreCategoria=@name, cantidadCocheCompleto=@cantidad 
+                                        set nombreCategoria=@name
                                         where idCategoria=@idCategoria";
                     command.Parameters.Add("@name", SqlDbType.NVarChar).Value = item.nombreCategoria;
-                    command.Parameters.Add("@cantidad", SqlDbType.NVarChar).Value = item.cantidadCocheCompleto;
                     command.Parameters.Add("@idCategoria", SqlDbType.Int).Value = item.idCategoria;
                     command.ExecuteNonQuery();
                 }

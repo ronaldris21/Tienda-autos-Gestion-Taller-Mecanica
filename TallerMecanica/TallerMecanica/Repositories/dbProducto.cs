@@ -18,7 +18,6 @@ namespace TallerMecanica.Repositories
             {
                 try
                 {
-
                     dbContext.ProductoComprado.Add(prod);
                     dbContext.SaveChanges();
 
@@ -44,7 +43,6 @@ namespace TallerMecanica.Repositories
             {
                 try
                 {
-
                     dbContext.ProductoPreEnsamblado.Add(prod);
                     dbContext.SaveChanges();
 

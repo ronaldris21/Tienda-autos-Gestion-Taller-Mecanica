@@ -39,9 +39,6 @@ namespace TallerMecanica.Views.ClientViews
             this.Precio = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Subtototal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridView_ProductosComprados = new System.Windows.Forms.DataGridView();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.btnFactura = new System.Windows.Forms.Button();
             this.idCompra = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PedidoConfirmado = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.Descripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -49,6 +46,9 @@ namespace TallerMecanica.Views.ClientViews
             this.Fecha_entrega = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CosteEnsamblado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PrecioTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.btnFactura = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_MateriaPrimas)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_ProductosComprados)).BeginInit();
             this.SuspendLayout();
@@ -150,6 +150,8 @@ namespace TallerMecanica.Views.ClientViews
             // 
             this.dataGridView_ProductosComprados.AllowUserToAddRows = false;
             this.dataGridView_ProductosComprados.AllowUserToDeleteRows = false;
+            this.dataGridView_ProductosComprados.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dataGridView_ProductosComprados.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dataGridView_ProductosComprados.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView_ProductosComprados.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.idCompra,
@@ -169,37 +171,6 @@ namespace TallerMecanica.Views.ClientViews
             this.dataGridView_ProductosComprados.Size = new System.Drawing.Size(736, 156);
             this.dataGridView_ProductosComprados.TabIndex = 3;
             this.dataGridView_ProductosComprados.SelectionChanged += new System.EventHandler(this.dataGridView_ProductosComprados_SelectionChanged);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(19, 20);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(98, 13);
-            this.label1.TabIndex = 4;
-            this.label1.Text = "Productos compras";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(19, 207);
-            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(119, 13);
-            this.label2.TabIndex = 5;
-            this.label2.Text = "Materiales de la compra";
-            // 
-            // btnFactura
-            // 
-            this.btnFactura.Location = new System.Drawing.Point(820, 37);
-            this.btnFactura.Margin = new System.Windows.Forms.Padding(2);
-            this.btnFactura.Name = "btnFactura";
-            this.btnFactura.Size = new System.Drawing.Size(83, 357);
-            this.btnFactura.TabIndex = 6;
-            this.btnFactura.Text = "Generar Factura";
-            this.btnFactura.UseVisualStyleBackColor = true;
-            this.btnFactura.Click += new System.EventHandler(this.btnFactura_Click);
             // 
             // idCompra
             // 
@@ -236,7 +207,7 @@ namespace TallerMecanica.Views.ClientViews
             this.FechaCompra.MinimumWidth = 6;
             this.FechaCompra.Name = "FechaCompra";
             this.FechaCompra.ReadOnly = true;
-            this.FechaCompra.Width = 101;
+            this.FechaCompra.Width = 93;
             // 
             // Fecha_entrega
             // 
@@ -244,7 +215,7 @@ namespace TallerMecanica.Views.ClientViews
             this.Fecha_entrega.HeaderText = "Fecha entrega";
             this.Fecha_entrega.Name = "Fecha_entrega";
             this.Fecha_entrega.ReadOnly = true;
-            this.Fecha_entrega.Width = 101;
+            this.Fecha_entrega.Width = 93;
             // 
             // CosteEnsamblado
             // 
@@ -264,6 +235,37 @@ namespace TallerMecanica.Views.ClientViews
             this.PrecioTotal.ReadOnly = true;
             this.PrecioTotal.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.PrecioTotal.Width = 82;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(19, 20);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(98, 13);
+            this.label1.TabIndex = 4;
+            this.label1.Text = "Productos compras";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(19, 207);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(119, 13);
+            this.label2.TabIndex = 5;
+            this.label2.Text = "Materiales de la compra";
+            // 
+            // btnFactura
+            // 
+            this.btnFactura.Location = new System.Drawing.Point(820, 37);
+            this.btnFactura.Margin = new System.Windows.Forms.Padding(2);
+            this.btnFactura.Name = "btnFactura";
+            this.btnFactura.Size = new System.Drawing.Size(83, 357);
+            this.btnFactura.TabIndex = 6;
+            this.btnFactura.Text = "Generar Factura";
+            this.btnFactura.UseVisualStyleBackColor = true;
+            this.btnFactura.Click += new System.EventHandler(this.btnFactura_Click);
             // 
             // HistorialComprasCliente
             // 

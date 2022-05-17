@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace TallerMecanica.Views.ClientViews
@@ -25,25 +18,29 @@ namespace TallerMecanica.Views.ClientViews
             txtcorreo.Text = Singleton.cliente_login.email;
             txtlf.Text = Singleton.cliente_login.telefono1;
             txtcontraseña.Text = Singleton.cliente_login.contrasena;
-            
+
         }
         private void button1_Click(object sender, EventArgs e)
         {
             actualizardatos();
         }
 
-        private void label1_Click(object sender, EventArgs e)
-        {
-            
-        }
-
         private void button1_Click_1(object sender, EventArgs e)
         {
+            if (MessageBox.Show("¿Estás seguro que deseas actualizar tus datos y contraseña?", "Cuidado", MessageBoxButtons.OKCancel) == DialogResult.Cancel)
+                return;
+
             Singleton.cliente_login.nombreCompleto = txtnombre.Text;
-           Singleton.cliente_login.email = txtcorreo.Text;
+            Singleton.cliente_login.email = txtcorreo.Text;
             Singleton.cliente_login.telefono1 = txtlf.Text;
-             Singleton.cliente_login.contrasena =txtcontraseña.Text ;
-            MessageBox.Show("Datos actualizados!");
+            Singleton.cliente_login.contrasena = txtcontraseña.Text;
+
+            bool actualizados = new Repositories.dbClientes().Update(Singleton.cliente_login);
+            if (actualizados)
+                MessageBox.Show("Datos actualizados!");
+            else
+                MessageBox.Show("Datos no actualizados. Revisa tu conexión a internet o intenta de nuevo llenando todos los datos");
+
 
         }
     }

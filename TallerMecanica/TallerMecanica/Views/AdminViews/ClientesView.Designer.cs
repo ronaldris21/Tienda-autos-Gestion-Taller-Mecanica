@@ -40,13 +40,15 @@ namespace TallerMecanica.Views.AdminViews
             this.btnReload = new System.Windows.Forms.Button();
             this.btnDeleteItem = new System.Windows.Forms.Button();
             this.btnUpdateItem = new System.Windows.Forms.Button();
+            this.btnVerComprasCliente = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridView1
             // 
             this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -152,11 +154,25 @@ namespace TallerMecanica.Views.AdminViews
             this.btnUpdateItem.UseVisualStyleBackColor = true;
             this.btnUpdateItem.Click += new System.EventHandler(this.btnUpdateItem_Click);
             // 
+            // btnVerComprasCliente
+            // 
+            this.btnVerComprasCliente.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnVerComprasCliente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnVerComprasCliente.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnVerComprasCliente.Location = new System.Drawing.Point(12, 365);
+            this.btnVerComprasCliente.Name = "btnVerComprasCliente";
+            this.btnVerComprasCliente.Size = new System.Drawing.Size(206, 40);
+            this.btnVerComprasCliente.TabIndex = 33;
+            this.btnVerComprasCliente.Text = "Ver compras del cliente";
+            this.btnVerComprasCliente.UseVisualStyleBackColor = true;
+            this.btnVerComprasCliente.Click += new System.EventHandler(this.btnVerComprasCliente_Click);
+            // 
             // ClientesView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(914, 411);
+            this.Controls.Add(this.btnVerComprasCliente);
             this.Controls.Add(this.btnReload);
             this.Controls.Add(this.btnDeleteItem);
             this.Controls.Add(this.btnUpdateItem);
@@ -180,5 +196,6 @@ namespace TallerMecanica.Views.AdminViews
         private System.Windows.Forms.Button btnReload;
         private System.Windows.Forms.Button btnDeleteItem;
         private System.Windows.Forms.Button btnUpdateItem;
+        private System.Windows.Forms.Button btnVerComprasCliente;
     }
 }

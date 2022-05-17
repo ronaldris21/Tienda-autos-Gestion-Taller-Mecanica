@@ -29,7 +29,6 @@ namespace TallerMecanica.Views.SharedViews
         /// </summary>
         private void InitializeComponent()
         {
-            this.button1 = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.dataGridView_ProductosPreensamblados = new System.Windows.Forms.DataGridView();
@@ -50,19 +49,10 @@ namespace TallerMecanica.Views.SharedViews
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_MateriaPrimas)).BeginInit();
             this.SuspendLayout();
             // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(694, 415);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "Prpductoaisjn";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(11, 214);
+            this.label2.Location = new System.Drawing.Point(11, 262);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(117, 13);
@@ -96,7 +86,7 @@ namespace TallerMecanica.Views.SharedViews
             this.dataGridView_ProductosPreensamblados.ReadOnly = true;
             this.dataGridView_ProductosPreensamblados.RowHeadersWidth = 51;
             this.dataGridView_ProductosPreensamblados.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView_ProductosPreensamblados.Size = new System.Drawing.Size(736, 151);
+            this.dataGridView_ProductosPreensamblados.Size = new System.Drawing.Size(736, 202);
             this.dataGridView_ProductosPreensamblados.TabIndex = 8;
             this.dataGridView_ProductosPreensamblados.SelectionChanged += new System.EventHandler(this.dataGridView_ProductosPreensamblados_SelectionChanged);
             // 
@@ -149,14 +139,14 @@ namespace TallerMecanica.Views.SharedViews
             this.Cantidad,
             this.Precio,
             this.Subtotal});
-            this.dataGridView_MateriaPrimas.Location = new System.Drawing.Point(11, 229);
+            this.dataGridView_MateriaPrimas.Location = new System.Drawing.Point(11, 277);
             this.dataGridView_MateriaPrimas.Margin = new System.Windows.Forms.Padding(2);
             this.dataGridView_MateriaPrimas.MultiSelect = false;
             this.dataGridView_MateriaPrimas.Name = "dataGridView_MateriaPrimas";
             this.dataGridView_MateriaPrimas.ReadOnly = true;
             this.dataGridView_MateriaPrimas.RowHeadersWidth = 51;
             this.dataGridView_MateriaPrimas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView_MateriaPrimas.Size = new System.Drawing.Size(736, 171);
+            this.dataGridView_MateriaPrimas.Size = new System.Drawing.Size(736, 193);
             this.dataGridView_MateriaPrimas.TabIndex = 7;
             // 
             // id
@@ -222,7 +212,7 @@ namespace TallerMecanica.Views.SharedViews
             // 
             // btnComprar
             // 
-            this.btnComprar.Location = new System.Drawing.Point(765, 35);
+            this.btnComprar.Location = new System.Drawing.Point(804, 363);
             this.btnComprar.Name = "btnComprar";
             this.btnComprar.Size = new System.Drawing.Size(137, 106);
             this.btnComprar.TabIndex = 11;
@@ -234,13 +224,12 @@ namespace TallerMecanica.Views.SharedViews
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(914, 411);
+            this.ClientSize = new System.Drawing.Size(953, 481);
             this.Controls.Add(this.btnComprar);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dataGridView_ProductosPreensamblados);
             this.Controls.Add(this.dataGridView_MateriaPrimas);
-            this.Controls.Add(this.button1);
             this.Name = "ProductosPreEnsamblados";
             this.Text = "Vehiculos Ensamblados - LLevátelo YA";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_ProductosPreensamblados)).EndInit();
@@ -251,8 +240,6 @@ namespace TallerMecanica.Views.SharedViews
         }
 
         #endregion
-
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView dataGridView_ProductosPreensamblados;

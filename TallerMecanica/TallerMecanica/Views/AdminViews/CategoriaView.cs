@@ -25,7 +25,9 @@ namespace TallerMecanica.Views.AdminViews
             {
                 this.dataGridView1.Rows.Add(
                     new object[] {
-                        cate.idCategoria.ToString(), cate.cantidadCocheCompleto.ToString(), cate.nombreCategoria
+                        cate.idCategoria.ToString(),
+                        //cate.cantidadCocheCompleto.ToString(), 
+                        cate.nombreCategoria
                     });
             }
         }
@@ -41,8 +43,8 @@ namespace TallerMecanica.Views.AdminViews
                 //Validar datos
                 try
                 {
-                    cate.nombreCategoria = row.Cells[2].Value.ToString();
-                    cate.cantidadCocheCompleto = int.Parse(row.Cells[1].Value.ToString());
+                    cate.nombreCategoria = row.Cells[1].Value.ToString();
+                    //cate.cantidadCocheCompleto = int.Parse(row.Cells[1].Value.ToString());
                 }
                 catch (Exception ex)
                 {
@@ -78,8 +80,7 @@ namespace TallerMecanica.Views.AdminViews
                 {
                     Categoria cate = new Categoria();
                     cate.idCategoria = int.Parse(row.Cells[0].Value.ToString());
-                    cate.cantidadCocheCompleto = int.Parse(row.Cells[1].Value.ToString());
-                    cate.nombreCategoria = row.Cells[2].Value.ToString();
+                    cate.nombreCategoria = row.Cells[1].Value.ToString();
                     if (MessageBox.Show("Seguro que deseas eliminar: " + cate.nombreCategoria, "Eliminar", MessageBoxButtons.YesNo) == DialogResult.Yes)
                     {
                         didDelete = repo.Delete(cate.idCategoria);

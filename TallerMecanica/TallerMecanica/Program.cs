@@ -15,7 +15,7 @@ namespace TallerMecanica
             //new InitFakeData().InitDataOnServerAsync();
 
             Singleton.cliente_login = new Models.Cliente();
-            Singleton.cliente_login.isAdmin = true;
+            Singleton.cliente_login.isAdmin = false;
             Singleton.cliente_login.nombreCompleto = "Ronaldd ris0";
             Singleton.cliente_login.email = "retejada@alu.ucam.edu";
             Singleton.cliente_login.contrasena = "1234";

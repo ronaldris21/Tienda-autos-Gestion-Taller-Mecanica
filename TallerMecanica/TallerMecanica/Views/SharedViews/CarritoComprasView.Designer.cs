@@ -30,6 +30,8 @@ namespace TallerMecanica.Views.SharedViews
         private void InitializeComponent()
         {
             this.panel2 = new System.Windows.Forms.Panel();
+            this.txtDescripcion = new System.Windows.Forms.TextBox();
+            this.lblDescripcion = new System.Windows.Forms.Label();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.lblFechaEntrega = new System.Windows.Forms.Label();
             this.lblCostoEnsamblado = new System.Windows.Forms.Label();
@@ -61,8 +63,7 @@ namespace TallerMecanica.Views.SharedViews
             this.Subtotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.comboBoxClientes = new System.Windows.Forms.ComboBox();
             this.checkBoxConsumidorFinal = new System.Windows.Forms.CheckBox();
-            this.lblDescripcion = new System.Windows.Forms.Label();
-            this.txtDescripcion = new System.Windows.Forms.TextBox();
+            this.lblClienteCompra = new System.Windows.Forms.Label();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numCostoEnsamblado)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -73,8 +74,6 @@ namespace TallerMecanica.Views.SharedViews
             // 
             this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel2.Controls.Add(this.txtDescripcion);
-            this.panel2.Controls.Add(this.lblDescripcion);
             this.panel2.Controls.Add(this.dateTimePicker1);
             this.panel2.Controls.Add(this.lblFechaEntrega);
             this.panel2.Controls.Add(this.lblCostoEnsamblado);
@@ -82,13 +81,30 @@ namespace TallerMecanica.Views.SharedViews
             this.panel2.Controls.Add(this.btnCrearProductoPreEnsamblado);
             this.panel2.Controls.Add(this.label1);
             this.panel2.Controls.Add(this.cbxCategorias);
-            this.panel2.Controls.Add(this.lblTotal);
             this.panel2.Controls.Add(this.label2);
             this.panel2.Controls.Add(this.txtPieza);
             this.panel2.Location = new System.Drawing.Point(12, 12);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(890, 92);
+            this.panel2.Size = new System.Drawing.Size(929, 92);
             this.panel2.TabIndex = 40;
+            // 
+            // txtDescripcion
+            // 
+            this.txtDescripcion.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtDescripcion.Location = new System.Drawing.Point(116, 302);
+            this.txtDescripcion.Name = "txtDescripcion";
+            this.txtDescripcion.Size = new System.Drawing.Size(260, 20);
+            this.txtDescripcion.TabIndex = 47;
+            // 
+            // lblDescripcion
+            // 
+            this.lblDescripcion.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblDescripcion.AutoSize = true;
+            this.lblDescripcion.Location = new System.Drawing.Point(13, 305);
+            this.lblDescripcion.Name = "lblDescripcion";
+            this.lblDescripcion.Size = new System.Drawing.Size(66, 13);
+            this.lblDescripcion.TabIndex = 46;
+            this.lblDescripcion.Text = "Descripcion:";
             // 
             // dateTimePicker1
             // 
@@ -128,14 +144,15 @@ namespace TallerMecanica.Views.SharedViews
             this.numCostoEnsamblado.Name = "numCostoEnsamblado";
             this.numCostoEnsamblado.Size = new System.Drawing.Size(108, 20);
             this.numCostoEnsamblado.TabIndex = 42;
+            this.numCostoEnsamblado.ValueChanged += new System.EventHandler(this.numCostoEnsamblado_ValueChanged);
             // 
             // btnCrearProductoPreEnsamblado
             // 
             this.btnCrearProductoPreEnsamblado.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnCrearProductoPreEnsamblado.Location = new System.Drawing.Point(747, 43);
+            this.btnCrearProductoPreEnsamblado.Location = new System.Drawing.Point(731, 13);
             this.btnCrearProductoPreEnsamblado.Name = "btnCrearProductoPreEnsamblado";
-            this.btnCrearProductoPreEnsamblado.Size = new System.Drawing.Size(122, 43);
+            this.btnCrearProductoPreEnsamblado.Size = new System.Drawing.Size(185, 50);
             this.btnCrearProductoPreEnsamblado.TabIndex = 41;
             this.btnCrearProductoPreEnsamblado.Text = "Preemsamblar";
             this.btnCrearProductoPreEnsamblado.UseVisualStyleBackColor = true;
@@ -162,11 +179,10 @@ namespace TallerMecanica.Views.SharedViews
             // 
             // lblTotal
             // 
-            this.lblTotal.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblTotal.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.lblTotal.AutoSize = true;
             this.lblTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTotal.Location = new System.Drawing.Point(664, 14);
+            this.lblTotal.Location = new System.Drawing.Point(388, 300);
             this.lblTotal.Name = "lblTotal";
             this.lblTotal.Size = new System.Drawing.Size(109, 20);
             this.lblTotal.TabIndex = 38;
@@ -193,7 +209,7 @@ namespace TallerMecanica.Views.SharedViews
             // 
             this.checkBoxEnsamblado.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.checkBoxEnsamblado.AutoSize = true;
-            this.checkBoxEnsamblado.Location = new System.Drawing.Point(759, 332);
+            this.checkBoxEnsamblado.Location = new System.Drawing.Point(798, 390);
             this.checkBoxEnsamblado.Name = "checkBoxEnsamblado";
             this.checkBoxEnsamblado.Size = new System.Drawing.Size(130, 17);
             this.checkBoxEnsamblado.TabIndex = 36;
@@ -204,7 +220,7 @@ namespace TallerMecanica.Views.SharedViews
             // btnComprar
             // 
             this.btnComprar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnComprar.Location = new System.Drawing.Point(759, 355);
+            this.btnComprar.Location = new System.Drawing.Point(798, 413);
             this.btnComprar.Name = "btnComprar";
             this.btnComprar.Size = new System.Drawing.Size(130, 56);
             this.btnComprar.TabIndex = 37;
@@ -232,7 +248,7 @@ namespace TallerMecanica.Views.SharedViews
             this.dataGridView1.MultiSelect = false;
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(877, 154);
+            this.dataGridView1.Size = new System.Drawing.Size(916, 173);
             this.dataGridView1.TabIndex = 34;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
@@ -289,8 +305,7 @@ namespace TallerMecanica.Views.SharedViews
             this.dataGridView2.AllowUserToAddRows = false;
             this.dataGridView2.AllowUserToDeleteRows = false;
             this.dataGridView2.AllowUserToResizeRows = false;
-            this.dataGridView2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dataGridView2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn1,
@@ -302,11 +317,11 @@ namespace TallerMecanica.Views.SharedViews
             this.dataGridViewButtonColumn1,
             this.Mas,
             this.Subtotal});
-            this.dataGridView2.Location = new System.Drawing.Point(12, 270);
+            this.dataGridView2.Location = new System.Drawing.Point(12, 328);
             this.dataGridView2.MultiSelect = false;
             this.dataGridView2.Name = "dataGridView2";
             this.dataGridView2.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView2.Size = new System.Drawing.Size(702, 145);
+            this.dataGridView2.Size = new System.Drawing.Size(741, 145);
             this.dataGridView2.TabIndex = 35;
             this.dataGridView2.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView2_CellContentClick);
             // 
@@ -387,7 +402,7 @@ namespace TallerMecanica.Views.SharedViews
             this.comboBoxClientes.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.comboBoxClientes.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxClientes.FormattingEnabled = true;
-            this.comboBoxClientes.Location = new System.Drawing.Point(730, 282);
+            this.comboBoxClientes.Location = new System.Drawing.Point(769, 340);
             this.comboBoxClientes.Name = "comboBoxClientes";
             this.comboBoxClientes.Size = new System.Drawing.Size(159, 21);
             this.comboBoxClientes.TabIndex = 42;
@@ -396,7 +411,7 @@ namespace TallerMecanica.Views.SharedViews
             // 
             this.checkBoxConsumidorFinal.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.checkBoxConsumidorFinal.AutoSize = true;
-            this.checkBoxConsumidorFinal.Location = new System.Drawing.Point(759, 309);
+            this.checkBoxConsumidorFinal.Location = new System.Drawing.Point(798, 367);
             this.checkBoxConsumidorFinal.Name = "checkBoxConsumidorFinal";
             this.checkBoxConsumidorFinal.Size = new System.Drawing.Size(91, 17);
             this.checkBoxConsumidorFinal.TabIndex = 43;
@@ -404,32 +419,30 @@ namespace TallerMecanica.Views.SharedViews
             this.checkBoxConsumidorFinal.UseVisualStyleBackColor = true;
             this.checkBoxConsumidorFinal.CheckedChanged += new System.EventHandler(this.checkBoxConsumidorFinal_CheckedChanged);
             // 
-            // lblDescripcion
+            // lblClienteCompra
             // 
-            this.lblDescripcion.AutoSize = true;
-            this.lblDescripcion.Location = new System.Drawing.Point(377, 70);
-            this.lblDescripcion.Name = "lblDescripcion";
-            this.lblDescripcion.Size = new System.Drawing.Size(66, 13);
-            this.lblDescripcion.TabIndex = 46;
-            this.lblDescripcion.Text = "Descripcion:";
-            // 
-            // txtDescripcion
-            // 
-            this.txtDescripcion.Location = new System.Drawing.Point(480, 67);
-            this.txtDescripcion.Name = "txtDescripcion";
-            this.txtDescripcion.Size = new System.Drawing.Size(245, 20);
-            this.txtDescripcion.TabIndex = 47;
+            this.lblClienteCompra.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblClienteCompra.AutoSize = true;
+            this.lblClienteCompra.Location = new System.Drawing.Point(766, 324);
+            this.lblClienteCompra.Name = "lblClienteCompra";
+            this.lblClienteCompra.Size = new System.Drawing.Size(106, 13);
+            this.lblClienteCompra.TabIndex = 48;
+            this.lblClienteCompra.Text = "Cliente de la compra:";
             // 
             // CarritoComprasView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(914, 423);
+            this.ClientSize = new System.Drawing.Size(953, 481);
+            this.Controls.Add(this.lblClienteCompra);
+            this.Controls.Add(this.txtDescripcion);
+            this.Controls.Add(this.lblDescripcion);
             this.Controls.Add(this.checkBoxConsumidorFinal);
             this.Controls.Add(this.comboBoxClientes);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.dataGridView2);
             this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.lblTotal);
             this.Controls.Add(this.btnComprar);
             this.Controls.Add(this.checkBoxEnsamblado);
             this.Name = "CarritoComprasView";
@@ -480,5 +493,6 @@ namespace TallerMecanica.Views.SharedViews
         private System.Windows.Forms.Label lblFechaEntrega;
         private System.Windows.Forms.TextBox txtDescripcion;
         private System.Windows.Forms.Label lblDescripcion;
+        private System.Windows.Forms.Label lblClienteCompra;
     }
 }

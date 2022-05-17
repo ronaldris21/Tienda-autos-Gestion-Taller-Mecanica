@@ -23,9 +23,11 @@ namespace TallerMecanica.Views.ClientViews
         {
             InitializeComponent();
             themeColor.Loadtheme(this);
-            
+
             if (c == null) //Por defecto muestra las compras del cliente que ha iniciado sesión
                 cli = Singleton.cliente_login;
+            else
+                cli = c;
             initDataAsync();
 
         }
@@ -47,7 +49,7 @@ namespace TallerMecanica.Views.ClientViews
 
             foreach (var item in productos)
             {
-                var fechaprevista = item.p.fechaEntregaPrevista == null ? item.p.fechaEntregaPrevista?.ToString("dd/MM/yyyy"): null;
+                var fechaprevista = item.p.fechaEntregaPrevista != null ? item.p.fechaEntregaPrevista?.ToString("dd/MM/yyyy"): null;
                 this.dataGridView_ProductosComprados.Rows.Add(
                     new object[] {
                         item.p.idProductoComprado.ToString(),

@@ -31,20 +31,24 @@ namespace TallerMecanica.Views.SharedViews
 
 
             lblCostoEnsamblado.Visible = Singleton.cliente_login.isAdmin;
+            lblClienteCompra.Visible = Singleton.cliente_login.isAdmin;
             lblFechaEntrega.Visible = Singleton.cliente_login.isAdmin;
-            lblDescripcion.Visible = Singleton.cliente_login.isAdmin;
             dateTimePicker1.Visible = Singleton.cliente_login.isAdmin;
             dateTimePicker1.Enabled = Singleton.cliente_login.isAdmin;
             numCostoEnsamblado.Visible = Singleton.cliente_login.isAdmin;
             numCostoEnsamblado.Enabled = Singleton.cliente_login.isAdmin;
-            txtDescripcion.Visible = Singleton.cliente_login.isAdmin;
-            txtDescripcion.Enabled = Singleton.cliente_login.isAdmin;
 
+            this.checkBoxEnsamblado.Checked = true;
+            this.checkBoxEnsamblado.Checked = false;
 
 
 
         }
-
+        private void UpdatePrecioFinal()
+        {
+            double precioF = precioFinal +(double) this.numCostoEnsamblado.Value;
+            this.lblTotal.Text = "Precio total: " + precioF.ToString() + " €";
+        }
         private void LoadMateriasPrimasSeleccionadas()
         {
             this.dataGridView2.Rows.Clear();
@@ -68,7 +72,7 @@ namespace TallerMecanica.Views.SharedViews
                     });
                 precioFinal += item.precio * item.cantidad;
             }
-            lblTotal.Text = "Precio Total: " + precioFinal.ToString("C2");
+            UpdatePrecioFinal();
         }
 
         private async Task initDataAsync()
@@ -225,7 +229,6 @@ namespace TallerMecanica.Views.SharedViews
                 {
                     item.cantidad--;
                     precioFinal -= item.precio;
-                    lblTotal.Text = "Precio Total: " + precioFinal.ToString("C2");
 
                     ///Actualizo las filas
                     this.dataGridView2.Rows[e.RowIndex].Cells[5].Value = item.cantidad;
@@ -237,7 +240,7 @@ namespace TallerMecanica.Views.SharedViews
                     if (DialogResult.Yes == MessageBox.Show("¿Desea quitar el material del carrito de compras?", "Cuidado", MessageBoxButtons.YesNo, MessageBoxIcon.Question))
                     {
                         precioFinal -= item.precio;
-                        lblTotal.Text = "Precio Total: " + precioFinal.ToString("C2");
+
                         Singleton.MaterialesComprados.Remove(item);
                         this.dataGridView2.Rows.RemoveAt(e.RowIndex);
                     }
@@ -247,12 +250,12 @@ namespace TallerMecanica.Views.SharedViews
             {
                 item.cantidad++;
                 precioFinal += item.precio;
-                lblTotal.Text = "Precio Total: " + precioFinal.ToString("C2");
 
                 ///Actualizo las filas
                 this.dataGridView2.Rows[e.RowIndex].Cells[5].Value = item.cantidad;
                 this.dataGridView2.Rows[e.RowIndex].Cells[8].Value = item.cantidad * item.precio;
             }
+            UpdatePrecioFinal();
 
         }
 
@@ -265,22 +268,25 @@ namespace TallerMecanica.Views.SharedViews
             }
 
             ProductoPreEnsamblado producto = new ProductoPreEnsamblado();
+            producto.costoEnsamblado = (double)numCostoEnsamblado.Value;
+            producto.descripcion = txtDescripcion.Text;
 
-            if (MessageBox.Show("Precio total: " + precioFinal.ToString("C2") +
-                                "\nCosto de emsamblado: " + producto.costoEnsamblado.ToString("C2") +
+            if (MessageBox.Show(lblTotal.Text +
+                                "\nCosto de emsamblado: " + producto.costoEnsamblado.ToString() + " €"+
                                 "\n\n¿Aceptar?", "Guardar como Producto Preensamblado", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
                 foreach (var item in Singleton.MaterialesComprados)
                 {
-                    producto.MateriaPrima_ProductoPreEnsamblado.Add(new MateriaPrima_ProductoPreEnsamblado()
-                    {
-                        cantidad = item.cantidad,
-                        idMateriaPrima = item.idMateriaPrima
-                    });
+                    producto.MateriaPrima_ProductoPreEnsamblado
+                        .Add(
+                            new MateriaPrima_ProductoPreEnsamblado()
+                            {
+                                cantidad = item.cantidad,
+                                idMateriaPrima = item.idMateriaPrima
+                            });
                 }
 
-                producto.costoEnsamblado = (double)numCostoEnsamblado.Value;
-                producto.descripcion = txtDescripcion.Text;
+                
 
                 bool succed = new Repositories.dbProducto().InsertProductoEnsamblado(producto);
                 if (succed)
@@ -301,7 +307,7 @@ namespace TallerMecanica.Views.SharedViews
             }
 
 
-            if (MessageBox.Show("Precio total: " + precioFinal.ToString("C2") + "\n¿Aceptar?", "Confirmación de pedido", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            if (MessageBox.Show(lblTotal.Text + "\n¿Aceptar?", "Confirmación de pedido", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
                 //Hacer Compra
                 ProductoComprado compra = new ProductoComprado();
@@ -342,10 +348,18 @@ namespace TallerMecanica.Views.SharedViews
 
                 compra.requiereEnsamblado = this.checkBoxEnsamblado.Checked;
                 compra.pedidoConfirmado = !this.checkBoxEnsamblado.Checked;
-                compra.descripcion = this.checkBoxEnsamblado.Checked ? "Esperando Confirmacion del mecánico" : "Pedido entregado al instante";
                 compra.costoEnsamblado = (double)numCostoEnsamblado.Value;
+
+                String stadoPedido = this.checkBoxEnsamblado.Checked ? "Esperando Confirmacion del mecánico" : "Pedido entregado al instante";
+                compra.pedidoConfirmado = !this.checkBoxEnsamblado.Checked;
                 if (this.checkBoxEnsamblado.Checked && numCostoEnsamblado.Value > 0)
-                    compra.descripcion = "Pedido Confirmado";
+                {
+                    stadoPedido = "Pedido Confirmado";
+                    compra.pedidoConfirmado = true;
+                }
+
+                compra.descripcion = txtDescripcion.Text + " - "+ stadoPedido;
+
                 foreach (var item in Singleton.MaterialesComprados)
                 {
                     item.MateriaPrima = null;
@@ -374,7 +388,12 @@ namespace TallerMecanica.Views.SharedViews
         private void checkBoxEnsamblado_CheckedChanged(object sender, EventArgs e)
         {
             numCostoEnsamblado.Enabled = this.checkBoxEnsamblado.Checked;
-            numCostoEnsamblado.Value = this.checkBoxEnsamblado.Checked ? 100 : 0;
+            numCostoEnsamblado.Value = this.checkBoxEnsamblado.Checked ? 25 : 0;
+        }
+
+        private void numCostoEnsamblado_ValueChanged(object sender, EventArgs e)
+        {
+            UpdatePrecioFinal();
         }
     }
 }

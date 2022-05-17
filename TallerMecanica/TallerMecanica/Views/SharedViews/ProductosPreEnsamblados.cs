@@ -27,9 +27,6 @@ namespace TallerMecanica.Views.SharedViews
         {
             TallerMecanicoEntities dbContext = new TallerMecanicoEntities(); ///ONSULTAR LA BASE DE DATOS
             dbContext.Configuration.LazyLoadingEnabled = false;
-            productos = dbContext.ProductoPreEnsamblado.ToList(); //LINQ
-
-            dbContext.Configuration.LazyLoadingEnabled = false;
 
             try
             {
@@ -105,6 +102,73 @@ namespace TallerMecanica.Views.SharedViews
         {
             if (this.dataGridView_MateriaPrimas.SelectedRows.Count < 1)
                 return;
+
+            string descripcion = this.dataGridView_ProductosPreensamblados.SelectedRows[0].Cells[1].Value.ToString().Trim();
+            string precio = this.dataGridView_ProductosPreensamblados.SelectedRows[0].Cells[3].Value.ToString().Trim() + " €";
+            string message = "Está a punto de comprar:\n\n" + descripcion + "\nPrecio: " + precio +"\n\nConfirmar";
+
+            if (MessageBox.Show(message, "Compra", MessageBoxButtons.OKCancel) == DialogResult.Cancel)
+                return;
+
+            int IdProductoPreensamblado = int.Parse(this.dataGridView_ProductosPreensamblados.SelectedRows[0].Cells[0].Value.ToString());
+
+            using (TallerMecanicoEntities dbContext = new TallerMecanicoEntities())
+            {
+                dbContext.Configuration.LazyLoadingEnabled = false;
+
+                try
+                {
+                    var productoSeleccionado = dbContext.ProductoPreEnsamblado
+                                                .Where(m => m.idProductoPreEnsamblado == IdProductoPreensamblado)
+                                                .First();
+                    List<MateriaPrima_ProductoPreEnsamblado> items = dbContext.MateriaPrima_ProductoPreEnsamblado
+                                                .Where(m => m.idProductoPreEnsamblado == IdProductoPreensamblado)
+                                                .Include(m => m.MateriaPrima)
+                                                .ToList();
+
+                    ProductoComprado compra = new ProductoComprado();
+
+                    compra.descripcion = productoSeleccionado.descripcion;
+                    compra.costoEnsamblado = productoSeleccionado.costoEnsamblado;
+                    compra.fechaEntregaPrevista = DateTime.Now;
+                    compra.pedidoConfirmado = true;
+                    compra.fechaCompra = DateTime.Now;
+
+                    foreach (MateriaPrima_ProductoPreEnsamblado item in items)
+                    {
+                        compra.MateriaPrima_ProductoComprado
+                            .Add(
+                                new MateriaPrima_ProductoComprado()
+                                {
+                                    cantidad = item.cantidad,
+                                    idMateriaPrima = item.idMateriaPrima,
+                                    precio = item.MateriaPrima.precioVenta
+                                }
+                            );
+                    }
+
+
+
+                    //Finalmente asignamos el cliente que ha hecho la compra:
+                    compra.idCliente = Singleton.cliente_login.idCliente;
+
+                    bool wasAdded = new Repositories.dbProducto().InsertProductoComprado(compra);
+                    if (wasAdded)
+                        MessageBox.Show("Compra realizada con exito", "Compra");
+                    else
+                        MessageBox.Show("No fue posible guardar la compra, revisa tu conexión a internet o intenta nuevamente", "Error");
+
+                    ///Lleno datos del primero
+
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                }
+
+            }
+
+            ///Compra para el mismo como cliente!!!
 
 
 

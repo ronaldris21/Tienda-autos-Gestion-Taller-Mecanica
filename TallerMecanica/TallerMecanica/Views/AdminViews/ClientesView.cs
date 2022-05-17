@@ -10,7 +10,7 @@ namespace TallerMecanica.Views.AdminViews
 {
     public partial class ClientesView : Form
     {
-        private List<Cliente> clientesRegistrados;
+        private int idClienteSelectedx;
         private dbClientes repo;
         public ClientesView()
         {
@@ -24,7 +24,7 @@ namespace TallerMecanica.Views.AdminViews
             using (TallerMecanica.Models.TallerMecanicoEntities dbContext = new Models.TallerMecanicoEntities())
             {
                 dbContext.Configuration.LazyLoadingEnabled = false;
-                clientesRegistrados = await dbContext.Cliente.ToListAsync();
+                List<Cliente> clientesRegistrados = await dbContext.Cliente.ToListAsync();
 
                 dataGridView1.Rows.Clear();
                 foreach (Cliente client in clientesRegistrados)
@@ -87,7 +87,7 @@ namespace TallerMecanica.Views.AdminViews
                 {
                     didInsert = repo.Insert(client);
                     if (didInsert)
-                        
+
                         MessageBox.Show("Datos Guardados con exito", "Confirmación");
                     else
                         MessageBox.Show("Todos los campos son obligatorios excepto id y Telefono 2. ", "Error");
@@ -127,6 +127,29 @@ namespace TallerMecanica.Views.AdminViews
 
             if (didDelete)
                 InitDataAsync();
+        }
+
+        private void btnVerComprasCliente_Click(object sender, EventArgs e)
+        {
+            if (this.dataGridView1.SelectedRows.Count < 1)
+                return;
+
+            if (this.dataGridView1.SelectedRows[0].Cells[0].Value == null)
+                return;
+            int idSelected = int.Parse(this.dataGridView1.SelectedRows[0].Cells[0].Value.ToString());
+
+            using (TallerMecanicoEntities dbContext = new TallerMecanicoEntities())
+            {
+                dbContext.Configuration.LazyLoadingEnabled = false;
+                Cliente c = dbContext.Cliente.Find(idSelected);
+                if (c != null)
+                {
+                    var vistaComprasCliente = new Views.ClientViews.HistorialComprasCliente(c);
+                    vistaComprasCliente.Text = "Historial de compras - " + c.nombreCompleto;
+                    vistaComprasCliente.Show();
+                }
+
+            }
         }
     }
 }
