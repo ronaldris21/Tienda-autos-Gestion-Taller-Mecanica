@@ -355,6 +355,10 @@ namespace TallerMecanica.Views.SharedViews
                     stadoPedido = "Pedido Confirmado";
                     compra.pedidoConfirmado = true;
                 }
+                else
+                {
+                    compra.pedidoConfirmado = this.checkBoxEnsamblado.Checked == false;
+                }
 
                 compra.descripcion = txtDescripcion.Text + " - " + stadoPedido;
 
