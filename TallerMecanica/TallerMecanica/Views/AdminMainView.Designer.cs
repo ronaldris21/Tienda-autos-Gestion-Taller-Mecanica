@@ -55,22 +55,18 @@ namespace TallerMecanica.Views
             // 
             this.panelMenu.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.panelMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(76)))));
-            this.panelMenu.Controls.Add(this.btnproductosPreEnsamblados);
             this.panelMenu.Controls.Add(this.btnAdmins);
             this.panelMenu.Controls.Add(this.btnClientes);
             this.panelMenu.Controls.Add(this.btnHistorialPedidos);
             this.panelMenu.Controls.Add(this.btnMateriasPrimas);
             this.panelMenu.Controls.Add(this.btnCategorias);
+            this.panelMenu.Controls.Add(this.btnproductosPreEnsamblados);
             this.panelMenu.Controls.Add(this.btnShoppingCart);
             this.panelMenu.Controls.Add(this.panelLogo);
             this.panelMenu.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelMenu.Location = new System.Drawing.Point(0, 0);
             this.panelMenu.Name = "panelMenu";
-
-            
-
             this.panelMenu.Size = new System.Drawing.Size(220, 561);
-
             this.panelMenu.TabIndex = 0;
             // 
             // btnproductosPreEnsamblados
@@ -81,7 +77,7 @@ namespace TallerMecanica.Views
             this.btnproductosPreEnsamblados.ForeColor = System.Drawing.Color.FloralWhite;
             this.btnproductosPreEnsamblados.Image = global::TallerMecanica.Properties.Resources.bar_chart1;
             this.btnproductosPreEnsamblados.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnproductosPreEnsamblados.Location = new System.Drawing.Point(0, 326);
+            this.btnproductosPreEnsamblados.Location = new System.Drawing.Point(0, 121);
             this.btnproductosPreEnsamblados.Name = "btnproductosPreEnsamblados";
             this.btnproductosPreEnsamblados.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
             this.btnproductosPreEnsamblados.Size = new System.Drawing.Size(220, 41);
@@ -100,7 +96,7 @@ namespace TallerMecanica.Views
             this.btnAdmins.ForeColor = System.Drawing.Color.FloralWhite;
             this.btnAdmins.Image = global::TallerMecanica.Properties.Resources.settings;
             this.btnAdmins.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAdmins.Location = new System.Drawing.Point(0, 285);
+            this.btnAdmins.Location = new System.Drawing.Point(0, 326);
             this.btnAdmins.Name = "btnAdmins";
             this.btnAdmins.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
             this.btnAdmins.Size = new System.Drawing.Size(220, 41);
@@ -119,7 +115,7 @@ namespace TallerMecanica.Views
             this.btnClientes.ForeColor = System.Drawing.Color.FloralWhite;
             this.btnClientes.Image = global::TallerMecanica.Properties.Resources.value__1_;
             this.btnClientes.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnClientes.Location = new System.Drawing.Point(0, 244);
+            this.btnClientes.Location = new System.Drawing.Point(0, 285);
             this.btnClientes.Name = "btnClientes";
             this.btnClientes.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
             this.btnClientes.Size = new System.Drawing.Size(220, 41);
@@ -138,7 +134,7 @@ namespace TallerMecanica.Views
             this.btnHistorialPedidos.ForeColor = System.Drawing.Color.FloralWhite;
             this.btnHistorialPedidos.Image = global::TallerMecanica.Properties.Resources.alarm__1_1;
             this.btnHistorialPedidos.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnHistorialPedidos.Location = new System.Drawing.Point(0, 203);
+            this.btnHistorialPedidos.Location = new System.Drawing.Point(0, 244);
             this.btnHistorialPedidos.Name = "btnHistorialPedidos";
             this.btnHistorialPedidos.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
             this.btnHistorialPedidos.Size = new System.Drawing.Size(220, 41);
@@ -157,7 +153,7 @@ namespace TallerMecanica.Views
             this.btnMateriasPrimas.ForeColor = System.Drawing.Color.FloralWhite;
             this.btnMateriasPrimas.Image = global::TallerMecanica.Properties.Resources.shopping_list1;
             this.btnMateriasPrimas.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnMateriasPrimas.Location = new System.Drawing.Point(0, 162);
+            this.btnMateriasPrimas.Location = new System.Drawing.Point(0, 203);
             this.btnMateriasPrimas.Name = "btnMateriasPrimas";
             this.btnMateriasPrimas.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
             this.btnMateriasPrimas.Size = new System.Drawing.Size(220, 41);
@@ -176,7 +172,7 @@ namespace TallerMecanica.Views
             this.btnCategorias.ForeColor = System.Drawing.Color.FloralWhite;
             this.btnCategorias.Image = global::TallerMecanica.Properties.Resources.shopping_list;
             this.btnCategorias.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCategorias.Location = new System.Drawing.Point(0, 121);
+            this.btnCategorias.Location = new System.Drawing.Point(0, 162);
             this.btnCategorias.Name = "btnCategorias";
             this.btnCategorias.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
             this.btnCategorias.Size = new System.Drawing.Size(220, 41);
@@ -235,10 +231,7 @@ namespace TallerMecanica.Views
             this.panelTitlebar.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelTitlebar.Location = new System.Drawing.Point(220, 0);
             this.panelTitlebar.Name = "panelTitlebar";
-
-
             this.panelTitlebar.Size = new System.Drawing.Size(964, 80);
-
             this.panelTitlebar.TabIndex = 1;
             // 
             // btncerrar
@@ -260,11 +253,7 @@ namespace TallerMecanica.Views
             this.lblTitle.AutoSize = true;
             this.lblTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTitle.ForeColor = System.Drawing.Color.White;
-
-           
-
-            this.lblTitle.Location = new System.Drawing.Point(427, 32);
-
+            this.lblTitle.Location = new System.Drawing.Point(262, 32);
             this.lblTitle.Name = "lblTitle";
             this.lblTitle.Size = new System.Drawing.Size(78, 26);
             this.lblTitle.TabIndex = 0;
@@ -276,10 +265,7 @@ namespace TallerMecanica.Views
             this.panelDesktop.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelDesktop.Location = new System.Drawing.Point(220, 80);
             this.panelDesktop.Name = "panelDesktop";
-
-
             this.panelDesktop.Size = new System.Drawing.Size(964, 481);
-
             this.panelDesktop.TabIndex = 2;
             // 
             // panelMDI
@@ -289,25 +275,19 @@ namespace TallerMecanica.Views
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panelMDI.Location = new System.Drawing.Point(0, 0);
             this.panelMDI.Name = "panelMDI";
-
-
             this.panelMDI.Size = new System.Drawing.Size(964, 481);
-
             this.panelMDI.TabIndex = 0;
             // 
             // AdminMainView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-
-
             this.ClientSize = new System.Drawing.Size(1184, 561);
-
             this.Controls.Add(this.panelDesktop);
             this.Controls.Add(this.panelTitlebar);
             this.Controls.Add(this.panelMenu);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.MinimumSize = new System.Drawing.Size(699, 499);
+            this.Margin = new System.Windows.Forms.Padding(2);
+            this.MinimumSize = new System.Drawing.Size(1200, 600);
             this.Name = "AdminMainView";
             this.Text = "AdminMainView";
             this.panelMenu.ResumeLayout(false);

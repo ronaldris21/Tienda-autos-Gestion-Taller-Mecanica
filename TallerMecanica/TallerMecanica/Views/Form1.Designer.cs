@@ -123,11 +123,14 @@ namespace TallerMecanica.Views
             this.Controls.Add(this.label3);
             this.Controls.Add(this.tbncorreo);
             this.Controls.Add(this.label1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Name = "Form1";
+
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+
+
             this.ResumeLayout(false);
             this.PerformLayout();
 

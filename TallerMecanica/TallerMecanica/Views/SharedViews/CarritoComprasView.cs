@@ -347,12 +347,10 @@ namespace TallerMecanica.Views.SharedViews
                 compra.fechaEntregaPrevista = dateTimePicker1.Value;
 
                 compra.requiereEnsamblado = this.checkBoxEnsamblado.Checked;
-                compra.pedidoConfirmado = !this.checkBoxEnsamblado.Checked;
                 compra.costoEnsamblado = (double)numCostoEnsamblado.Value;
 
                 String stadoPedido = this.checkBoxEnsamblado.Checked ? "Esperando Confirmacion del mecánico" : "Pedido entregado al instante";
-                compra.pedidoConfirmado = !this.checkBoxEnsamblado.Checked;
-                if (this.checkBoxEnsamblado.Checked && numCostoEnsamblado.Value > 0)
+                if (Singleton.cliente_login.isAdmin)
                 {
                     stadoPedido = "Pedido Confirmado";
                     compra.pedidoConfirmado = true;

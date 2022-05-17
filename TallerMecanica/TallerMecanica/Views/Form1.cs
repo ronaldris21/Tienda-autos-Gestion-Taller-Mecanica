@@ -54,17 +54,11 @@ namespace TallerMecanica.Views
                 error = "exito";
                 MessageBox.Show(error);
 
-
-
-
             }
             catch(Exception ex)
             {
                 error = "error: " + ex.Message;
                 MessageBox.Show(error);
-
-                return;
-
             }
 
         }

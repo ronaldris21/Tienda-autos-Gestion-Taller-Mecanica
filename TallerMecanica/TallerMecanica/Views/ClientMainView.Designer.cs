@@ -223,7 +223,7 @@ namespace TallerMecanica.Views
             this.Controls.Add(this.panelTitlebar);
             this.Controls.Add(this.panelMenu);
             this.Margin = new System.Windows.Forms.Padding(2);
-            this.MinimumSize = new System.Drawing.Size(700, 500);
+            this.MinimumSize = new System.Drawing.Size(1200, 600);
             this.Name = "ClientMainView";
             this.Text = "AdminMainView";
             this.panelMenu.ResumeLayout(false);
