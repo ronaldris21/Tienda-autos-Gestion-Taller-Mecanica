@@ -389,7 +389,6 @@ namespace TallerMecanica.Views.SharedViews
         private void checkBoxEnsamblado_CheckedChanged(object sender, EventArgs e)
         {
             numCostoEnsamblado.Enabled = this.checkBoxEnsamblado.Checked;
-            numCostoEnsamblado.Value = this.checkBoxEnsamblado.Checked ? 25 : 0;
         }
 
         private void numCostoEnsamblado_ValueChanged(object sender, EventArgs e)

@@ -163,7 +163,7 @@ namespace TallerMecanica.Views.AdminViews
         {
                 
             prodSeleccionado.pedidoConfirmado = true;
-            prodSeleccionado.descripcion = txtDescripcion.Text.Trim();
+            prodSeleccionado.descripcion = txtDescripcion.Text.Trim()+ " - Pedido confirmado";
             prodSeleccionado.costoEnsamblado = (double)numCostoEnsamblado.Value;
             prodSeleccionado.fechaEntregaPrevista = dateTimePicker1.Value;
             prodSeleccionado.requiereEnsamblado = checkBoxRequiereEnsamblado.Checked;

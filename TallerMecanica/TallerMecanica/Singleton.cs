@@ -12,8 +12,8 @@ namespace TallerMecanica
     public class Singleton
     {
 
-        const string emailUsuarioSistema = "pepitodelospalotes1223@gmail.com";
-        const string passwordSistema = "trabajoPVA";
+        public static string emailUsuarioSistema = "pepitodelospalotes1223@gmail.com";
+        public static string passwordSistema = "trabajoPVA";
         public static Cliente cliente_login { get; set; }
         public static List<MateriaPrima_ProductoComprado> MaterialesComprados { get; set; }
         public  static void EnviarCorreo(StringBuilder Mensaje, DateTime fechaenvio, string para, string asunto, out string error)
@@ -35,12 +35,12 @@ namespace TallerMecanica
                 smtp.EnableSsl = true;
                 smtp.Send(mail);
                 error = "Correo de recuperación de contraseña enviado";
-                MessageBox.Show(error);
+                //MessageBox.Show(error);
             }
             catch (Exception ex)
             {
                 error = "error: " + ex.Message;
-                MessageBox.Show(error);
+                //MessageBox.Show(error);
             }
 
         }

@@ -56,7 +56,6 @@ namespace TallerMecanica.Repositories
 					aplicacion.Cells[5, 6] = "Precio Total";
 					aplicacion.Cells[6, 6] = preciototal ;
 
-
 					//Recorremos el DataGRidView rellenando la hoja de trabajo
 					for (int i = 1; i < grd.Columns.Count + 1; i++)
 					{
