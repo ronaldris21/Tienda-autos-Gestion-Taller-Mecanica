@@ -12,6 +12,7 @@ namespace TallerMecanica.Repositories
         {
             using (TallerMecanicoEntities dbContext = new TallerMecanicoEntities()) //DISPOSABLE
             {
+                dbContext.Configuration.LazyLoadingEnabled = false;
                 try
                 {
                     var cliente = dbContext.Cliente.Where(c => c.email == email && c.contrasena == pass)
