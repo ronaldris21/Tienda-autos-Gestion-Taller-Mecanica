@@ -9,6 +9,8 @@ using System.Net.Configuration;
 using System.Net;
 using System.Security.Cryptography.X509Certificates;
 using System.Net.Security;
+using System.Text;
+using System.Linq;
 
 namespace TallerMecanica.Views
 {
@@ -18,6 +20,11 @@ namespace TallerMecanica.Views
         {
             InitializeComponent();
             themeColor.Loadtheme(this);
+
+            this.btnCliente.Visible = false;
+            this.btnAdmin.Visible = false;
+            this.btnCliente.Enabled = false;
+            this.btnAdmin.Enabled = false;
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
@@ -74,7 +81,24 @@ namespace TallerMecanica.Views
 
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            new Form1(txtuser.Text).Show();
+            Cliente cli = null;
+            using (Models.TallerMecanicoEntities dbContext = new Models.TallerMecanicoEntities())
+            {
+                dbContext.Configuration.LazyLoadingEnabled = false;
+                cli = dbContext.Cliente.FirstOrDefault(c => c.email == txtuser.Text);
+            }
+            if (cli == null)
+            {
+                MessageBox.Show("No existe ningún usuario con este correo");
+                return;
+            }
+
+            string error = "";
+            StringBuilder MensajeBuilder = new StringBuilder();
+            MensajeBuilder.Append("Recuperacion de cuenta: ");
+            MensajeBuilder.Append(cli.contrasena.Trim());
+            Singleton.EnviarCorreo(MensajeBuilder, DateTime.Now, txtuser.Text.Trim(), "Contraseña del Taller Mecánico", out error);
+            this.Close();
         }
 
     }

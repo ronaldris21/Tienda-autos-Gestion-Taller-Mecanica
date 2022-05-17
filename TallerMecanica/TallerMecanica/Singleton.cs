@@ -44,6 +44,11 @@ namespace TallerMecanica
             }
 
         }
+
+        internal static void EnviarCorreo(StringBuilder mensajeBuilder, DateTime now, object p, string v, out string error)
+        {
+            throw new NotImplementedException();
+        }
     }
 
     public enum FiltrarPedidos

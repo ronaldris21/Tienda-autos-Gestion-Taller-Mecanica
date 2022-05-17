@@ -15,12 +15,12 @@ namespace TallerMecanica
             //new InitFakeData().InitDataOnServerAsync();
 
             Singleton.cliente_login = new Models.Cliente();
-            Singleton.cliente_login.isAdmin = true;
-            Singleton.cliente_login.nombreCompleto = "Ronaldd ris0";
-            Singleton.cliente_login.email = "retejada@alu.ucam.edu";
-            Singleton.cliente_login.contrasena = "1234";
-            Singleton.cliente_login.idCliente = 2;
-            Singleton.cliente_login.telefono1 = "747654894";
+            //Singleton.cliente_login.isAdmin = true;
+            //Singleton.cliente_login.nombreCompleto = "Ronaldd ris0";
+            //Singleton.cliente_login.email = "retejada@alu.ucam.edu";
+            //Singleton.cliente_login.contrasena = "1234";
+            //Singleton.cliente_login.idCliente = 2;
+            //Singleton.cliente_login.telefono1 = "747654894";
 
             ///INIT DATA
             themeColor.PrimaryColor = themeColor.defaultColor;
