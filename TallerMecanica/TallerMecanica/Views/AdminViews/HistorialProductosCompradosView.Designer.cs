@@ -75,6 +75,7 @@ namespace TallerMecanica.Views.AdminViews
             this.btnFactura.TabIndex = 12;
             this.btnFactura.Text = "Generar Factura";
             this.btnFactura.UseVisualStyleBackColor = true;
+            this.btnFactura.Click += new System.EventHandler(this.btnFactura_Click);
             // 
             // label2
             // 

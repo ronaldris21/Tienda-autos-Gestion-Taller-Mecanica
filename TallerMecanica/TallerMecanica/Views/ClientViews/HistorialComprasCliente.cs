@@ -71,7 +71,10 @@ namespace TallerMecanica.Views.ClientViews
             TallerMecanicoEntities dbContext = new TallerMecanicoEntities(); ///ONSULTAR LA BASE DE DATOS
             dbContext.Configuration.LazyLoadingEnabled = false;
             int idProductoComprado = int.Parse(dataGridView_ProductosComprados.SelectedRows[0].Cells[0].Value.ToString());
-            ProductoComprado productoSeleccionado =  dbContext.ProductoComprado.First(p => p.idProductoComprado == idProductoComprado);
+            ProductoComprado productoSeleccionado =  dbContext.ProductoComprado
+                .Where(p => p.idProductoComprado == idProductoComprado)
+                .Include(p => p.Cliente)
+                .First();
             //Exporta el DataGridView de la materia Prima al Excel
             Exportar exp = new Exportar();
             exp.ExportarDataGridViewExcel(dataGridView_MateriaPrimas, productoSeleccionado, dataGridView_ProductosComprados.SelectedRows[0].Cells["PrecioTotal"].Value.ToString());

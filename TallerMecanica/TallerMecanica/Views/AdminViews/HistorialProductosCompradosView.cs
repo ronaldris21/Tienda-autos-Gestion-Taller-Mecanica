@@ -6,6 +6,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using TallerMecanica.Models;
+using TallerMecanica.Repositories;
 
 namespace TallerMecanica.Views.AdminViews
 {
@@ -187,16 +188,16 @@ namespace TallerMecanica.Views.AdminViews
                 dataGridView_ProductosComprados.SelectedRows[0].Cells[1].Value = prodSeleccionado.pedidoConfirmado;
                 dataGridView_ProductosComprados.SelectedRows[0].Cells[2].Value = prodSeleccionado.requiereEnsamblado;
                 dataGridView_ProductosComprados.SelectedRows[0].Cells[3].Value = prodSeleccionado.descripcion;
-                dataGridView_ProductosComprados.SelectedRows[0].Cells[4].Value = prodSeleccionado.fechaEntregaPrevista;
-                dataGridView_ProductosComprados.SelectedRows[0].Cells[5].Value = prodSeleccionado.costoEnsamblado + " €";
+                dataGridView_ProductosComprados.SelectedRows[0].Cells[5].Value = prodSeleccionado.fechaEntregaPrevista;
+                dataGridView_ProductosComprados.SelectedRows[0].Cells[6].Value = prodSeleccionado.costoEnsamblado + " €";
 
                 ///Actualizar Precio Total
-                string text = dataGridView_ProductosComprados.SelectedRows[0].Cells[6].Value.ToString().Replace("€", "");
+                string text = dataGridView_ProductosComprados.SelectedRows[0].Cells[7].Value.ToString().Replace("€", "");
                 double precioTotalOriginal = double.Parse(text);
-                text = dataGridView_ProductosComprados.SelectedRows[0].Cells[5].Value.ToString().Replace("€", "");
+                text = dataGridView_ProductosComprados.SelectedRows[0].Cells[6].Value.ToString().Replace("€", "");
                 double costoEnsambladoOriginal = double.Parse(text);
                 precioTotalOriginal = precioTotalOriginal - costoEnsambladoOriginal + prodSeleccionado.costoEnsamblado;
-                dataGridView_ProductosComprados.SelectedRows[0].Cells[5].Value = precioTotalOriginal + " €";
+                dataGridView_ProductosComprados.SelectedRows[0].Cells[7].Value = precioTotalOriginal + " €";
 
                 MessageBox.Show("Se han actualizado los datos del pedido correctamente. También se ha notificado al cliente los cambios", "Pedido actualizado");
             }
@@ -215,6 +216,23 @@ namespace TallerMecanica.Views.AdminViews
                 this.numCostoEnsamblado.Enabled = false;
                 this.numCostoEnsamblado.Value = 0;
             }
+        }
+
+        private void btnFactura_Click(object sender, EventArgs e)
+        {
+            if (this.dataGridView_ProductosComprados.SelectedRows.Count < 1)
+                return;
+
+            TallerMecanicoEntities dbContext = new TallerMecanicoEntities(); ///ONSULTAR LA BASE DE DATOS
+            dbContext.Configuration.LazyLoadingEnabled = false;
+            int idProductoComprado = int.Parse(dataGridView_ProductosComprados.SelectedRows[0].Cells[0].Value.ToString());
+            ProductoComprado productoSeleccionado = dbContext.ProductoComprado
+                .Where(p => p.idProductoComprado == idProductoComprado)
+                .Include(p => p.Cliente)
+                .First();
+            //Exporta el DataGridView de la materia Prima al Excel
+            Exportar exp = new Exportar();
+            exp.ExportarDataGridViewExcel(dataGridView_MateriaPrimas, productoSeleccionado, dataGridView_ProductosComprados.SelectedRows[0].Cells["PrecioTotal"].Value.ToString());
         }
     }
 }
