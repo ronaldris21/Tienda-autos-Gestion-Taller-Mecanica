@@ -31,6 +31,7 @@ namespace TallerMecanica.Views
         {
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.titlebar = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.txtuser = new System.Windows.Forms.TextBox();
             this.UserName = new System.Windows.Forms.Label();
@@ -42,7 +43,6 @@ namespace TallerMecanica.Views
             this.linkLabel2 = new System.Windows.Forms.LinkLabel();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.titlebar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -54,13 +54,26 @@ namespace TallerMecanica.Views
             // titlebar
             // 
             this.titlebar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(38)))), ((int)(((byte)(70)))));
+            this.titlebar.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.titlebar.Controls.Add(this.pictureBox1);
             this.titlebar.Dock = System.Windows.Forms.DockStyle.Top;
             this.titlebar.Location = new System.Drawing.Point(0, 0);
             this.titlebar.Name = "titlebar";
-            this.titlebar.Size = new System.Drawing.Size(386, 50);
+            this.titlebar.Size = new System.Drawing.Size(386, 51);
             this.titlebar.TabIndex = 0;
             this.titlebar.MouseMove += new System.Windows.Forms.MouseEventHandler(this.titlebar_MouseMove);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pictureBox1.Image = global::TallerMecanica.Properties.Resources.cross_out__2_;
+            this.pictureBox1.Location = new System.Drawing.Point(318, 12);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(68, 20);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 11;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // panel1
             // 
@@ -191,17 +204,6 @@ namespace TallerMecanica.Views
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click_1);
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::TallerMecanica.Properties.Resources.cross_out__2_;
-            this.pictureBox1.Location = new System.Drawing.Point(318, 12);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(68, 20);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 11;
-            this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
-            // 
             // LoginView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -220,10 +222,9 @@ namespace TallerMecanica.Views
             this.Controls.Add(this.txtuser);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.titlebar);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Name = "LoginView";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "LoginView";
             this.Load += new System.EventHandler(this.LoginView_Load);
             this.titlebar.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

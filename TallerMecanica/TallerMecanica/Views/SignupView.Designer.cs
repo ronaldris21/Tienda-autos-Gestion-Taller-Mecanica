@@ -194,7 +194,7 @@ namespace TallerMecanica.Views
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.button1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Name = "SignupView";
             this.Load += new System.EventHandler(this.SignupView_Load);
             this.panel1.ResumeLayout(false);
