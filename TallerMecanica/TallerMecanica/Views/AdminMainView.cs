@@ -150,7 +150,7 @@ namespace TallerMecanica.Views
         private void btnAdmins_Click(object sender, EventArgs e)
         {
             ActivateButton(sender);
-            OpenChildForm(new AdminViews.AdminsView(), sender);
+            OpenChildForm(new ClientViews.ClientProfileView(), sender);
         }
 
     }

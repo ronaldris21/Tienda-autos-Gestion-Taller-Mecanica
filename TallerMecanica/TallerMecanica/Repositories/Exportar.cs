@@ -51,10 +51,10 @@ namespace TallerMecanica.Repositories
 					aplicacion.Cells[6, 4] = producto.pedidoConfirmado;
 
 					aplicacion.Cells[5, 5] = "Coste Ensamblado";
-					aplicacion.Cells[6, 5] = producto.costoEnsamblado;
+					aplicacion.Cells[6, 5] = producto.costoEnsamblado.ToString("N2") + " €";
 
 					aplicacion.Cells[5, 6] = "Precio Total";
-					aplicacion.Cells[6, 6] = preciototal;
+					aplicacion.Cells[6, 6] = preciototal ;
 
 					//Recorremos el DataGRidView rellenando la hoja de trabajo
 					for (int i = 1; i < grd.Columns.Count + 1; i++)
@@ -84,7 +84,7 @@ namespace TallerMecanica.Repositories
 			}
 			catch (Exception ex)
 			{
-				MessageBox.Show("Error al exportar la información debido a: " + ex.ToString());
+                Console.WriteLine("Error al exportar la información debido a: " + ex.ToString());
 			}
 		}
 	}

@@ -45,7 +45,6 @@ namespace TallerMecanica.Views.SharedViews
             this.Cantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Precio = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Subtotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.button2 = new System.Windows.Forms.Button();
             this.btnComprar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_ProductosPreensamblados)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_MateriaPrimas)).BeginInit();
@@ -63,7 +62,7 @@ namespace TallerMecanica.Views.SharedViews
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(11, 167);
+            this.label2.Location = new System.Drawing.Point(11, 214);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(117, 13);
@@ -97,7 +96,7 @@ namespace TallerMecanica.Views.SharedViews
             this.dataGridView_ProductosPreensamblados.ReadOnly = true;
             this.dataGridView_ProductosPreensamblados.RowHeadersWidth = 51;
             this.dataGridView_ProductosPreensamblados.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView_ProductosPreensamblados.Size = new System.Drawing.Size(736, 106);
+            this.dataGridView_ProductosPreensamblados.Size = new System.Drawing.Size(736, 151);
             this.dataGridView_ProductosPreensamblados.TabIndex = 8;
             this.dataGridView_ProductosPreensamblados.SelectionChanged += new System.EventHandler(this.dataGridView_ProductosPreensamblados_SelectionChanged);
             // 
@@ -150,7 +149,7 @@ namespace TallerMecanica.Views.SharedViews
             this.Cantidad,
             this.Precio,
             this.Subtotal});
-            this.dataGridView_MateriaPrimas.Location = new System.Drawing.Point(13, 183);
+            this.dataGridView_MateriaPrimas.Location = new System.Drawing.Point(11, 229);
             this.dataGridView_MateriaPrimas.Margin = new System.Windows.Forms.Padding(2);
             this.dataGridView_MateriaPrimas.MultiSelect = false;
             this.dataGridView_MateriaPrimas.Name = "dataGridView_MateriaPrimas";
@@ -221,15 +220,6 @@ namespace TallerMecanica.Views.SharedViews
             this.Subtotal.ReadOnly = true;
             this.Subtotal.Width = 71;
             // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(292, 247);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 6;
-            this.button2.Text = "Historial";
-            this.button2.UseVisualStyleBackColor = true;
-            // 
             // btnComprar
             // 
             this.btnComprar.Location = new System.Drawing.Point(765, 35);
@@ -250,7 +240,6 @@ namespace TallerMecanica.Views.SharedViews
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dataGridView_ProductosPreensamblados);
             this.Controls.Add(this.dataGridView_MateriaPrimas);
-            this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Name = "ProductosPreEnsamblados";
             this.Text = "Vehiculos Ensamblados - LLevátelo YA";
@@ -268,7 +257,6 @@ namespace TallerMecanica.Views.SharedViews
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView dataGridView_ProductosPreensamblados;
         private System.Windows.Forms.DataGridView dataGridView_MateriaPrimas;
-        private System.Windows.Forms.Button button2;
         private System.Windows.Forms.DataGridViewTextBoxColumn idCompra;
         private System.Windows.Forms.DataGridViewTextBoxColumn Descripcion;
         private System.Windows.Forms.DataGridViewTextBoxColumn CosteEnsamblado;

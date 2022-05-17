@@ -21,20 +21,6 @@ namespace TallerMecanica.Views.SharedViews
 
             initDataAsyn();
 
-            //.Include()
-            //.Select(p =>
-            //    new ()
-            //    {
-            //        costoEnsamblado = p.costoEnsamblado,
-            //        descripcion = p.descripcion,
-            //        idProductoPreEnsamblado = p.idProductoPreEnsamblado
-            //    }
-            //)
-            //.incl
-            //.ToList(); //LINQ
-
-
-
         }
 
         private async Task initDataAsyn()

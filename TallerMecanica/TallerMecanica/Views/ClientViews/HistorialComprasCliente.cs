@@ -18,6 +18,7 @@ namespace TallerMecanica.Views.ClientViews
     public partial class HistorialComprasCliente : Form
     {
         Cliente cli;
+        //TODO ADD FECHA DE ENTREGA
         public HistorialComprasCliente(Cliente c = null)
         {
             InitializeComponent();
@@ -46,15 +47,16 @@ namespace TallerMecanica.Views.ClientViews
 
             foreach (var item in productos)
             {
-
+                var fechaprevista = item.p.fechaEntregaPrevista == null ? item.p.fechaEntregaPrevista?.ToString("dd/MM/yyyy"): null;
                 this.dataGridView_ProductosComprados.Rows.Add(
                     new object[] {
                         item.p.idProductoComprado.ToString(),
-                        item.p.descripcion,
-                        item.p.fechaCompra.ToString("yyyy/MM/dd"),
                         item.p.pedidoConfirmado,
-                        item.p.costoEnsamblado.ToString() + " €",
-                        item.precioFinal.ToString() + " €"
+                        item.p.descripcion,
+                        item.p.fechaCompra.ToString("dd/MM/yyyy"),
+                        fechaprevista,
+                        item.p.costoEnsamblado.ToString("N2") + " €",
+                        item.precioFinal.ToString("N2") + " €"
                     });
             }
         }
@@ -70,7 +72,7 @@ namespace TallerMecanica.Views.ClientViews
             ProductoComprado productoSeleccionado =  dbContext.ProductoComprado.First(p => p.idProductoComprado == idProductoComprado);
             //Exporta el DataGridView de la materia Prima al Excel
             Exportar exp = new Exportar();
-            exp.ExportarDataGridViewExcel(dataGridView_MateriaPrimas, productoSeleccionado, dataGridView_ProductosComprados.SelectedRows[0].Cells[5].Value.ToString());
+            exp.ExportarDataGridViewExcel(dataGridView_MateriaPrimas, productoSeleccionado, dataGridView_ProductosComprados.SelectedRows[0].Cells["PrecioTotal"].Value.ToString());
         }
 
         private void dataGridView_ProductosComprados_SelectionChanged(object sender, EventArgs e)
@@ -104,8 +106,8 @@ namespace TallerMecanica.Views.ClientViews
                         item.MateriaPrima.material.Trim(),
                         item.MateriaPrima.Categoria.nombreCategoria,
                         item.cantidad,
-                        item.precio.ToString() + " €",
-                        (item.precio*item.cantidad).ToString() + " €",
+                        item.precio.ToString("N2") + " €",
+                        (item.precio*item.cantidad).ToString("n2") + " €",
                     });
             }
         }

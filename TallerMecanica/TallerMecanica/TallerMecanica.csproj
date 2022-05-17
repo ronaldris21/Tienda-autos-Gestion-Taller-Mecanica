@@ -121,12 +121,6 @@
     <Compile Include="Views\AdminMainView.Designer.cs">
       <DependentUpon>AdminMainView.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\AdminViews\AdminsView.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Views\AdminViews\AdminsView.Designer.cs">
-      <DependentUpon>AdminsView.cs</DependentUpon>
-    </Compile>
     <Compile Include="Views\AdminViews\CategoriaView.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -203,9 +197,6 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="Views\AdminViews\AdminsView.resx">
-      <DependentUpon>AdminsView.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Views\AdminViews\ClientesView.resx">
       <DependentUpon>ClientesView.cs</DependentUpon>
       <SubType>Designer</SubType>
