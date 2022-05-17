@@ -29,7 +29,6 @@ namespace TallerMecanica.Views.ClientViews
         /// </summary>
         private void InitializeComponent()
         {
-            this.button1 = new System.Windows.Forms.Button();
             this.dataGridView_MateriaPrimas = new System.Windows.Forms.DataGridView();
             this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -39,28 +38,19 @@ namespace TallerMecanica.Views.ClientViews
             this.Precio = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Subtototal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridView_ProductosComprados = new System.Windows.Forms.DataGridView();
-            this.idCompra = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PedidoConfirmado = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.Descripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.FechaCompra = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Fecha_entrega = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CosteEnsamblado = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PrecioTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.btnFactura = new System.Windows.Forms.Button();
+            this.PrecioTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CosteEnsamblado = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Fecha_entrega = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FechaCompra = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Descripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PedidoConfirmado = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.idCompra = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_MateriaPrimas)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_ProductosComprados)).BeginInit();
             this.SuspendLayout();
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(300, 249);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "Historial";
-            this.button1.UseVisualStyleBackColor = true;
             // 
             // dataGridView_MateriaPrimas
             // 
@@ -82,7 +72,7 @@ namespace TallerMecanica.Views.ClientViews
             this.dataGridView_MateriaPrimas.ReadOnly = true;
             this.dataGridView_MateriaPrimas.RowHeadersWidth = 51;
             this.dataGridView_MateriaPrimas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView_MateriaPrimas.Size = new System.Drawing.Size(736, 171);
+            this.dataGridView_MateriaPrimas.Size = new System.Drawing.Size(795, 171);
             this.dataGridView_MateriaPrimas.TabIndex = 2;
             // 
             // id
@@ -168,73 +158,9 @@ namespace TallerMecanica.Views.ClientViews
             this.dataGridView_ProductosComprados.ReadOnly = true;
             this.dataGridView_ProductosComprados.RowHeadersWidth = 51;
             this.dataGridView_ProductosComprados.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView_ProductosComprados.Size = new System.Drawing.Size(736, 156);
+            this.dataGridView_ProductosComprados.Size = new System.Drawing.Size(795, 156);
             this.dataGridView_ProductosComprados.TabIndex = 3;
             this.dataGridView_ProductosComprados.SelectionChanged += new System.EventHandler(this.dataGridView_ProductosComprados_SelectionChanged);
-            // 
-            // idCompra
-            // 
-            this.idCompra.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.idCompra.HeaderText = "id";
-            this.idCompra.MinimumWidth = 6;
-            this.idCompra.Name = "idCompra";
-            this.idCompra.ReadOnly = true;
-            this.idCompra.Width = 40;
-            // 
-            // PedidoConfirmado
-            // 
-            this.PedidoConfirmado.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.PedidoConfirmado.HeaderText = "Confirmado";
-            this.PedidoConfirmado.MinimumWidth = 6;
-            this.PedidoConfirmado.Name = "PedidoConfirmado";
-            this.PedidoConfirmado.ReadOnly = true;
-            this.PedidoConfirmado.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.PedidoConfirmado.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.PedidoConfirmado.Width = 85;
-            // 
-            // Descripcion
-            // 
-            this.Descripcion.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Descripcion.HeaderText = "Descripción";
-            this.Descripcion.MinimumWidth = 6;
-            this.Descripcion.Name = "Descripcion";
-            this.Descripcion.ReadOnly = true;
-            // 
-            // FechaCompra
-            // 
-            this.FechaCompra.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.FechaCompra.HeaderText = "Fecha Compra";
-            this.FechaCompra.MinimumWidth = 6;
-            this.FechaCompra.Name = "FechaCompra";
-            this.FechaCompra.ReadOnly = true;
-            this.FechaCompra.Width = 93;
-            // 
-            // Fecha_entrega
-            // 
-            this.Fecha_entrega.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.Fecha_entrega.HeaderText = "Fecha entrega";
-            this.Fecha_entrega.Name = "Fecha_entrega";
-            this.Fecha_entrega.ReadOnly = true;
-            this.Fecha_entrega.Width = 93;
-            // 
-            // CosteEnsamblado
-            // 
-            this.CosteEnsamblado.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.CosteEnsamblado.HeaderText = "Coste Ensamblado";
-            this.CosteEnsamblado.MinimumWidth = 6;
-            this.CosteEnsamblado.Name = "CosteEnsamblado";
-            this.CosteEnsamblado.ReadOnly = true;
-            this.CosteEnsamblado.Width = 110;
-            // 
-            // PrecioTotal
-            // 
-            this.PrecioTotal.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.PrecioTotal.HeaderText = "Precio Total";
-            this.PrecioTotal.MinimumWidth = 6;
-            this.PrecioTotal.Name = "PrecioTotal";
-            this.PrecioTotal.ReadOnly = true;
-            this.PrecioTotal.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.PrecioTotal.Width = 82;
             // 
             // label1
             // 
@@ -267,6 +193,70 @@ namespace TallerMecanica.Views.ClientViews
             this.btnFactura.UseVisualStyleBackColor = true;
             this.btnFactura.Click += new System.EventHandler(this.btnFactura_Click);
             // 
+            // PrecioTotal
+            // 
+            this.PrecioTotal.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.PrecioTotal.HeaderText = "Precio Total";
+            this.PrecioTotal.MinimumWidth = 6;
+            this.PrecioTotal.Name = "PrecioTotal";
+            this.PrecioTotal.ReadOnly = true;
+            this.PrecioTotal.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.PrecioTotal.Width = 82;
+            // 
+            // CosteEnsamblado
+            // 
+            this.CosteEnsamblado.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.CosteEnsamblado.HeaderText = "Coste Ensamblado";
+            this.CosteEnsamblado.MinimumWidth = 6;
+            this.CosteEnsamblado.Name = "CosteEnsamblado";
+            this.CosteEnsamblado.ReadOnly = true;
+            this.CosteEnsamblado.Width = 110;
+            // 
+            // Fecha_entrega
+            // 
+            this.Fecha_entrega.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Fecha_entrega.HeaderText = "Fecha entrega";
+            this.Fecha_entrega.Name = "Fecha_entrega";
+            this.Fecha_entrega.ReadOnly = true;
+            this.Fecha_entrega.Width = 101;
+            // 
+            // FechaCompra
+            // 
+            this.FechaCompra.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.FechaCompra.HeaderText = "Fecha Compra";
+            this.FechaCompra.MinimumWidth = 6;
+            this.FechaCompra.Name = "FechaCompra";
+            this.FechaCompra.ReadOnly = true;
+            this.FechaCompra.Width = 101;
+            // 
+            // Descripcion
+            // 
+            this.Descripcion.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Descripcion.HeaderText = "Descripción";
+            this.Descripcion.MinimumWidth = 6;
+            this.Descripcion.Name = "Descripcion";
+            this.Descripcion.ReadOnly = true;
+            // 
+            // PedidoConfirmado
+            // 
+            this.PedidoConfirmado.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.PedidoConfirmado.HeaderText = "Confirmado";
+            this.PedidoConfirmado.MinimumWidth = 6;
+            this.PedidoConfirmado.Name = "PedidoConfirmado";
+            this.PedidoConfirmado.ReadOnly = true;
+            this.PedidoConfirmado.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.PedidoConfirmado.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.PedidoConfirmado.Width = 85;
+            // 
+            // idCompra
+            // 
+            this.idCompra.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.idCompra.HeaderText = "id";
+            this.idCompra.MinimumWidth = 6;
+            this.idCompra.Name = "idCompra";
+            this.idCompra.ReadOnly = true;
+            this.idCompra.Width = 40;
+            // 
             // HistorialComprasCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -277,7 +267,6 @@ namespace TallerMecanica.Views.ClientViews
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dataGridView_ProductosComprados);
             this.Controls.Add(this.dataGridView_MateriaPrimas);
-            this.Controls.Add(this.button1);
             this.Name = "HistorialComprasCliente";
             this.Text = "Mis compras - Cliente";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_MateriaPrimas)).EndInit();
@@ -288,8 +277,6 @@ namespace TallerMecanica.Views.ClientViews
         }
 
         #endregion
-
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.DataGridView dataGridView_MateriaPrimas;
         private System.Windows.Forms.DataGridView dataGridView_ProductosComprados;
         private System.Windows.Forms.Label label1;

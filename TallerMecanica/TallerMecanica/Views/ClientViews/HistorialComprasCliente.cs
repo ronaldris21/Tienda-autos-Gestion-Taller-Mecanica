@@ -109,7 +109,7 @@ namespace TallerMecanica.Views.ClientViews
                         item.MateriaPrima.Categoria.nombreCategoria,
                         item.cantidad,
                         item.precio.ToString("N2") + " €",
-                        (item.precio*item.cantidad).ToString("n2") + " €",
+                        (item.precio*item.cantidad).ToString("N2") + " €",
                     });
             }
         }

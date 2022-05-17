@@ -45,6 +45,9 @@ namespace TallerMecanica.Views.SharedViews
             this.Precio = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Subtotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnComprar = new System.Windows.Forms.Button();
+            this.lblClienteCompra = new System.Windows.Forms.Label();
+            this.checkBoxConsumidorFinal = new System.Windows.Forms.CheckBox();
+            this.comboBoxClientes = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_ProductosPreensamblados)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_MateriaPrimas)).BeginInit();
             this.SuspendLayout();
@@ -220,11 +223,45 @@ namespace TallerMecanica.Views.SharedViews
             this.btnComprar.UseVisualStyleBackColor = true;
             this.btnComprar.Click += new System.EventHandler(this.btnComprar_Click);
             // 
+            // lblClienteCompra
+            // 
+            this.lblClienteCompra.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblClienteCompra.AutoSize = true;
+            this.lblClienteCompra.Location = new System.Drawing.Point(784, 262);
+            this.lblClienteCompra.Name = "lblClienteCompra";
+            this.lblClienteCompra.Size = new System.Drawing.Size(106, 13);
+            this.lblClienteCompra.TabIndex = 51;
+            this.lblClienteCompra.Text = "Cliente de la compra:";
+            // 
+            // checkBoxConsumidorFinal
+            // 
+            this.checkBoxConsumidorFinal.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.checkBoxConsumidorFinal.AutoSize = true;
+            this.checkBoxConsumidorFinal.Location = new System.Drawing.Point(816, 305);
+            this.checkBoxConsumidorFinal.Name = "checkBoxConsumidorFinal";
+            this.checkBoxConsumidorFinal.Size = new System.Drawing.Size(91, 17);
+            this.checkBoxConsumidorFinal.TabIndex = 50;
+            this.checkBoxConsumidorFinal.Text = "Consumir final";
+            this.checkBoxConsumidorFinal.UseVisualStyleBackColor = true;
+            // 
+            // comboBoxClientes
+            // 
+            this.comboBoxClientes.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.comboBoxClientes.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxClientes.FormattingEnabled = true;
+            this.comboBoxClientes.Location = new System.Drawing.Point(787, 278);
+            this.comboBoxClientes.Name = "comboBoxClientes";
+            this.comboBoxClientes.Size = new System.Drawing.Size(159, 21);
+            this.comboBoxClientes.TabIndex = 49;
+            // 
             // ProductosPreEnsamblados
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(953, 481);
+            this.Controls.Add(this.lblClienteCompra);
+            this.Controls.Add(this.checkBoxConsumidorFinal);
+            this.Controls.Add(this.comboBoxClientes);
             this.Controls.Add(this.btnComprar);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -256,5 +293,8 @@ namespace TallerMecanica.Views.SharedViews
         private System.Windows.Forms.DataGridViewTextBoxColumn Precio;
         private System.Windows.Forms.DataGridViewTextBoxColumn Subtotal;
         private System.Windows.Forms.Button btnComprar;
+        private System.Windows.Forms.Label lblClienteCompra;
+        private System.Windows.Forms.CheckBox checkBoxConsumidorFinal;
+        private System.Windows.Forms.ComboBox comboBoxClientes;
     }
 }

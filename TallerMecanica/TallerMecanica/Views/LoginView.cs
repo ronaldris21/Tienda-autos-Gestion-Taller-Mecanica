@@ -14,8 +14,6 @@ namespace TallerMecanica.Views
 {
     public partial class LoginView : Form
     {
-        private Form admin;
-        private Form client;
         public LoginView()
         {
             InitializeComponent();

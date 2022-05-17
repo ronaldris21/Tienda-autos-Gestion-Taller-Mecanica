@@ -39,7 +39,7 @@ namespace TallerMecanica.Views
             StringBuilder MensajeBuilder = new StringBuilder();
             MensajeBuilder.Append("Recuperacion de cuenta: ");
             MensajeBuilder.Append(cli.contrasena.Trim());
-            EnviarCorreo(MensajeBuilder, DateTime.Now, usuario, txtcorreo.Text.Trim(), "Contraseña del Taller Mecánico", out error);
+            Singleton.EnviarCorreo(MensajeBuilder, DateTime.Now, txtcorreo.Text.Trim(), "Contraseña del Taller Mecánico", out error);
             this.Close();
         }
 

@@ -13,11 +13,20 @@ namespace TallerMecanica.Views.SharedViews
     {
         List<MateriaPrima_ProductoPreEnsamblado> datos;
         List<ProductoPreEnsamblado> productos;
+        private List<Cliente> clientes;
 
         public ProductosPreEnsamblados()
         {
             InitializeComponent();
             themeColor.Loadtheme(this);
+            ///Visible
+            lblClienteCompra.Visible = Singleton.cliente_login.isAdmin;
+            checkBoxConsumidorFinal.Visible = Singleton.cliente_login.isAdmin;
+            comboBoxClientes.Visible = Singleton.cliente_login.isAdmin;
+            ///Enable
+            lblClienteCompra.Enabled = Singleton.cliente_login.isAdmin;
+            checkBoxConsumidorFinal.Enabled = Singleton.cliente_login.isAdmin;
+            comboBoxClientes.Enabled = Singleton.cliente_login.isAdmin;
 
             initDataAsyn();
 
@@ -30,6 +39,11 @@ namespace TallerMecanica.Views.SharedViews
 
             try
             {
+                //Combobox de clientes
+                clientes = await dbContext.Cliente.ToListAsync();
+                comboBoxClientes.Items.AddRange(clientes.Select(c => c.nombreCompleto).OrderBy(c => c).ToArray());
+
+
                 List<MateriaPrima_ProductoPreEnsamblado> items = await dbContext.MateriaPrima_ProductoPreEnsamblado
                                 .Include(m => m.MateriaPrima)
                                 .Include(m => m.MateriaPrima.Categoria)
@@ -105,7 +119,7 @@ namespace TallerMecanica.Views.SharedViews
 
             string descripcion = this.dataGridView_ProductosPreensamblados.SelectedRows[0].Cells[1].Value.ToString().Trim();
             string precio = this.dataGridView_ProductosPreensamblados.SelectedRows[0].Cells[3].Value.ToString().Trim() + " €";
-            string message = "Está a punto de comprar:\n\n" + descripcion + "\nPrecio: " + precio +"\n\nConfirmar";
+            string message = "Está a punto de comprar:\n\n" + descripcion + "\nPrecio: " + precio + "\n\nConfirmar";
 
             if (MessageBox.Show(message, "Compra", MessageBoxButtons.OKCancel) == DialogResult.Cancel)
                 return;
@@ -150,7 +164,21 @@ namespace TallerMecanica.Views.SharedViews
 
 
                     //Finalmente asignamos el cliente que ha hecho la compra:
-                    compra.idCliente = Singleton.cliente_login.idCliente;
+                    if (Singleton.cliente_login.isAdmin)
+                    {
+                        if (checkBoxConsumidorFinal.Checked)
+                        {
+                            compra.idCliente = 1;
+                        }
+                        else
+                        {
+                            compra.idCliente = clientes.First(c => c.nombreCompleto == comboBoxClientes.SelectedItem.ToString()).idCliente;
+                        }
+                    }
+                    else
+                    {
+                        compra.idCliente = Singleton.cliente_login.idCliente;
+                    }
 
                     bool wasAdded = new Repositories.dbProducto().InsertProductoComprado(compra);
                     if (wasAdded)
@@ -158,7 +186,6 @@ namespace TallerMecanica.Views.SharedViews
                     else
                         MessageBox.Show("No fue posible guardar la compra, revisa tu conexión a internet o intenta nuevamente", "Error");
 
-                    ///Lleno datos del primero
 
                 }
                 catch (Exception ex)
@@ -167,11 +194,6 @@ namespace TallerMecanica.Views.SharedViews
                 }
 
             }
-
-            ///Compra para el mismo como cliente!!!
-
-
-
         }
     }
 }

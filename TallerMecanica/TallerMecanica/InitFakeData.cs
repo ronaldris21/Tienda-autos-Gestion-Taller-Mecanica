@@ -63,7 +63,7 @@ namespace TallerMecanica
                 .RuleFor(o => o.fechaCompra, f => f.Date.Past())
                 .RuleFor(o => o.fechaEntregaPrevista, f => f.Date.Past())
                 .RuleFor(o => o.costoEnsamblado, f => Math.Round(f.Random.Double(25, 500), 2))
-                .RuleFor(o => o.requiereEnsamblado, f => f.Random.Bool())
+                .RuleFor(o => o.requiereEnsamblado, f => true)
                 .RuleFor(o => o.pedidoConfirmado, f => f.Random.Bool())
                 ;
 

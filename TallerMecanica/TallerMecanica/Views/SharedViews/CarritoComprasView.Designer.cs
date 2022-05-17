@@ -126,6 +126,7 @@ namespace TallerMecanica.Views.SharedViews
             this.numCostoEnsamblado.Name = "numCostoEnsamblado";
             this.numCostoEnsamblado.Size = new System.Drawing.Size(108, 20);
             this.numCostoEnsamblado.TabIndex = 42;
+            this.numCostoEnsamblado.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.numCostoEnsamblado.ValueChanged += new System.EventHandler(this.numCostoEnsamblado_ValueChanged);
             // 
             // btnCrearProductoPreEnsamblado

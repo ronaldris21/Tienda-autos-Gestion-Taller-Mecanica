@@ -46,7 +46,7 @@ namespace TallerMecanica.Views.SharedViews
         }
         private void UpdatePrecioFinal()
         {
-            double precioF = precioFinal +(double) this.numCostoEnsamblado.Value;
+            double precioF = precioFinal + (double)this.numCostoEnsamblado.Value;
             this.lblTotal.Text = "Precio total: " + precioF.ToString() + " €";
         }
         private void LoadMateriasPrimasSeleccionadas()
@@ -272,7 +272,7 @@ namespace TallerMecanica.Views.SharedViews
             producto.descripcion = txtDescripcion.Text;
 
             if (MessageBox.Show(lblTotal.Text +
-                                "\nCosto de emsamblado: " + producto.costoEnsamblado.ToString() + " €"+
+                                "\nCosto de emsamblado: " + producto.costoEnsamblado.ToString() + " €" +
                                 "\n\n¿Aceptar?", "Guardar como Producto Preensamblado", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
                 foreach (var item in Singleton.MaterialesComprados)
@@ -286,7 +286,7 @@ namespace TallerMecanica.Views.SharedViews
                             });
                 }
 
-                
+
 
                 bool succed = new Repositories.dbProducto().InsertProductoEnsamblado(producto);
                 if (succed)
@@ -356,7 +356,7 @@ namespace TallerMecanica.Views.SharedViews
                     compra.pedidoConfirmado = true;
                 }
 
-                compra.descripcion = txtDescripcion.Text + " - "+ stadoPedido;
+                compra.descripcion = txtDescripcion.Text + " - " + stadoPedido;
 
                 foreach (var item in Singleton.MaterialesComprados)
                 {
@@ -366,9 +366,12 @@ namespace TallerMecanica.Views.SharedViews
 
                 bool succed = new Repositories.dbProducto().InsertProductoComprado(compra);
                 if (succed)
+                {
                     MessageBox.Show("Compra realizada con exito", "Confirmación de compra");
+                    Singleton.MaterialesComprados = new List<MateriaPrima_ProductoComprado>();
+                    this.dataGridView2.Rows.Clear();
+                }
 
-                Singleton.MaterialesComprados = new List<MateriaPrima_ProductoComprado>();
             }
 
         }

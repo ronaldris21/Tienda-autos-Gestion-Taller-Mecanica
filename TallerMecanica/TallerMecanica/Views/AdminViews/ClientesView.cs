@@ -10,7 +10,6 @@ namespace TallerMecanica.Views.AdminViews
 {
     public partial class ClientesView : Form
     {
-        private int idClienteSelectedx;
         private dbClientes repo;
         public ClientesView()
         {
